@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+option csharp_namespace = "accesscontrol";
+
+package accesscontrol;
+
+import "google/protobuf/timestamp.proto";
+
+// Event model
+message Event {
+  int64 id = 1;
+
+  string event_id = 2;
+
+  google.protobuf.Timestamp timestamp = 3;
+
+  string device_id = 4;
+
+  string card_uid = 5;
+
+  bool access_granted = 6;
+
+  string door_id = 7;
+
+  string zone = 8;
+
+  int32 signal_strength = 9;
+
+  float battery_voltage = 10;
+
+  int32 response_time_ms = 11;
+
+  string event_type = 12;
+
+  float temperature = 13;
+}
+
+// Request za jedan event po ID-u
+message GetEventRequest {
+  int64 id = 1;
+}
+
+// Request za listu eventova
+message GetEventsRequest {
+}
+
+// Response za jedan event
+message GetEventResponse {
+  Event event = 1;
+}
+
+// Response za vise eventova
+message GetEventsResponse {
+  repeated Event events = 1;
+}
+
+// Request za dodavanje eventa
+message CreateEventRequest {
+  Event event = 1;
+}
+
+// Response za dodavanje eventa
+message CreateEventResponse {
+  Event event = 1;
+}
+
+// gRPC servis
+service AccessControlService {
+
+  // Vraca jedan event
+  rpc GetEvent(GetEventRequest) returns (GetEventResponse);
+
+  // Vraca listu eventova
+  rpc GetEvents(GetEventsRequest) returns (GetEventsResponse);
+
+  // Dodavanje eventa u bazu
+  rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse);
+}

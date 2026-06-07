@@ -1,0 +1,71 @@
+services:
+  # REST API microservice
+  rest-service:
+    build:
+      context: ./rest_service
+      dockerfile: Dockerfile
+    container_name: iot-rest-service
+    restart: always
+    environment:
+      - ConnectionStrings__PostgresDb=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
+      - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  # GRPC microservice
+  grpc-service:
+    build:
+      context: ./grpc_service
+      dockerfile: Dockerfile
+    container_name: iot-grpc-service
+    restart: always
+    environment:
+      - ConnectionStrings__PostgresDb=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "50051:8080" # gRPC standardni port, mapiran na 8080 unutar kontejnera
+    depends_on:
+      - postgres
+
+  graphql-service:
+    build: ./graphql_service
+    container_name: iot-graphql-service
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=iot-access-control-system-postgres
+
+  benchmark-service:
+    build:
+      context: ./benchmark_service
+      dockerfile: Dockerfile
+    container_name: iot-benchmark-service
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - rest-service
+      - grpc-service
+      - graphql-service
+
+  # POSTGRES database
+  postgres:
+    image: postgres:15
+    container_name: iot-access-control-system-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: access_control_system
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

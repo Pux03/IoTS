@@ -1,0 +1,10 @@
+// vrati i analiziraj
+
+EXPLAIN ANALYZE
+SELECT *
+FROM events
+WHERE device_id = 'RFID-ENT-01'
+ORDER BY timestamp DESC
+LIMIT 100;
+
+// select 
