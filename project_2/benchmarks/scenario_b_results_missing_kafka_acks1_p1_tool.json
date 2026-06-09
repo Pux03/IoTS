@@ -1,0 +1,1344 @@
+{
+  "generated_at": "2026-06-08T21:35:49Z",
+  "scenario": "B",
+  "tests": [
+    {
+      "scenario": "B",
+      "mode": "tool_benchmark",
+      "config_name": "tool_benchmark_kafka_acks_1_partitions_1_outage",
+      "broker": "kafka",
+      "broker_value": "1",
+      "devices": 100,
+      "interval_sec": 0.5,
+      "warmup_sec": 5,
+      "outage_sec": 30,
+      "post_reconnect_run_sec": 15,
+      "db_write_disabled": true,
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "planned_messages": 10000,
+      "warmup_phase": {
+        "generated_messages": 0,
+        "sent_messages": 0,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 707,
+        "analytics_processed_messages": 709,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "outage_phase": {
+        "generated_messages": 0,
+        "sent_messages": 0,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 140,
+        "analytics_processed_messages": 138,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "recovery_phase": {
+        "generated_messages": 0,
+        "sent_messages": 0,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 2205,
+        "analytics_processed_messages": 1940,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "drain_phase": {
+        "generated_messages": 0,
+        "sent_messages": 0,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 0,
+        "analytics_processed_messages": 0,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "total_generated_messages": 10000,
+      "total_successful_publish_messages": 10000,
+      "total_dropped_messages": 0,
+      "total_storage_received_messages": 10000,
+      "total_analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "publish_success_rate_vs_generated_pct": 100.0,
+      "storage_capture_rate_vs_generated_pct": 100.0,
+      "storage_capture_rate_vs_successful_publish_pct": 100.0,
+      "publish_throughput_msg_s": 50.304,
+      "storage_throughput_msg_s": 50.304,
+      "analytics_throughput_msg_s": 50.304,
+      "throughput_msg_s": {
+        "warmup": {
+          "publish": 0.0,
+          "storage": 141.4,
+          "analytics": 141.8
+        },
+        "outage": {
+          "publish": 0.0,
+          "storage": 4.667,
+          "analytics": 4.6
+        },
+        "recovery": {
+          "publish": 0.0,
+          "storage": 147.0,
+          "analytics": 129.333
+        },
+        "drain": {
+          "publish": 0.0,
+          "storage": 0.0,
+          "analytics": 0.0
+        },
+        "total": {
+          "publish": 50.304,
+          "storage": 50.304,
+          "analytics": 50.304
+        }
+      },
+      "avg_latency_ms": 24846.73,
+      "p95_latency_ms": 47392.0,
+      "max_latency_ms": 49874.0,
+      "latency_sample_count": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 78.287,
+      "cpu_pct_avg": 10.035,
+      "ram_mb": 332.242,
+      "ram_mb_avg": 327.992,
+      "network_mb": 10.156,
+      "network_rx_mb": 3.682,
+      "network_tx_mb": 6.475,
+      "resource_sample_count": 196,
+      "recovery_sec_to_source_ready": 3.777,
+      "recovery_sec_to_ingestion_ready": null,
+      "recovery_sec_to_first_storage_message": 0.557,
+      "recovery_sec_to_first_analytics_message": 0.557,
+      "pipeline_settled_after_stop": true,
+      "pipeline_completion_sec_after_stop": 5.222,
+      "final_snapshot": {
+        "timestamp": 1780954787.46,
+        "generated_messages": 10000,
+        "sent_messages": 10000,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "publish_queue_depth": 0,
+        "offline_buffer_depth": 0,
+        "storage_received_messages": 10000,
+        "analytics_processed_messages": 10000,
+        "simulation_running": false,
+        "broker_ready": false
+      },
+      "timeline_outage": [
+        {
+          "elapsed_sec": 0.54,
+          "timestamp": 1780954596.463,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 2.156,
+          "timestamp": 1780954598.032,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 3.696,
+          "timestamp": 1780954599.617,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 5.231,
+          "timestamp": 1780954601.154,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 6.756,
+          "timestamp": 1780954602.677,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 8.296,
+          "timestamp": 1780954604.218,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 9.823,
+          "timestamp": 1780954605.745,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 11.386,
+          "timestamp": 1780954607.294,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 12.906,
+          "timestamp": 1780954608.83,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 14.448,
+          "timestamp": 1780954610.37,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 15.982,
+          "timestamp": 1780954611.906,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 17.524,
+          "timestamp": 1780954613.43,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 19.111,
+          "timestamp": 1780954615.033,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 20.716,
+          "timestamp": 1780954616.589,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 22.249,
+          "timestamp": 1780954618.17,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 23.806,
+          "timestamp": 1780954619.713,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 25.381,
+          "timestamp": 1780954621.301,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 26.908,
+          "timestamp": 1780954622.829,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 28.447,
+          "timestamp": 1780954624.37,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 29.991,
+          "timestamp": 1780954625.914,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 31.596,
+          "timestamp": 1780954627.455,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 33.117,
+          "timestamp": 1780954629.036,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 34.688,
+          "timestamp": 1780954630.607,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 36.227,
+          "timestamp": 1780954632.151,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 37.764,
+          "timestamp": 1780954633.685,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 39.317,
+          "timestamp": 1780954635.237,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 40.916,
+          "timestamp": 1780954636.792,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 42.437,
+          "timestamp": 1780954638.36,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 44.003,
+          "timestamp": 1780954639.895,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 45.575,
+          "timestamp": 1780954641.466,
+          "generated_messages": 0,
+          "sent_messages": 0,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 847,
+          "analytics_processed_messages": 847,
+          "simulation_running": true,
+          "broker_ready": true
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "elapsed_sec": 0.557,
+          "timestamp": 1780954647.297,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 9.49,
+          "timestamp": 1780954656.246,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 18.681,
+          "timestamp": 1780954665.435,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 28.024,
+          "timestamp": 1780954674.779,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 37.046,
+          "timestamp": 1780954683.799,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 46.222,
+          "timestamp": 1780954692.975,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 55.021,
+          "timestamp": 1780954701.777,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 63.947,
+          "timestamp": 1780954710.699,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 72.84,
+          "timestamp": 1780954719.592,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 81.739,
+          "timestamp": 1780954728.491,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 90.827,
+          "timestamp": 1780954737.548,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 99.817,
+          "timestamp": 1780954746.572,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 109.106,
+          "timestamp": 1780954755.861,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 118.611,
+          "timestamp": 1780954765.365,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 127.755,
+          "timestamp": 1780954774.511,
+          "generated_messages": 10848,
+          "sent_messages": 10848,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 10000,
+          "analytics_processed_messages": 10000,
+          "simulation_running": false,
+          "broker_ready": false,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 10000,
+                  "log_end_offset": 10000,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "validation_issues": [],
+      "kafka_consumer_lag_summary": {
+        "data-storage-group": {
+          "max_lag": 0,
+          "time_to_zero_lag_sec": null,
+          "final": {
+            "group_id": "data-storage-group",
+            "topic": "iot-events",
+            "current_offset": 10000,
+            "log_end_offset": 10000,
+            "lag": 0,
+            "partitions": [
+              {
+                "partition": 0,
+                "current_offset": 10000,
+                "log_end_offset": 10000,
+                "lag": 0
+              }
+            ]
+          }
+        },
+        "analytics-group": {
+          "max_lag": 0,
+          "time_to_zero_lag_sec": null,
+          "final": {
+            "group_id": "analytics-group",
+            "topic": "iot-events",
+            "current_offset": 10000,
+            "log_end_offset": 10000,
+            "lag": 0,
+            "partitions": [
+              {
+                "partition": 0,
+                "current_offset": 10000,
+                "log_end_offset": 10000,
+                "lag": 0
+              }
+            ]
+          }
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "tool_result": {
+        "messages_sent": 10000,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_payloads.txt\nNumber of messages read: 256\n848 records sent, 15.7 records/sec (0.00 MB/sec), 65.8 ms avg latency, 49848.0 ms max latency.\n10000 records sent, 183.776234 records/sec (0.05 MB/sec), 24846.73 ms avg latency, 49874.00 ms max latency, 25050 ms 50th, 47392 ms 95th, 49377 ms 99th, 49828 ms 99.9th.\n\n[2026-06-08 21:37:05,845] WARN [Producer clientId=perf-producer-client] Got error produce response with correlation id 707 on topic-partition iot-events-0, retrying (2147483646 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 1 due to timeout (org.apache.kafka.clients.producer.internals.Sender)\n[2026-06-08 21:37:05,847] WARN [Producer clientId=perf-producer-client] Got error produce response with correlation id 708 on topic-partition iot-events-0, retrying (2147483646 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 1 due to timeout (org.apache.kafka.clients.producer.internals.Sender)\n[2026-06-08 21:37:05,847] WARN [Producer clientId=perf-producer-client] Got error produce response with correlation id 709 on topic-partition iot-events-0, retrying (2147483646 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 1 due to timeout (org.apache.kafka.clients.producer.internals.Sender)\n[2026-06-08 21:37:05,847] WARN [Producer clientId=perf-producer-client] Got error produce response with correlation id 710 on topic-partition iot-events-0, retrying (2147483646 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 1 due to timeout (org.apache.kafka.clients.producer.internals.Sender)\n[2026-06-08 21:37:05,847] WARN [Producer clientId=perf-producer-client] Got error produce response with correlation id 711 on topic-partition iot-events-0, retrying (2147483646 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 1 due to timeout (org.apache.kafka.clients.producer.internals.Sender)\n[2026-06-08 21:37:11,698] WARN [Producer clientId=perf-producer-client] Error connecting to node kafka-broker:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)\njava.net.UnknownHostException: kafka-broker: Try again\n\tat java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)\n\tat java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Unknown Source)\n\tat java.base/java.net.InetAddress$PlatformResolver.lookupByName(Unknown Source)\n\tat java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source)\n\tat java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName0(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName(Unknown Source)\n\tat org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)\n\tat org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)\n\tat org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)\n\tat org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1050)\n\tat org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:310)\n\tat org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:388)\n\tat org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:348)\n\tat org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:252)\n\tat java.base/java.lang.Thread.run(Unknown Source)\n[2026-06-08 21:37:11,702] WARN [Producer clientId=perf-producer-client] Error connecting to node kafka-broker:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)\njava.net.UnknownHostException: kafka-broker\n\tat java.base/java.net.InetAddress$CachedLookup.get(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName0(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName(Unknown Source)\n\tat org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)\n\tat org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)\n\tat org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)\n\tat org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1050)\n\tat org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:310)\n\tat org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:388)\n\tat org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:348)\n\tat org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:252)\n\tat java.base/java.lang.Thread.run(Unknown Source)\n[2026-06-08 21:37:15,742] WARN [Producer clientId=perf-producer-client] Error connecting to node kafka-broker:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)\njava.net.UnknownHostException: kafka-broker\n\tat java.base/java.net.InetAddress$CachedLookup.get(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName0(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName(Unknown Source)\n\tat org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)\n\tat org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)\n\tat org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)\n\tat org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1050)\n\tat org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:310)\n\tat org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:388)\n\tat org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:348)\n\tat org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:252)\n\tat java.base/java.lang.Thread.run(Unknown Source)\n[2026-06-08 21:37:20,743] WARN [Producer clientId=perf-producer-client] Error connecting to node kafka-broker:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)\njava.net.UnknownHostException: kafka-broker\n\tat java.base/java.net.InetAddress$CachedLookup.get(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName0(Unknown Source)\n\tat java.base/java.net.InetAddress.getAllByName(Unknown Source)\n\tat org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27)\n\tat org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511)\n\tat org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466)\n\tat org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173)\n\tat org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1050)\n\tat org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:310)\n\tat org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:388)\n\tat org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:348)\n\tat org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:252)\n\tat java.base/java.lang.Thread.run(Unknown Source)",
+        "tool_stderr": "",
+        "latency_source": "kafka-producer-perf-test_summary",
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_summary": {
+          "records": 10000.0,
+          "records_per_sec": 183.776234,
+          "avg_latency_ms": 24846.73,
+          "max_latency_ms": 49874.0,
+          "p50_latency_ms": 25050.0,
+          "p95_latency_ms": 47392.0,
+          "p99_latency_ms": 49377.0,
+          "p999_latency_ms": 49828.0
+        }
+      }
+    }
+  ],
+  "artifacts": {
+    "performance_table": "benchmarks\\scenario_b_results_missing_kafka_acks1_p1_tool_performance_table.md",
+    "analysis_report": "benchmarks\\scenario_b_results_missing_kafka_acks1_p1_tool_analysis.md"
+  }
+}

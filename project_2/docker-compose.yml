@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # =====================================
   # DATABASE
@@ -84,8 +82,14 @@ services:
       - MQTT_HOST=mqtt-broker
       - MQTT_PORT=1883
       - MQTT_QOS=${MQTT_QOS:-0}
+      - MQTT_KEEPALIVE_SEC=${MQTT_KEEPALIVE_SEC:-5}
       - KAFKA_BOOTSTRAP_SERVERS=kafka-broker:29092
       - KAFKA_ACKS=${KAFKA_ACKS:-1}
+      - PUBLISH_QUEUE_MAX_SIZE=${PUBLISH_QUEUE_MAX_SIZE:-200000}
+      - PUBLISH_WORKER_COUNT=${PUBLISH_WORKER_COUNT:-8}
+      - OFFLINE_BUFFER_MAX_SIZE=${OFFLINE_BUFFER_MAX_SIZE:-200000}
+      - DISCONNECTED_RETRY_DELAY_MS=${DISCONNECTED_RETRY_DELAY_MS:-250}
+      - BROKER_PROBE_INTERVAL_MS=${BROKER_PROBE_INTERVAL_MS:-1000}
     depends_on:
       mqtt-broker:
         condition: service_started
@@ -105,6 +109,7 @@ services:
       - MQTT_PORT=1883
       - MQTT_QOS=${MQTT_QOS:-0}
       - KAFKA_BOOTSTRAP_SERVERS=kafka-broker:29092
+      - KAFKA_TOPIC_PARTITIONS=${KAFKA_TOPIC_PARTITIONS:-1}
       - DB_HOST=db
       - DB_NAME=access_control_system
       - DB_USER=admin
@@ -132,6 +137,7 @@ services:
       - MQTT_PORT=1883
       - MQTT_QOS=${MQTT_QOS:-0}
       - KAFKA_BOOTSTRAP_SERVERS=kafka-broker:29092
+      - KAFKA_TOPIC_PARTITIONS=${KAFKA_TOPIC_PARTITIONS:-1}
     depends_on:
       mqtt-broker:
         condition: service_started
@@ -143,6 +149,23 @@ services:
   # =====================================
   # MONITORING
   # =====================================
+  resource-monitor:
+    build: ./resource-monitor
+    container_name: resource-monitor
+    restart: unless-stopped
+    ports:
+      - "8083:8083"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8083/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    networks:
+      - iot_network
+
   prometheus:
     image: prom/prometheus:v2.45.0
     container_name: prometheus
@@ -151,9 +174,14 @@ services:
     volumes:
       - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     depends_on:
-      - data-ingestion
-      - data-storage
-      - analytics-service
+      data-ingestion:
+        condition: service_started
+      data-storage:
+        condition: service_started
+      analytics-service:
+        condition: service_started
+      resource-monitor:
+        condition: service_healthy
     networks:
       - iot_network
 

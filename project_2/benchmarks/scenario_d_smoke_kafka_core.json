@@ -1,0 +1,201 @@
+{
+  "generated_at": "2026-06-09T08:55:12.775736+00:00",
+  "scenario": "D",
+  "description": "Dedicated real-time alert latency benchmark with window-aligned critical events.",
+  "tests": [
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "run_name": "kafka_acks_1_partitions_1_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780995263104,
+      "window_reference_flush_at_ms": 1780995252954,
+      "launch_lead_ms": 14679,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-early-1-1780995248438",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780995263104,
+        "scheduled_sleep_sec": 14.666,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 3.546099 records/sec (0.00 MB/sec), 287.00 ms avg latency, 528.00 ms max latency, 528 ms 50th, 528 ms 95th, 528 ms 99th, 528 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 3.546099,
+          "avg_latency_ms": 287.0,
+          "max_latency_ms": 528.0,
+          "p50_latency_ms": 528.0,
+          "p95_latency_ms": 528.0,
+          "p99_latency_ms": 528.0,
+          "p999_latency_ms": 528.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9847,
+      "alert_latency_last_ms": 9847,
+      "first_critical_sent_at_ms": 1780995263104,
+      "last_critical_sent_at_ms": 1780995263104,
+      "alert_emitted_at_ms": 1780995272951,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9847.0,
+      "cpu_pct": 47.143,
+      "cpu_pct_avg": 11.0,
+      "ram_mb": 304.988,
+      "ram_mb_avg": 301.649,
+      "network_mb": 0.044,
+      "network_rx_mb": 0.021,
+      "network_tx_mb": 0.023,
+      "resource_sample_count": 53,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780995272951-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_early_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780995272951,
+        "window_started_at_ms": 1780995262953,
+        "window_ended_at_ms": 1780995272951,
+        "first_critical_sent_at_ms": 1780995263104,
+        "last_critical_sent_at_ms": 1780995263104,
+        "alert_latency_first_ms": 9847,
+        "alert_latency_last_ms": 9847
+      },
+      "validation_issues": []
+    }
+  ],
+  "profile_summaries": [
+    {
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "completed_repeats": 1,
+      "successful_alert_repeats": 1,
+      "alert_latency_first_avg_ms": 9847.0,
+      "alert_latency_first_p95_ms": 9847.0,
+      "alert_latency_first_max_ms": 9847.0,
+      "alert_latency_last_avg_ms": 9847.0,
+      "alert_latency_last_p95_ms": 9847.0,
+      "alert_latency_last_max_ms": 9847.0,
+      "cpu_pct_med": 47.143,
+      "ram_mb_med": 304.988,
+      "network_mb_med": 0.044,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    }
+  ],
+  "summary": {
+    "total_tests": 1,
+    "completed_tests": 1,
+    "failed_tests": 0
+  },
+  "artifacts": {
+    "performance_table": "benchmarks\\scenario_d_smoke_kafka_core_performance_table.md",
+    "analysis_report": "benchmarks\\scenario_d_smoke_kafka_core_analysis.md"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-06-09T08:51:43.734709+00:00",
+  "scenario": "D",
+  "description": "Dedicated real-time alert latency benchmark with window-aligned critical events.",
+  "tests": [
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_early",
+      "run_name": "mqtt_qos_0_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "error": "Command failed with exit code 1: docker compose up -d --build\nanalytics-service  Built\n data-ingestion  Built\n data-storage  Built\n resource-monitor  Built\n Container db  Running\n Container kafka-broker  Running\n Container mqtt-broker  Running\n Container prometheus  Stopping\n Container prometheus  Stopping\n Container prometheus  Stopped\n Container resource-monitor  Recreate\n Container prometheus  Stopping\n Container prometheus  Stopped\n Container data-ingestion  Recreate\n Container prometheus  Stopping\n Container prometheus  Stopped\n Container analytics-service  Recreate\n Container prometheus  Stopped\n Container data-storage  Recreate\n Container data-ingestion  Recreated\n Container analytics-service  Recreated\n Container data-storage  Recreated\n Container resource-monitor  Recreated\n Container prometheus  Created\n Container kafka-broker  Waiting\n Container db  Waiting\n Container kafka-broker  Waiting\n Container resource-monitor  Starting\n Container kafka-broker  Waiting\n Container kafka-broker  Healthy\n Container data-ingestion  Starting\n Container kafka-broker  Healthy\n Container analytics-service  Starting\n Container kafka-broker  Healthy\n Container db  Healthy\n Container data-storage  Starting\n Container resource-monitor  Started\n Container data-ingestion  Started\n Container analytics-service  Started\n Container data-storage  Started\n Container resource-monitor  Waiting\n Container resource-monitor  Error\ndependency failed to start: container resource-monitor exited (137)"
+    }
+  ],
+  "profile_summaries": [],
+  "summary": {
+    "total_tests": 1,
+    "completed_tests": 0,
+    "failed_tests": 1
+  },
+  "artifacts": {
+    "performance_table": "benchmarks\\scenario_d_smoke_mqtt_retry_performance_table.md",
+    "analysis_report": "benchmarks\\scenario_d_smoke_mqtt_retry_analysis.md"
+  }
+}

@@ -1,0 +1,26 @@
+| Mode | Broker | Config | Partitions | Publish msg/s | Storage msg/s | p95 ms | CPU % | RAM MB | Loss % | Ready s | First Analytics s | Max Lag |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| app_buffered | kafka | app_buffered_kafka_acks_0_partitions_1_outage | 1 | 124.877 | 124.877 | 108053.014 | 42.437 | 506.688 | 0.000 | 0.014 | 9.470 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_1_partitions_1_outage | 1 | 123.798 | 123.798 | 109029.567 | 41.637 | 537.750 | 0.000 | 0.006 | 9.896 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_all_partitions_1_outage | 1 | 125.636 | 125.636 | 113139.231 | 51.000 | 565.258 | 0.000 | 0.005 | 11.370 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_0_partitions_4_outage | 4 | 125.418 | 125.418 | 111590.121 | 82.153 | 931.586 | 0.000 | 0.013 | 9.204 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_1_partitions_4_outage | 4 | 124.037 | 124.037 | 110394.869 | 96.854 | 884.828 | 0.000 | 0.006 | 9.585 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_all_partitions_4_outage | 4 | 124.617 | 124.617 | 112584.966 | 106.908 | 867.246 | 0.000 | 0.004 | 10.130 | 21 |
+| app_buffered | kafka | app_buffered_kafka_acks_0_partitions_8_outage | 8 | 130.272 | 130.272 | 120000.000 | 116.694 | 950.496 | 0.000 | 0.005 | 16.238 | 24 |
+| app_buffered | kafka | app_buffered_kafka_acks_1_partitions_8_outage | 8 | 124.441 | 124.441 | 110844.025 | 139.023 | 941.844 | 0.000 | 0.005 | 9.557 | 16 |
+| app_buffered | kafka | app_buffered_kafka_acks_all_partitions_8_outage | 8 | 123.090 | 123.090 | 107730.157 | 143.737 | 937.523 | 0.000 | 0.015 | 9.103 | 16 |
+| app_buffered | mqtt | app_buffered_mqtt_qos_0_outage | - | 165.342 | 165.093 | 55606.319 | 9.585 | 5.984 | 0.151 | 25.425 | 0.575 | - |
+| app_buffered | mqtt | app_buffered_mqtt_qos_1_outage | - | 188.062 | 188.062 | 71054.498 | 38.552 | 11.059 | 0.000 | 24.237 | 0.753 | - |
+| app_buffered | mqtt | app_buffered_mqtt_qos_2_outage | - | 189.055 | 189.055 | 70095.600 | 54.042 | 18.215 | 0.000 | 23.268 | 0.653 | - |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_0_partitions_1_outage | 1 | 50.272 | 48.276 | 47427.000 | 101.105 | 338.512 | 3.970 | 6.074 | - | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_1_partitions_1_outage | 1 | 50.304 | 50.304 | 47392.000 | 78.287 | 332.242 | 0.000 | 3.777 | 0.557 | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_all_partitions_1_outage | 1 | 50.778 | 50.778 | 45832.000 | 89.117 | 342.254 | 0.000 | 2.581 | 0.742 | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_0_partitions_4_outage | 4 | 50.280 | 48.289 | 47342.000 | 125.213 | 336.766 | 3.960 | 6.334 | - | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_1_partitions_4_outage | 4 | 50.588 | 50.588 | 47160.000 | 107.249 | 336.949 | 0.000 | 3.745 | - | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_all_partitions_4_outage | 4 | 50.844 | 50.844 | 48248.000 | 85.567 | 336.785 | 0.000 | 4.897 | - | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_0_partitions_8_outage | 8 | 50.049 | 48.067 | 46434.000 | 93.971 | 344.535 | 3.960 | 4.865 | 0.567 | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_1_partitions_8_outage | 8 | 50.278 | 50.278 | 46503.000 | 120.917 | 341.641 | 0.000 | 3.945 | - | 0 |
+| tool_benchmark | kafka | tool_benchmark_kafka_acks_all_partitions_8_outage | 8 | 51.111 | 51.111 | 46850.000 | 122.562 | 339.078 | 0.000 | 3.674 | - | 0 |
+| tool_benchmark | mqtt | tool_benchmark_mqtt_qos_0_outage | - | 218.448 | 109.224 | 30000.000 | 23.925 | 4.906 | 50.000 | 0.219 | 0.632 | - |
+| tool_benchmark | mqtt | tool_benchmark_mqtt_qos_1_outage | - | 30.181 | 18.958 | 30000.000 | 12.375 | 3.727 | 37.185 | 10.988 | - | - |
+| tool_benchmark | mqtt | tool_benchmark_mqtt_qos_2_outage | - | 91.152 | 100.814 | 468.816 | 37.849 | 13.094 | 0.000 | 10.764 | 0.608 | - |

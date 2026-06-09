@@ -20,6 +20,8 @@ const KAFKA_GROUP_ID = process.env.KAFKA_GROUP_ID || 'data-storage-group';
 const DISABLE_DB_WRITE = process.env.DISABLE_DB_WRITE === 'true';
 const BATCH_SIZE = parseInt(process.env.BATCH_SIZE || '500', 10);
 const FLUSH_INTERVAL_MS = parseInt(process.env.FLUSH_INTERVAL_MS || '1000', 10);
+const KAFKA_STARTUP_RETRY_MS = parseInt(process.env.KAFKA_STARTUP_RETRY_MS || '3000', 10);
+const KAFKA_TOPIC_PARTITIONS = parseInt(process.env.KAFKA_TOPIC_PARTITIONS || '1', 10);
 
 const DB_CONFIG = {
   host: process.env.DB_HOST || 'db',
@@ -60,10 +62,19 @@ const dbWriteLatency = new client.Histogram({
   buckets: [0.005, 0.01, 0.05, 0.1, 0.5, 1.0, 3.0],
 });
 
+const batchQueueDepth = new client.Gauge({
+  name: 'storage_batch_queue_depth',
+  help: 'Current number of events waiting in the storage batching queue',
+  labelNames: ['broker_type'],
+});
+
 // =====================================
 // DATABASE & BATCHING LOGIC
 // =====================================
 let pool = null;
+let brokerReady = false;
+let consumerReady = false;
+let lastBrokerError = null;
 if (!DISABLE_DB_WRITE) {
   console.log('Database writes are enabled. Connecting to PostgreSQL...');
   pool = new Pool(DB_CONFIG);
@@ -77,6 +88,10 @@ if (!DISABLE_DB_WRITE) {
 let messageQueue = [];
 let flushTimeout = null;
 
+function updateQueueMetrics() {
+  batchQueueDepth.labels(BROKER_TYPE).set(messageQueue.length);
+}
+
 async function flushBatch() {
   if (flushTimeout) {
     clearTimeout(flushTimeout);
@@ -89,6 +104,7 @@ async function flushBatch() {
 
   const batch = [...messageQueue];
   messageQueue = [];
+  updateQueueMetrics();
 
   if (DISABLE_DB_WRITE) {
     // DB writing disabled for profiling broker throughput
@@ -146,6 +162,7 @@ function handleMessage(payloadString) {
   try {
     const event = JSON.parse(payloadString);
     messageQueue.push(event);
+    updateQueueMetrics();
 
     if (messageQueue.length >= BATCH_SIZE) {
       flushBatch();
@@ -166,6 +183,9 @@ if (BROKER_TYPE === 'mqtt') {
   const mqttClient = mqtt.connect(brokerUrl);
 
   mqttClient.on('connect', () => {
+    brokerReady = true;
+    consumerReady = true;
+    lastBrokerError = null;
     console.log(`Connected to MQTT broker. Subscribing to topic: ${MQTT_TOPIC} with QoS: ${MQTT_QOS}`);
     mqttClient.subscribe(MQTT_TOPIC, { qos: MQTT_QOS });
   });
@@ -174,7 +194,20 @@ if (BROKER_TYPE === 'mqtt') {
     handleMessage(message.toString());
   });
 
+  mqttClient.on('close', () => {
+    brokerReady = false;
+    consumerReady = false;
+  });
+
+  mqttClient.on('offline', () => {
+    brokerReady = false;
+    consumerReady = false;
+  });
+
   mqttClient.on('error', (err) => {
+    brokerReady = false;
+    consumerReady = false;
+    lastBrokerError = err.message;
     console.error('MQTT error:', err.message);
   });
 } else if (BROKER_TYPE === 'kafka') {
@@ -184,24 +217,77 @@ if (BROKER_TYPE === 'mqtt') {
     brokers: KAFKA_BOOTSTRAP_SERVERS.split(','),
   });
 
-  const consumer = kafka.consumer({ groupId: KAFKA_GROUP_ID });
+  const ensureKafkaTopicExists = async () => {
+    const admin = kafka.admin();
+    try {
+      await admin.connect();
+      await admin.createTopics({
+        waitForLeaders: true,
+        topics: [
+          {
+            topic: KAFKA_TOPIC,
+            numPartitions: KAFKA_TOPIC_PARTITIONS,
+            replicationFactor: 1,
+          },
+        ],
+      });
+    } finally {
+      await admin.disconnect().catch(() => {});
+    }
+  };
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const runKafkaConsumer = async () => {
-    await consumer.connect();
-    console.log(`Connected to Kafka. Subscribing to topic: ${KAFKA_TOPIC}`);
-    await consumer.subscribe({ topic: KAFKA_TOPIC, fromBeginning: false });
+    while (true) {
+      let consumer = null;
+      try {
+        await ensureKafkaTopicExists();
 
-    await consumer.run({
-      eachMessage: async ({ topic, partition, message }) => {
-        if (message.value) {
-          handleMessage(message.value.toString());
+        consumer = kafka.consumer({ groupId: KAFKA_GROUP_ID });
+        consumer.on(consumer.events.GROUP_JOIN, () => {
+          brokerReady = true;
+          consumerReady = true;
+          lastBrokerError = null;
+        });
+        consumer.on(consumer.events.CRASH, ({ payload }) => {
+          brokerReady = false;
+          consumerReady = false;
+          lastBrokerError = payload.error ? payload.error.message : 'Kafka consumer crashed';
+        });
+        consumer.on(consumer.events.DISCONNECT, () => {
+          brokerReady = false;
+          consumerReady = false;
+        });
+
+        await consumer.connect();
+        brokerReady = true;
+        console.log(`Connected to Kafka. Subscribing to topic: ${KAFKA_TOPIC}`);
+        await consumer.subscribe({ topic: KAFKA_TOPIC, fromBeginning: false });
+        await consumer.run({
+          eachMessage: async ({ message }) => {
+            if (message.value) {
+              handleMessage(message.value.toString());
+            }
+          },
+        });
+        return;
+      } catch (err) {
+        brokerReady = false;
+        consumerReady = false;
+        lastBrokerError = err.message;
+        console.error(`Kafka consumer error: ${err.message}. Retrying in ${KAFKA_STARTUP_RETRY_MS}ms...`);
+        if (consumer) {
+          await consumer.disconnect().catch(() => {});
         }
-      },
-    });
+        await delay(KAFKA_STARTUP_RETRY_MS);
+      }
+    }
   };
 
   runKafkaConsumer().catch((err) => {
-    console.error('Kafka consumer error:', err.message);
+    lastBrokerError = err.message;
+    console.error('Kafka consumer fatal error:', err.message);
   });
 } else {
   console.error(`Invalid BROKER_TYPE: ${BROKER_TYPE}`);
@@ -212,9 +298,17 @@ if (BROKER_TYPE === 'mqtt') {
 // =====================================
 const app = express();
 const PORT = process.env.PORT || 8001;
+updateQueueMetrics();
 
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', broker_type: BROKER_TYPE, db_write_enabled: !DISABLE_DB_WRITE });
+  const ready = brokerReady && consumerReady;
+  res.status(ready ? 200 : 503).json({
+    status: ready ? 'ok' : 'degraded',
+    ready,
+    broker_type: BROKER_TYPE,
+    db_write_enabled: !DISABLE_DB_WRITE,
+    last_broker_error: lastBrokerError,
+  });
 });
 
 app.get('/metrics', async (req, res) => {

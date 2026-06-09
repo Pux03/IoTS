@@ -1,0 +1,4476 @@
+{
+  "generated_at": "2026-06-09T09:57:29.830808+00:00",
+  "scenario": "D",
+  "description": "Dedicated real-time alert latency benchmark with window-aligned critical events.",
+  "tests": [
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_early",
+      "run_name": "mqtt_qos_0_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996494354,
+      "window_reference_flush_at_ms": 1780996494204,
+      "launch_lead_ms": 6294,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-early-1-1780996488068",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996494354,
+        "scheduled_sleep_sec": 6.286,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6115,
+      "alert_latency_last_ms": 6093,
+      "first_critical_sent_at_ms": 1780996498086,
+      "last_critical_sent_at_ms": 1780996498108,
+      "alert_emitted_at_ms": 1780996504201,
+      "scheduled_to_first_send_ms": 3732.0,
+      "scheduled_to_alert_ms": 9847.0,
+      "cpu_pct": 0.156,
+      "cpu_pct_avg": 0.094,
+      "ram_mb": 0.699,
+      "ram_mb_avg": 0.699,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996504201-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_early_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996504201,
+        "window_started_at_ms": 1780996494205,
+        "window_ended_at_ms": 1780996504201,
+        "first_critical_sent_at_ms": 1780996498086,
+        "last_critical_sent_at_ms": 1780996498108,
+        "alert_latency_first_ms": 6115,
+        "alert_latency_last_ms": 6093
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_early",
+      "run_name": "mqtt_qos_1_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996553635,
+      "window_reference_flush_at_ms": 1780996553485,
+      "launch_lead_ms": 6449,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-early-1-1780996547191",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996553635,
+        "scheduled_sleep_sec": 6.444,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6115,
+      "alert_latency_last_ms": 6094,
+      "first_critical_sent_at_ms": 1780996557369,
+      "last_critical_sent_at_ms": 1780996557390,
+      "alert_emitted_at_ms": 1780996563484,
+      "scheduled_to_first_send_ms": 3734.0,
+      "scheduled_to_alert_ms": 9849.0,
+      "cpu_pct": 0.134,
+      "cpu_pct_avg": 0.089,
+      "ram_mb": 0.707,
+      "ram_mb_avg": 0.704,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996563484-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_early_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996563484,
+        "window_started_at_ms": 1780996553487,
+        "window_ended_at_ms": 1780996563484,
+        "first_critical_sent_at_ms": 1780996557369,
+        "last_critical_sent_at_ms": 1780996557390,
+        "alert_latency_first_ms": 6115,
+        "alert_latency_last_ms": 6094
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_early",
+      "run_name": "mqtt_qos_2_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "early",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996608675,
+      "window_reference_flush_at_ms": 1780996608525,
+      "launch_lead_ms": 6287,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-early-1-1780996602426",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996608675,
+        "scheduled_sleep_sec": 6.249,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6353,
+      "alert_latency_last_ms": 6332,
+      "first_critical_sent_at_ms": 1780996612172,
+      "last_critical_sent_at_ms": 1780996612193,
+      "alert_emitted_at_ms": 1780996618525,
+      "scheduled_to_first_send_ms": 3497.0,
+      "scheduled_to_alert_ms": 9850.0,
+      "cpu_pct": 0.119,
+      "cpu_pct_avg": 0.067,
+      "ram_mb": 0.703,
+      "ram_mb_avg": 0.701,
+      "network_mb": 0.007,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 16,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996618525-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_early_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996618525,
+        "window_started_at_ms": 1780996608527,
+        "window_ended_at_ms": 1780996618525,
+        "first_critical_sent_at_ms": 1780996612172,
+        "last_critical_sent_at_ms": 1780996612193,
+        "alert_latency_first_ms": 6353,
+        "alert_latency_last_ms": 6332
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_late",
+      "run_name": "mqtt_qos_0_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996665440,
+      "window_reference_flush_at_ms": 1780996666640,
+      "launch_lead_ms": 5016,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-late-1-1780996660435",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996665440,
+        "scheduled_sleep_sec": 5.005,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7771,
+      "alert_latency_last_ms": 7750,
+      "first_critical_sent_at_ms": 1780996668867,
+      "last_critical_sent_at_ms": 1780996668888,
+      "alert_emitted_at_ms": 1780996676638,
+      "scheduled_to_first_send_ms": 3427.0,
+      "scheduled_to_alert_ms": 11198.0,
+      "cpu_pct": 0.099,
+      "cpu_pct_avg": 0.078,
+      "ram_mb": 0.707,
+      "ram_mb_avg": 0.704,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996676638-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_late_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996676638,
+        "window_started_at_ms": 1780996666642,
+        "window_ended_at_ms": 1780996676638,
+        "first_critical_sent_at_ms": 1780996668867,
+        "last_critical_sent_at_ms": 1780996668888,
+        "alert_latency_first_ms": 7771,
+        "alert_latency_last_ms": 7750
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_late",
+      "run_name": "mqtt_qos_1_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996725406,
+      "window_reference_flush_at_ms": 1780996726606,
+      "launch_lead_ms": 5137,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-late-1-1780996720278",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996725406,
+        "scheduled_sleep_sec": 5.128,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7510,
+      "alert_latency_last_ms": 7489,
+      "first_critical_sent_at_ms": 1780996729095,
+      "last_critical_sent_at_ms": 1780996729116,
+      "alert_emitted_at_ms": 1780996736605,
+      "scheduled_to_first_send_ms": 3689.0,
+      "scheduled_to_alert_ms": 11199.0,
+      "cpu_pct": 0.133,
+      "cpu_pct_avg": 0.081,
+      "ram_mb": 0.703,
+      "ram_mb_avg": 0.7,
+      "network_mb": 0.005,
+      "network_rx_mb": 0.002,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996736605-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_late_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996736605,
+        "window_started_at_ms": 1780996726608,
+        "window_ended_at_ms": 1780996736605,
+        "first_critical_sent_at_ms": 1780996729095,
+        "last_critical_sent_at_ms": 1780996729116,
+        "alert_latency_first_ms": 7510,
+        "alert_latency_last_ms": 7489
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_late",
+      "run_name": "mqtt_qos_2_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "late",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996784722,
+      "window_reference_flush_at_ms": 1780996785922,
+      "launch_lead_ms": 5121,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-late-1-1780996779609",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996784722,
+        "scheduled_sleep_sec": 5.113,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7275,
+      "alert_latency_last_ms": 7254,
+      "first_critical_sent_at_ms": 1780996788646,
+      "last_critical_sent_at_ms": 1780996788667,
+      "alert_emitted_at_ms": 1780996795921,
+      "scheduled_to_first_send_ms": 3924.0,
+      "scheduled_to_alert_ms": 11199.0,
+      "cpu_pct": 0.19,
+      "cpu_pct_avg": 0.113,
+      "ram_mb": 0.703,
+      "ram_mb_avg": 0.697,
+      "network_mb": 0.007,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780996795921-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_late_repeat_1"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996795921,
+        "window_started_at_ms": 1780996785924,
+        "window_ended_at_ms": 1780996795921,
+        "first_critical_sent_at_ms": 1780996788646,
+        "last_critical_sent_at_ms": 1780996788667,
+        "alert_latency_first_ms": 7275,
+        "alert_latency_last_ms": 7254
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_early",
+      "run_name": "kafka_acks_0_partitions_1_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996865666,
+      "window_reference_flush_at_ms": 1780996855516,
+      "launch_lead_ms": 14203,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-early-1-1780996851552",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996865666,
+        "scheduled_sleep_sec": 14.114,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 3.372681 records/sec (0.00 MB/sec), 298.00 ms avg latency, 568.00 ms max latency, 568 ms 50th, 568 ms 95th, 568 ms 99th, 568 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 3.372681,
+          "avg_latency_ms": 298.0,
+          "max_latency_ms": 568.0,
+          "p50_latency_ms": 568.0,
+          "p95_latency_ms": 568.0,
+          "p99_latency_ms": 568.0,
+          "p999_latency_ms": 568.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9848,
+      "alert_latency_last_ms": 9848,
+      "first_critical_sent_at_ms": 1780996865666,
+      "last_critical_sent_at_ms": 1780996865666,
+      "alert_emitted_at_ms": 1780996875514,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9848.0,
+      "cpu_pct": 33.069,
+      "cpu_pct_avg": 12.614,
+      "ram_mb": 310.027,
+      "ram_mb_avg": 300.979,
+      "network_mb": 0.053,
+      "network_rx_mb": 0.026,
+      "network_tx_mb": 0.027,
+      "resource_sample_count": 55,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780996875514-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_early_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996875514,
+        "window_started_at_ms": 1780996865514,
+        "window_ended_at_ms": 1780996875514,
+        "first_critical_sent_at_ms": 1780996865666,
+        "last_critical_sent_at_ms": 1780996865666,
+        "alert_latency_first_ms": 9848,
+        "alert_latency_last_ms": 9848
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "run_name": "kafka_acks_1_partitions_1_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780996966836,
+      "window_reference_flush_at_ms": 1780996956686,
+      "launch_lead_ms": 13650,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-early-1-1780996953196",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780996966836,
+        "scheduled_sleep_sec": 13.64,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 2.728513 records/sec (0.00 MB/sec), 392.00 ms avg latency, 692.00 ms max latency, 692 ms 50th, 692 ms 95th, 692 ms 99th, 692 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 2.728513,
+          "avg_latency_ms": 392.0,
+          "max_latency_ms": 692.0,
+          "p50_latency_ms": 692.0,
+          "p95_latency_ms": 692.0,
+          "p99_latency_ms": 692.0,
+          "p999_latency_ms": 692.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9847,
+      "alert_latency_last_ms": 9847,
+      "first_critical_sent_at_ms": 1780996966836,
+      "last_critical_sent_at_ms": 1780996966836,
+      "alert_emitted_at_ms": 1780996976683,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9847.0,
+      "cpu_pct": 43.854,
+      "cpu_pct_avg": 9.545,
+      "ram_mb": 302.176,
+      "ram_mb_avg": 300.184,
+      "network_mb": 0.058,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.029,
+      "resource_sample_count": 55,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780996976683-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_early_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780996976683,
+        "window_started_at_ms": 1780996966686,
+        "window_ended_at_ms": 1780996976683,
+        "first_critical_sent_at_ms": 1780996966836,
+        "last_critical_sent_at_ms": 1780996966836,
+        "alert_latency_first_ms": 9847,
+        "alert_latency_last_ms": 9847
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_early",
+      "run_name": "kafka_acks_all_partitions_1_window_early_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997068207,
+      "window_reference_flush_at_ms": 1780997058057,
+      "launch_lead_ms": 14070,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-early-1-1780997054145",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997068207,
+        "scheduled_sleep_sec": 14.062,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 2.472188 records/sec (0.00 MB/sec), 451.50 ms avg latency, 755.00 ms max latency, 755 ms 50th, 755 ms 95th, 755 ms 99th, 755 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 2.472188,
+          "avg_latency_ms": 451.5,
+          "max_latency_ms": 755.0,
+          "p50_latency_ms": 755.0,
+          "p95_latency_ms": 755.0,
+          "p99_latency_ms": 755.0,
+          "p999_latency_ms": 755.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9846,
+      "alert_latency_last_ms": 9846,
+      "first_critical_sent_at_ms": 1780997068207,
+      "last_critical_sent_at_ms": 1780997068207,
+      "alert_emitted_at_ms": 1780997078053,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9846.0,
+      "cpu_pct": 45.092,
+      "cpu_pct_avg": 11.484,
+      "ram_mb": 307.523,
+      "ram_mb_avg": 302.349,
+      "network_mb": 0.056,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.029,
+      "resource_sample_count": 53,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997078053-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_early_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_early_repeat_1",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997078053,
+        "window_started_at_ms": 1780997068053,
+        "window_ended_at_ms": 1780997078053,
+        "first_critical_sent_at_ms": 1780997068207,
+        "last_critical_sent_at_ms": 1780997068207,
+        "alert_latency_first_ms": 9846,
+        "alert_latency_last_ms": 9846
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_late",
+      "run_name": "kafka_acks_0_partitions_1_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997155391,
+      "window_reference_flush_at_ms": 1780997156591,
+      "launch_lead_ms": 5280,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-late-1-1780997150117",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997155391,
+        "scheduled_sleep_sec": 5.274,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 2.840909 records/sec (0.00 MB/sec), 349.50 ms avg latency, 672.00 ms max latency, 672 ms 50th, 672 ms 95th, 672 ms 99th, 672 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 2.840909,
+          "avg_latency_ms": 349.5,
+          "max_latency_ms": 672.0,
+          "p50_latency_ms": 672.0,
+          "p95_latency_ms": 672.0,
+          "p99_latency_ms": 672.0,
+          "p999_latency_ms": 672.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11197,
+      "alert_latency_last_ms": 11197,
+      "first_critical_sent_at_ms": 1780997155391,
+      "last_critical_sent_at_ms": 1780997155391,
+      "alert_emitted_at_ms": 1780997166588,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11197.0,
+      "cpu_pct": 52.869,
+      "cpu_pct_avg": 15.653,
+      "ram_mb": 307.121,
+      "ram_mb_avg": 302.69,
+      "network_mb": 0.052,
+      "network_rx_mb": 0.025,
+      "network_tx_mb": 0.028,
+      "resource_sample_count": 45,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997166588-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_late_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997166588,
+        "window_started_at_ms": 1780997156587,
+        "window_ended_at_ms": 1780997166588,
+        "first_critical_sent_at_ms": 1780997155391,
+        "last_critical_sent_at_ms": 1780997155391,
+        "alert_latency_first_ms": 11197,
+        "alert_latency_last_ms": 11197
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_late",
+      "run_name": "kafka_acks_1_partitions_1_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997254030,
+      "window_reference_flush_at_ms": 1780997245230,
+      "launch_lead_ms": 13156,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-late-1-1780997240878",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997254030,
+        "scheduled_sleep_sec": 13.152,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 3.412969 records/sec (0.00 MB/sec), 307.50 ms avg latency, 556.00 ms max latency, 556 ms 50th, 556 ms 95th, 556 ms 99th, 556 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 3.412969,
+          "avg_latency_ms": 307.5,
+          "max_latency_ms": 556.0,
+          "p50_latency_ms": 556.0,
+          "p95_latency_ms": 556.0,
+          "p99_latency_ms": 556.0,
+          "p999_latency_ms": 556.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11195,
+      "alert_latency_last_ms": 11195,
+      "first_critical_sent_at_ms": 1780997254030,
+      "last_critical_sent_at_ms": 1780997254030,
+      "alert_emitted_at_ms": 1780997265225,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11195.0,
+      "cpu_pct": 34.324,
+      "cpu_pct_avg": 9.256,
+      "ram_mb": 307.555,
+      "ram_mb_avg": 302.463,
+      "network_mb": 0.056,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.028,
+      "resource_sample_count": 54,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997265225-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_late_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997265225,
+        "window_started_at_ms": 1780997255225,
+        "window_ended_at_ms": 1780997265225,
+        "first_critical_sent_at_ms": 1780997254030,
+        "last_critical_sent_at_ms": 1780997254030,
+        "alert_latency_first_ms": 11195,
+        "alert_latency_last_ms": 11195
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_late",
+      "run_name": "kafka_acks_all_partitions_1_window_late_repeat_1",
+      "repeat_index": 1,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997354896,
+      "window_reference_flush_at_ms": 1780997346096,
+      "launch_lead_ms": 12944,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-late-1-1780997341961",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997354896,
+        "scheduled_sleep_sec": 12.935,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 2.439024 records/sec (0.00 MB/sec), 473.00 ms avg latency, 785.00 ms max latency, 785 ms 50th, 785 ms 95th, 785 ms 99th, 785 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 2.439024,
+          "avg_latency_ms": 473.0,
+          "max_latency_ms": 785.0,
+          "p50_latency_ms": 785.0,
+          "p95_latency_ms": 785.0,
+          "p99_latency_ms": 785.0,
+          "p999_latency_ms": 785.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11197,
+      "alert_latency_last_ms": 11197,
+      "first_critical_sent_at_ms": 1780997354896,
+      "last_critical_sent_at_ms": 1780997354896,
+      "alert_emitted_at_ms": 1780997366093,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11197.0,
+      "cpu_pct": 38.472,
+      "cpu_pct_avg": 10.065,
+      "ram_mb": 311.219,
+      "ram_mb_avg": 305.102,
+      "network_mb": 0.055,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.028,
+      "resource_sample_count": 57,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997366093-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_late_repeat_1"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_late_repeat_1",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997366093,
+        "window_started_at_ms": 1780997356096,
+        "window_ended_at_ms": 1780997366093,
+        "first_critical_sent_at_ms": 1780997354896,
+        "last_critical_sent_at_ms": 1780997354896,
+        "alert_latency_first_ms": 11197,
+        "alert_latency_last_ms": 11197
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_early",
+      "run_name": "mqtt_qos_0_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997439006,
+      "window_reference_flush_at_ms": 1780997438856,
+      "launch_lead_ms": 6346,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-early-2-1780997432667",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997439006,
+        "scheduled_sleep_sec": 6.339,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6040,
+      "alert_latency_last_ms": 6019,
+      "first_critical_sent_at_ms": 1780997442816,
+      "last_critical_sent_at_ms": 1780997442837,
+      "alert_emitted_at_ms": 1780997448856,
+      "scheduled_to_first_send_ms": 3810.0,
+      "scheduled_to_alert_ms": 9850.0,
+      "cpu_pct": 0.084,
+      "cpu_pct_avg": 0.071,
+      "ram_mb": 0.695,
+      "ram_mb_avg": 0.695,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997448856-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_early_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997448856,
+        "window_started_at_ms": 1780997438857,
+        "window_ended_at_ms": 1780997448856,
+        "first_critical_sent_at_ms": 1780997442816,
+        "last_critical_sent_at_ms": 1780997442837,
+        "alert_latency_first_ms": 6040,
+        "alert_latency_last_ms": 6019
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_early",
+      "run_name": "mqtt_qos_1_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997504744,
+      "window_reference_flush_at_ms": 1780997504594,
+      "launch_lead_ms": 7154,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-early-2-1780997497598",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997504744,
+        "scheduled_sleep_sec": 7.146,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6333,
+      "alert_latency_last_ms": 6312,
+      "first_critical_sent_at_ms": 1780997508261,
+      "last_critical_sent_at_ms": 1780997508282,
+      "alert_emitted_at_ms": 1780997514594,
+      "scheduled_to_first_send_ms": 3517.0,
+      "scheduled_to_alert_ms": 9850.0,
+      "cpu_pct": 0.225,
+      "cpu_pct_avg": 0.104,
+      "ram_mb": 0.703,
+      "ram_mb_avg": 0.703,
+      "network_mb": 0.007,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 18,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997514594-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_early_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997514594,
+        "window_started_at_ms": 1780997504597,
+        "window_ended_at_ms": 1780997514594,
+        "first_critical_sent_at_ms": 1780997508261,
+        "last_critical_sent_at_ms": 1780997508282,
+        "alert_latency_first_ms": 6333,
+        "alert_latency_last_ms": 6312
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_early",
+      "run_name": "mqtt_qos_2_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "early",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997564379,
+      "window_reference_flush_at_ms": 1780997564229,
+      "launch_lead_ms": 6541,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-early-2-1780997557849",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997564379,
+        "scheduled_sleep_sec": 6.53,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6442,
+      "alert_latency_last_ms": 6422,
+      "first_critical_sent_at_ms": 1780997567788,
+      "last_critical_sent_at_ms": 1780997567808,
+      "alert_emitted_at_ms": 1780997574230,
+      "scheduled_to_first_send_ms": 3409.0,
+      "scheduled_to_alert_ms": 9851.0,
+      "cpu_pct": 0.133,
+      "cpu_pct_avg": 0.091,
+      "ram_mb": 0.699,
+      "ram_mb_avg": 0.699,
+      "network_mb": 0.007,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997574230-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_early_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997574230,
+        "window_started_at_ms": 1780997564231,
+        "window_ended_at_ms": 1780997574230,
+        "first_critical_sent_at_ms": 1780997567788,
+        "last_critical_sent_at_ms": 1780997567808,
+        "alert_latency_first_ms": 6442,
+        "alert_latency_last_ms": 6422
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_late",
+      "run_name": "mqtt_qos_0_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997622355,
+      "window_reference_flush_at_ms": 1780997623555,
+      "launch_lead_ms": 5154,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-late-2-1780997617207",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997622355,
+        "scheduled_sleep_sec": 5.148,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 6879,
+      "alert_latency_last_ms": 6858,
+      "first_critical_sent_at_ms": 1780997626677,
+      "last_critical_sent_at_ms": 1780997626698,
+      "alert_emitted_at_ms": 1780997633556,
+      "scheduled_to_first_send_ms": 4322.0,
+      "scheduled_to_alert_ms": 11201.0,
+      "cpu_pct": 0.233,
+      "cpu_pct_avg": 0.109,
+      "ram_mb": 0.711,
+      "ram_mb_avg": 0.707,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997633556-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_late_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997633556,
+        "window_started_at_ms": 1780997623556,
+        "window_ended_at_ms": 1780997633556,
+        "first_critical_sent_at_ms": 1780997626677,
+        "last_critical_sent_at_ms": 1780997626698,
+        "alert_latency_first_ms": 6879,
+        "alert_latency_last_ms": 6858
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_late",
+      "run_name": "mqtt_qos_1_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997681557,
+      "window_reference_flush_at_ms": 1780997682757,
+      "launch_lead_ms": 5330,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-late-2-1780997676236",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997681557,
+        "scheduled_sleep_sec": 5.321,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7841,
+      "alert_latency_last_ms": 7820,
+      "first_critical_sent_at_ms": 1780997684917,
+      "last_critical_sent_at_ms": 1780997684938,
+      "alert_emitted_at_ms": 1780997692758,
+      "scheduled_to_first_send_ms": 3360.0,
+      "scheduled_to_alert_ms": 11201.0,
+      "cpu_pct": 0.098,
+      "cpu_pct_avg": 0.078,
+      "ram_mb": 0.688,
+      "ram_mb_avg": 0.688,
+      "network_mb": 0.005,
+      "network_rx_mb": 0.002,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997692758-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_late_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997692758,
+        "window_started_at_ms": 1780997682759,
+        "window_ended_at_ms": 1780997692758,
+        "first_critical_sent_at_ms": 1780997684917,
+        "last_critical_sent_at_ms": 1780997684938,
+        "alert_latency_first_ms": 7841,
+        "alert_latency_last_ms": 7820
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_late",
+      "run_name": "mqtt_qos_2_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "late",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997741025,
+      "window_reference_flush_at_ms": 1780997742225,
+      "launch_lead_ms": 5156,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-late-2-1780997735875",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997741025,
+        "scheduled_sleep_sec": 5.15,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7775,
+      "alert_latency_last_ms": 7754,
+      "first_critical_sent_at_ms": 1780997744451,
+      "last_critical_sent_at_ms": 1780997744472,
+      "alert_emitted_at_ms": 1780997752226,
+      "scheduled_to_first_send_ms": 3426.0,
+      "scheduled_to_alert_ms": 11201.0,
+      "cpu_pct": 0.17,
+      "cpu_pct_avg": 0.094,
+      "ram_mb": 0.707,
+      "ram_mb_avg": 0.703,
+      "network_mb": 0.008,
+      "network_rx_mb": 0.004,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780997752226-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_late_repeat_2"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997752226,
+        "window_started_at_ms": 1780997742226,
+        "window_ended_at_ms": 1780997752226,
+        "first_critical_sent_at_ms": 1780997744451,
+        "last_critical_sent_at_ms": 1780997744472,
+        "alert_latency_first_ms": 7775,
+        "alert_latency_last_ms": 7754
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_early",
+      "run_name": "kafka_acks_0_partitions_1_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997811391,
+      "window_reference_flush_at_ms": 1780997811241,
+      "launch_lead_ms": 6422,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-early-2-1780997804980",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997811391,
+        "scheduled_sleep_sec": 6.411,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 3.430532 records/sec (0.00 MB/sec), 301.00 ms avg latency, 560.00 ms max latency, 560 ms 50th, 560 ms 95th, 560 ms 99th, 560 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 3.430532,
+          "avg_latency_ms": 301.0,
+          "max_latency_ms": 560.0,
+          "p50_latency_ms": 560.0,
+          "p95_latency_ms": 560.0,
+          "p99_latency_ms": 560.0,
+          "p999_latency_ms": 560.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9847,
+      "alert_latency_last_ms": 9847,
+      "first_critical_sent_at_ms": 1780997811391,
+      "last_critical_sent_at_ms": 1780997811391,
+      "alert_emitted_at_ms": 1780997821238,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9847.0,
+      "cpu_pct": 50.998,
+      "cpu_pct_avg": 16.267,
+      "ram_mb": 309.02,
+      "ram_mb_avg": 301.26,
+      "network_mb": 0.057,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.03,
+      "resource_sample_count": 45,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997821238-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_early_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997821238,
+        "window_started_at_ms": 1780997811241,
+        "window_ended_at_ms": 1780997821238,
+        "first_critical_sent_at_ms": 1780997811391,
+        "last_critical_sent_at_ms": 1780997811391,
+        "alert_latency_first_ms": 9847,
+        "alert_latency_last_ms": 9847
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "run_name": "kafka_acks_1_partitions_1_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997900504,
+      "window_reference_flush_at_ms": 1780997900354,
+      "launch_lead_ms": 5246,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-early-2-1780997895269",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997900504,
+        "scheduled_sleep_sec": 5.235,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 3.311258 records/sec (0.00 MB/sec), 312.00 ms avg latency, 573.00 ms max latency, 573 ms 50th, 573 ms 95th, 573 ms 99th, 573 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 3.311258,
+          "avg_latency_ms": 312.0,
+          "max_latency_ms": 573.0,
+          "p50_latency_ms": 573.0,
+          "p95_latency_ms": 573.0,
+          "p99_latency_ms": 573.0,
+          "p999_latency_ms": 573.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9851,
+      "alert_latency_last_ms": 9851,
+      "first_critical_sent_at_ms": 1780997900504,
+      "last_critical_sent_at_ms": 1780997900504,
+      "alert_emitted_at_ms": 1780997910355,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9851.0,
+      "cpu_pct": 49.136,
+      "cpu_pct_avg": 12.961,
+      "ram_mb": 305.16,
+      "ram_mb_avg": 300.293,
+      "network_mb": 0.059,
+      "network_rx_mb": 0.028,
+      "network_tx_mb": 0.03,
+      "resource_sample_count": 45,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997910355-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_early_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997910355,
+        "window_started_at_ms": 1780997900354,
+        "window_ended_at_ms": 1780997910355,
+        "first_critical_sent_at_ms": 1780997900504,
+        "last_critical_sent_at_ms": 1780997900504,
+        "alert_latency_first_ms": 9851,
+        "alert_latency_last_ms": 9851
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_early",
+      "run_name": "kafka_acks_all_partitions_1_window_early_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780997985121,
+      "window_reference_flush_at_ms": 1780997984971,
+      "launch_lead_ms": 8432,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-early-2-1780997976695",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780997985121,
+        "scheduled_sleep_sec": 8.426,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 4.228330 records/sec (0.00 MB/sec), 290.50 ms avg latency, 454.00 ms max latency, 454 ms 50th, 454 ms 95th, 454 ms 99th, 454 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 4.22833,
+          "avg_latency_ms": 290.5,
+          "max_latency_ms": 454.0,
+          "p50_latency_ms": 454.0,
+          "p95_latency_ms": 454.0,
+          "p99_latency_ms": 454.0,
+          "p999_latency_ms": 454.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9847,
+      "alert_latency_last_ms": 9847,
+      "first_critical_sent_at_ms": 1780997985121,
+      "last_critical_sent_at_ms": 1780997985121,
+      "alert_emitted_at_ms": 1780997994968,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9847.0,
+      "cpu_pct": 24.35,
+      "cpu_pct_avg": 10.967,
+      "ram_mb": 313.723,
+      "ram_mb_avg": 302.375,
+      "network_mb": 0.048,
+      "network_rx_mb": 0.022,
+      "network_tx_mb": 0.026,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780997994968-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_early_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_early_repeat_2",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780997994968,
+        "window_started_at_ms": 1780997984971,
+        "window_ended_at_ms": 1780997994968,
+        "first_critical_sent_at_ms": 1780997985121,
+        "last_critical_sent_at_ms": 1780997985121,
+        "alert_latency_first_ms": 9847,
+        "alert_latency_last_ms": 9847
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_late",
+      "run_name": "kafka_acks_0_partitions_1_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998059297,
+      "window_reference_flush_at_ms": 1780998060497,
+      "launch_lead_ms": 7184,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-late-2-1780998052117",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998059297,
+        "scheduled_sleep_sec": 7.18,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 6.006006 records/sec (0.00 MB/sec), 168.50 ms avg latency, 316.00 ms max latency, 316 ms 50th, 316 ms 95th, 316 ms 99th, 316 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 6.006006,
+          "avg_latency_ms": 168.5,
+          "max_latency_ms": 316.0,
+          "p50_latency_ms": 316.0,
+          "p95_latency_ms": 316.0,
+          "p99_latency_ms": 316.0,
+          "p999_latency_ms": 316.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11197,
+      "alert_latency_last_ms": 11197,
+      "first_critical_sent_at_ms": 1780998059297,
+      "last_critical_sent_at_ms": 1780998059297,
+      "alert_emitted_at_ms": 1780998070494,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11197.0,
+      "cpu_pct": 35.513,
+      "cpu_pct_avg": 14.513,
+      "ram_mb": 307.879,
+      "ram_mb_avg": 301.41,
+      "network_mb": 0.051,
+      "network_rx_mb": 0.024,
+      "network_tx_mb": 0.027,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998070494-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_late_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998070494,
+        "window_started_at_ms": 1780998060494,
+        "window_ended_at_ms": 1780998070494,
+        "first_critical_sent_at_ms": 1780998059297,
+        "last_critical_sent_at_ms": 1780998059297,
+        "alert_latency_first_ms": 11197,
+        "alert_latency_last_ms": 11197
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_late",
+      "run_name": "kafka_acks_1_partitions_1_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998134367,
+      "window_reference_flush_at_ms": 1780998135567,
+      "launch_lead_ms": 7437,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-late-2-1780998126936",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998134367,
+        "scheduled_sleep_sec": 7.431,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 5.797101 records/sec (0.00 MB/sec), 178.50 ms avg latency, 326.00 ms max latency, 326 ms 50th, 326 ms 95th, 326 ms 99th, 326 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 5.797101,
+          "avg_latency_ms": 178.5,
+          "max_latency_ms": 326.0,
+          "p50_latency_ms": 326.0,
+          "p95_latency_ms": 326.0,
+          "p99_latency_ms": 326.0,
+          "p999_latency_ms": 326.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11198,
+      "alert_latency_last_ms": 11198,
+      "first_critical_sent_at_ms": 1780998134367,
+      "last_critical_sent_at_ms": 1780998134367,
+      "alert_emitted_at_ms": 1780998145565,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11198.0,
+      "cpu_pct": 28.421,
+      "cpu_pct_avg": 12.162,
+      "ram_mb": 311.219,
+      "ram_mb_avg": 302.37,
+      "network_mb": 0.048,
+      "network_rx_mb": 0.022,
+      "network_tx_mb": 0.025,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998145565-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_late_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998145565,
+        "window_started_at_ms": 1780998135567,
+        "window_ended_at_ms": 1780998145565,
+        "first_critical_sent_at_ms": 1780998134367,
+        "last_critical_sent_at_ms": 1780998134367,
+        "alert_latency_first_ms": 11198,
+        "alert_latency_last_ms": 11198
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_late",
+      "run_name": "kafka_acks_all_partitions_1_window_late_repeat_2",
+      "repeat_index": 2,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998210518,
+      "window_reference_flush_at_ms": 1780998211718,
+      "launch_lead_ms": 7905,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-late-2-1780998202618",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998210518,
+        "scheduled_sleep_sec": 7.9,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 4.338395 records/sec (0.00 MB/sec), 294.00 ms avg latency, 443.00 ms max latency, 443 ms 50th, 443 ms 95th, 443 ms 99th, 443 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 4.338395,
+          "avg_latency_ms": 294.0,
+          "max_latency_ms": 443.0,
+          "p50_latency_ms": 443.0,
+          "p95_latency_ms": 443.0,
+          "p99_latency_ms": 443.0,
+          "p999_latency_ms": 443.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11198,
+      "alert_latency_last_ms": 11198,
+      "first_critical_sent_at_ms": 1780998210518,
+      "last_critical_sent_at_ms": 1780998210518,
+      "alert_emitted_at_ms": 1780998221716,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11198.0,
+      "cpu_pct": 38.107,
+      "cpu_pct_avg": 14.756,
+      "ram_mb": 311.812,
+      "ram_mb_avg": 305.171,
+      "network_mb": 0.042,
+      "network_rx_mb": 0.02,
+      "network_tx_mb": 0.021,
+      "resource_sample_count": 42,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998221716-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_late_repeat_2"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_late_repeat_2",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998221716,
+        "window_started_at_ms": 1780998211715,
+        "window_ended_at_ms": 1780998221716,
+        "first_critical_sent_at_ms": 1780998210518,
+        "last_critical_sent_at_ms": 1780998210518,
+        "alert_latency_first_ms": 11198,
+        "alert_latency_last_ms": 11198
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_early",
+      "run_name": "mqtt_qos_0_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998278794,
+      "window_reference_flush_at_ms": 1780998278644,
+      "launch_lead_ms": 5978,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-early-3-1780998272820",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998278794,
+        "scheduled_sleep_sec": 5.974,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7759,
+      "alert_latency_last_ms": 7738,
+      "first_critical_sent_at_ms": 1780998280886,
+      "last_critical_sent_at_ms": 1780998280907,
+      "alert_emitted_at_ms": 1780998288645,
+      "scheduled_to_first_send_ms": 2092.0,
+      "scheduled_to_alert_ms": 9851.0,
+      "cpu_pct": 0.071,
+      "cpu_pct_avg": 0.048,
+      "ram_mb": 0.695,
+      "ram_mb_avg": 0.694,
+      "network_mb": 0.007,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 16,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998288645-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_early_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998288645,
+        "window_started_at_ms": 1780998278645,
+        "window_ended_at_ms": 1780998288645,
+        "first_critical_sent_at_ms": 1780998280886,
+        "last_critical_sent_at_ms": 1780998280907,
+        "alert_latency_first_ms": 7759,
+        "alert_latency_last_ms": 7738
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_early",
+      "run_name": "mqtt_qos_1_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998329912,
+      "window_reference_flush_at_ms": 1780998329762,
+      "launch_lead_ms": 6058,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-early-3-1780998323859",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998329912,
+        "scheduled_sleep_sec": 6.053,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7678,
+      "alert_latency_last_ms": 7657,
+      "first_critical_sent_at_ms": 1780998332082,
+      "last_critical_sent_at_ms": 1780998332103,
+      "alert_emitted_at_ms": 1780998339760,
+      "scheduled_to_first_send_ms": 2170.0,
+      "scheduled_to_alert_ms": 9848.0,
+      "cpu_pct": 0.088,
+      "cpu_pct_avg": 0.055,
+      "ram_mb": 0.699,
+      "ram_mb_avg": 0.696,
+      "network_mb": 0.008,
+      "network_rx_mb": 0.004,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 16,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998339760-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_early_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998339760,
+        "window_started_at_ms": 1780998329760,
+        "window_ended_at_ms": 1780998339760,
+        "first_critical_sent_at_ms": 1780998332082,
+        "last_critical_sent_at_ms": 1780998332103,
+        "alert_latency_first_ms": 7678,
+        "alert_latency_last_ms": 7657
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_early",
+      "run_name": "mqtt_qos_2_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "early",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998380096,
+      "window_reference_flush_at_ms": 1780998379946,
+      "launch_lead_ms": 5942,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-early-3-1780998374157",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998380096,
+        "scheduled_sleep_sec": 5.939,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 7595,
+      "alert_latency_last_ms": 7574,
+      "first_critical_sent_at_ms": 1780998382350,
+      "last_critical_sent_at_ms": 1780998382371,
+      "alert_emitted_at_ms": 1780998389945,
+      "scheduled_to_first_send_ms": 2254.0,
+      "scheduled_to_alert_ms": 9849.0,
+      "cpu_pct": 0.08,
+      "cpu_pct_avg": 0.048,
+      "ram_mb": 0.695,
+      "ram_mb_avg": 0.694,
+      "network_mb": 0.008,
+      "network_rx_mb": 0.004,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 17,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998389945-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_early_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998389945,
+        "window_started_at_ms": 1780998379948,
+        "window_ended_at_ms": 1780998389945,
+        "first_critical_sent_at_ms": 1780998382350,
+        "last_critical_sent_at_ms": 1780998382371,
+        "alert_latency_first_ms": 7595,
+        "alert_latency_last_ms": 7574
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_0_window_late",
+      "run_name": "mqtt_qos_0_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998440186,
+      "window_reference_flush_at_ms": 1780998431386,
+      "launch_lead_ms": 14581,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-0-late-3-1780998425612",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998440186,
+        "scheduled_sleep_sec": 14.574,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9307,
+      "alert_latency_last_ms": 9286,
+      "first_critical_sent_at_ms": 1780998442080,
+      "last_critical_sent_at_ms": 1780998442101,
+      "alert_emitted_at_ms": 1780998451387,
+      "scheduled_to_first_send_ms": 1894.0,
+      "scheduled_to_alert_ms": 11201.0,
+      "cpu_pct": 0.055,
+      "cpu_pct_avg": 0.042,
+      "ram_mb": 0.699,
+      "ram_mb_avg": 0.699,
+      "network_mb": 0.006,
+      "network_rx_mb": 0.003,
+      "network_tx_mb": 0.003,
+      "resource_sample_count": 26,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998451387-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_0_window_late_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_0_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998451387,
+        "window_started_at_ms": 1780998441387,
+        "window_ended_at_ms": 1780998451387,
+        "first_critical_sent_at_ms": 1780998442080,
+        "last_critical_sent_at_ms": 1780998442101,
+        "alert_latency_first_ms": 9307,
+        "alert_latency_last_ms": 9286
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_1_window_late",
+      "run_name": "mqtt_qos_1_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998500993,
+      "window_reference_flush_at_ms": 1780998492193,
+      "launch_lead_ms": 14553,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-1-late-3-1780998486445",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998500993,
+        "scheduled_sleep_sec": 14.548,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9027,
+      "alert_latency_last_ms": 9006,
+      "first_critical_sent_at_ms": 1780998503166,
+      "last_critical_sent_at_ms": 1780998503187,
+      "alert_emitted_at_ms": 1780998512193,
+      "scheduled_to_first_send_ms": 2173.0,
+      "scheduled_to_alert_ms": 11200.0,
+      "cpu_pct": 0.071,
+      "cpu_pct_avg": 0.049,
+      "ram_mb": 0.699,
+      "ram_mb_avg": 0.695,
+      "network_mb": 0.009,
+      "network_rx_mb": 0.004,
+      "network_tx_mb": 0.004,
+      "resource_sample_count": 26,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998512193-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_1_window_late_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_1_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998512193,
+        "window_started_at_ms": 1780998502194,
+        "window_ended_at_ms": 1780998512193,
+        "first_critical_sent_at_ms": 1780998503166,
+        "last_critical_sent_at_ms": 1780998503187,
+        "alert_latency_first_ms": 9027,
+        "alert_latency_last_ms": 9006
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "mqtt_qos_2_window_late",
+      "run_name": "mqtt_qos_2_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "late",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998563151,
+      "window_reference_flush_at_ms": 1780998554351,
+      "launch_lead_ms": 14894,
+      "publisher_result": {
+        "container_name": "scenario-d-mqtt-alert-2-late-3-1780998548262",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998563151,
+        "scheduled_sleep_sec": 14.889,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\npublish complete",
+        "messages_sent": 2
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9180,
+      "alert_latency_last_ms": 9159,
+      "first_critical_sent_at_ms": 1780998565170,
+      "last_critical_sent_at_ms": 1780998565191,
+      "alert_emitted_at_ms": 1780998574350,
+      "scheduled_to_first_send_ms": 2019.0,
+      "scheduled_to_alert_ms": 11199.0,
+      "cpu_pct": 0.079,
+      "cpu_pct_avg": 0.046,
+      "ram_mb": 0.707,
+      "ram_mb_avg": 0.704,
+      "network_mb": 0.009,
+      "network_rx_mb": 0.005,
+      "network_tx_mb": 0.005,
+      "resource_sample_count": 27,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": null,
+      "kafka_consumer_lag_after_alert": null,
+      "kafka_consumer_lag_final": null,
+      "alert_record": {
+        "alert_id": "alert-1780998574350-1",
+        "broker_type": "mqtt",
+        "run_ids": [
+          "mqtt_qos_2_window_late_repeat_3"
+        ],
+        "primary_run_id": "mqtt_qos_2_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.5,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998574350,
+        "window_started_at_ms": 1780998564352,
+        "window_ended_at_ms": 1780998574350,
+        "first_critical_sent_at_ms": 1780998565170,
+        "last_critical_sent_at_ms": 1780998565191,
+        "alert_latency_first_ms": 9180,
+        "alert_latency_last_ms": 9159
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_early",
+      "run_name": "kafka_acks_0_partitions_1_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998627011,
+      "window_reference_flush_at_ms": 1780998626861,
+      "launch_lead_ms": 9252,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-early-3-1780998617764",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998627011,
+        "scheduled_sleep_sec": 9.247,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 5.698006 records/sec (0.00 MB/sec), 176.00 ms avg latency, 334.00 ms max latency, 334 ms 50th, 334 ms 95th, 334 ms 99th, 334 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 5.698006,
+          "avg_latency_ms": 176.0,
+          "max_latency_ms": 334.0,
+          "p50_latency_ms": 334.0,
+          "p95_latency_ms": 334.0,
+          "p99_latency_ms": 334.0,
+          "p999_latency_ms": 334.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9848,
+      "alert_latency_last_ms": 9848,
+      "first_critical_sent_at_ms": 1780998627011,
+      "last_critical_sent_at_ms": 1780998627011,
+      "alert_emitted_at_ms": 1780998636859,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9848.0,
+      "cpu_pct": 34.186,
+      "cpu_pct_avg": 13.805,
+      "ram_mb": 315.223,
+      "ram_mb_avg": 307.285,
+      "network_mb": 0.046,
+      "network_rx_mb": 0.022,
+      "network_tx_mb": 0.024,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998636859-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_early_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998636859,
+        "window_started_at_ms": 1780998626859,
+        "window_ended_at_ms": 1780998636859,
+        "first_critical_sent_at_ms": 1780998627011,
+        "last_critical_sent_at_ms": 1780998627011,
+        "alert_latency_first_ms": 9848,
+        "alert_latency_last_ms": 9848
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "run_name": "kafka_acks_1_partitions_1_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998702065,
+      "window_reference_flush_at_ms": 1780998701915,
+      "launch_lead_ms": 8806,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-early-3-1780998693264",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998702065,
+        "scheduled_sleep_sec": 8.801,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 5.555556 records/sec (0.00 MB/sec), 187.50 ms avg latency, 342.00 ms max latency, 342 ms 50th, 342 ms 95th, 342 ms 99th, 342 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 5.555556,
+          "avg_latency_ms": 187.5,
+          "max_latency_ms": 342.0,
+          "p50_latency_ms": 342.0,
+          "p95_latency_ms": 342.0,
+          "p99_latency_ms": 342.0,
+          "p999_latency_ms": 342.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9851,
+      "alert_latency_last_ms": 9851,
+      "first_critical_sent_at_ms": 1780998702065,
+      "last_critical_sent_at_ms": 1780998702065,
+      "alert_emitted_at_ms": 1780998711916,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9851.0,
+      "cpu_pct": 26.461,
+      "cpu_pct_avg": 11.367,
+      "ram_mb": 316.324,
+      "ram_mb_avg": 305.481,
+      "network_mb": 0.04,
+      "network_rx_mb": 0.019,
+      "network_tx_mb": 0.021,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998711916-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_early_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998711916,
+        "window_started_at_ms": 1780998701915,
+        "window_ended_at_ms": 1780998711916,
+        "first_critical_sent_at_ms": 1780998702065,
+        "last_critical_sent_at_ms": 1780998702065,
+        "alert_latency_first_ms": 9851,
+        "alert_latency_last_ms": 9851
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_early",
+      "run_name": "kafka_acks_all_partitions_1_window_early_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998777473,
+      "window_reference_flush_at_ms": 1780998777323,
+      "launch_lead_ms": 8677,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-early-3-1780998768800",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998777473,
+        "scheduled_sleep_sec": 8.673,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 4.175365 records/sec (0.00 MB/sec), 294.00 ms avg latency, 459.00 ms max latency, 459 ms 50th, 459 ms 95th, 459 ms 99th, 459 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 4.175365,
+          "avg_latency_ms": 294.0,
+          "max_latency_ms": 459.0,
+          "p50_latency_ms": 459.0,
+          "p95_latency_ms": 459.0,
+          "p99_latency_ms": 459.0,
+          "p999_latency_ms": 459.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 9848,
+      "alert_latency_last_ms": 9848,
+      "first_critical_sent_at_ms": 1780998777473,
+      "last_critical_sent_at_ms": 1780998777473,
+      "alert_emitted_at_ms": 1780998787321,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 9848.0,
+      "cpu_pct": 34.888,
+      "cpu_pct_avg": 14.032,
+      "ram_mb": 310.199,
+      "ram_mb_avg": 305.012,
+      "network_mb": 0.054,
+      "network_rx_mb": 0.025,
+      "network_tx_mb": 0.029,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998787321-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_early_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_early_repeat_3",
+        "window_mode": "early",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998787321,
+        "window_started_at_ms": 1780998777321,
+        "window_ended_at_ms": 1780998787321,
+        "first_critical_sent_at_ms": 1780998777473,
+        "last_critical_sent_at_ms": 1780998777473,
+        "alert_latency_first_ms": 9848,
+        "alert_latency_last_ms": 9848
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_0_partitions_1_window_late",
+      "run_name": "kafka_acks_0_partitions_1_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998851508,
+      "window_reference_flush_at_ms": 1780998852708,
+      "launch_lead_ms": 7869,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-0-1-late-3-1780998843646",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998851508,
+        "scheduled_sleep_sec": 7.862,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 5.882353 records/sec (0.00 MB/sec), 169.00 ms avg latency, 319.00 ms max latency, 319 ms 50th, 319 ms 95th, 319 ms 99th, 319 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 5.882353,
+          "avg_latency_ms": 169.0,
+          "max_latency_ms": 319.0,
+          "p50_latency_ms": 319.0,
+          "p95_latency_ms": 319.0,
+          "p99_latency_ms": 319.0,
+          "p999_latency_ms": 319.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11200,
+      "alert_latency_last_ms": 11200,
+      "first_critical_sent_at_ms": 1780998851508,
+      "last_critical_sent_at_ms": 1780998851508,
+      "alert_emitted_at_ms": 1780998862708,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11200.0,
+      "cpu_pct": 32.188,
+      "cpu_pct_avg": 12.254,
+      "ram_mb": 312.289,
+      "ram_mb_avg": 304.492,
+      "network_mb": 0.041,
+      "network_rx_mb": 0.02,
+      "network_tx_mb": 0.021,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998862708-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_0_partitions_1_window_late_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_0_partitions_1_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998862708,
+        "window_started_at_ms": 1780998852708,
+        "window_ended_at_ms": 1780998862708,
+        "first_critical_sent_at_ms": 1780998851508,
+        "last_critical_sent_at_ms": 1780998851508,
+        "alert_latency_first_ms": 11200,
+        "alert_latency_last_ms": 11200
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_1_partitions_1_window_late",
+      "run_name": "kafka_acks_1_partitions_1_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780998926786,
+      "window_reference_flush_at_ms": 1780998927986,
+      "launch_lead_ms": 7512,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-1-1-late-3-1780998919279",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780998926786,
+        "scheduled_sleep_sec": 7.507,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 5.319149 records/sec (0.00 MB/sec), 197.00 ms avg latency, 348.00 ms max latency, 348 ms 50th, 348 ms 95th, 348 ms 99th, 348 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 5.319149,
+          "avg_latency_ms": 197.0,
+          "max_latency_ms": 348.0,
+          "p50_latency_ms": 348.0,
+          "p95_latency_ms": 348.0,
+          "p99_latency_ms": 348.0,
+          "p999_latency_ms": 348.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11198,
+      "alert_latency_last_ms": 11198,
+      "first_critical_sent_at_ms": 1780998926786,
+      "last_critical_sent_at_ms": 1780998926786,
+      "alert_emitted_at_ms": 1780998937984,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11198.0,
+      "cpu_pct": 37.473,
+      "cpu_pct_avg": 14.648,
+      "ram_mb": 308.879,
+      "ram_mb_avg": 304.163,
+      "network_mb": 0.042,
+      "network_rx_mb": 0.02,
+      "network_tx_mb": 0.022,
+      "resource_sample_count": 41,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780998937984-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_1_partitions_1_window_late_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_1_partitions_1_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780998937984,
+        "window_started_at_ms": 1780998927983,
+        "window_ended_at_ms": 1780998937984,
+        "first_critical_sent_at_ms": 1780998926786,
+        "last_critical_sent_at_ms": 1780998926786,
+        "alert_latency_first_ms": 11198,
+        "alert_latency_last_ms": 11198
+      },
+      "validation_issues": []
+    },
+    {
+      "scenario": "D",
+      "config_name": "kafka_acks_all_partitions_1_window_late",
+      "run_name": "kafka_acks_all_partitions_1_window_late_repeat_3",
+      "repeat_index": 3,
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "critical_count": 2,
+      "planned_send_at_ms": 1780999003709,
+      "window_reference_flush_at_ms": 1780999004909,
+      "launch_lead_ms": 7773,
+      "publisher_result": {
+        "container_name": "scenario-d-kafka-alert-all-1-late-3-1780998995950",
+        "planned_messages": 2,
+        "planned_send_at_ms": 1780999003709,
+        "scheduled_sleep_sec": 7.759,
+        "completed_cleanly": true,
+        "container_exit_code": 0,
+        "tool_stdout": "Reading payloads from: /payloads/kafka_alert_payloads.txt\nNumber of messages read: 2\n2 records sent, 4.415011 records/sec (0.00 MB/sec), 282.00 ms avg latency, 434.00 ms max latency, 434 ms 50th, 434 ms 95th, 434 ms 99th, 434 ms 99.9th.",
+        "messages_sent": 2,
+        "tool_summary": {
+          "records": 2.0,
+          "records_per_sec": 4.415011,
+          "avg_latency_ms": 282.0,
+          "max_latency_ms": 434.0,
+          "p50_latency_ms": 434.0,
+          "p95_latency_ms": 434.0,
+          "p99_latency_ms": 434.0,
+          "p999_latency_ms": 434.0
+        }
+      },
+      "messages_sent": 2,
+      "alert_found": true,
+      "alerts_emitted": 1,
+      "alert_latency_first_ms": 11197,
+      "alert_latency_last_ms": 11197,
+      "first_critical_sent_at_ms": 1780999003709,
+      "last_critical_sent_at_ms": 1780999003709,
+      "alert_emitted_at_ms": 1780999014906,
+      "scheduled_to_first_send_ms": 0.0,
+      "scheduled_to_alert_ms": 11197.0,
+      "cpu_pct": 31.89,
+      "cpu_pct_avg": 11.087,
+      "ram_mb": 308.848,
+      "ram_mb_avg": 303.727,
+      "network_mb": 0.046,
+      "network_rx_mb": 0.022,
+      "network_tx_mb": 0.024,
+      "resource_sample_count": 40,
+      "storage_received_messages": 2,
+      "analytics_processed_messages": 2,
+      "storage_queue_depth": 0,
+      "analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "kafka_consumer_lag_before": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 0,
+          "log_end_offset": 0,
+          "lag": 0,
+          "partitions": []
+        }
+      },
+      "kafka_consumer_lag_after_alert": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 2,
+          "log_end_offset": 2,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2,
+              "log_end_offset": 2,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "alert_record": {
+        "alert_id": "alert-1780999014906-1",
+        "broker_type": "kafka",
+        "run_ids": [
+          "kafka_acks_all_partitions_1_window_late_repeat_3"
+        ],
+        "primary_run_id": "kafka_acks_all_partitions_1_window_late_repeat_3",
+        "window_mode": "late",
+        "avg_temperature": 64.6,
+        "events_in_window": 2,
+        "critical_events_in_window": 2,
+        "alert_emitted_at_ms": 1780999014906,
+        "window_started_at_ms": 1780999004909,
+        "window_ended_at_ms": 1780999014906,
+        "first_critical_sent_at_ms": 1780999003709,
+        "last_critical_sent_at_ms": 1780999003709,
+        "alert_latency_first_ms": 11197,
+        "alert_latency_last_ms": 11197
+      },
+      "validation_issues": []
+    }
+  ],
+  "profile_summaries": [
+    {
+      "config_name": "kafka_acks_0_partitions_1_window_early",
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 9847.667,
+      "alert_latency_first_p95_ms": 9848.0,
+      "alert_latency_first_max_ms": 9848.0,
+      "alert_latency_last_avg_ms": 9847.667,
+      "alert_latency_last_p95_ms": 9848.0,
+      "alert_latency_last_max_ms": 9848.0,
+      "cpu_pct_med": 34.186,
+      "ram_mb_med": 310.027,
+      "network_mb_med": 0.053,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "kafka_acks_0_partitions_1_window_late",
+      "broker": "kafka",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "0",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 11198.0,
+      "alert_latency_first_p95_ms": 11200.0,
+      "alert_latency_first_max_ms": 11200.0,
+      "alert_latency_last_avg_ms": 11198.0,
+      "alert_latency_last_p95_ms": 11200.0,
+      "alert_latency_last_max_ms": 11200.0,
+      "cpu_pct_med": 35.513,
+      "ram_mb_med": 307.879,
+      "network_mb_med": 0.051,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "kafka_acks_1_partitions_1_window_early",
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 9849.667,
+      "alert_latency_first_p95_ms": 9851.0,
+      "alert_latency_first_max_ms": 9851.0,
+      "alert_latency_last_avg_ms": 9849.667,
+      "alert_latency_last_p95_ms": 9851.0,
+      "alert_latency_last_max_ms": 9851.0,
+      "cpu_pct_med": 43.854,
+      "ram_mb_med": 305.16,
+      "network_mb_med": 0.058,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "kafka_acks_1_partitions_1_window_late",
+      "broker": "kafka",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "1",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 11197.0,
+      "alert_latency_first_p95_ms": 11198.0,
+      "alert_latency_first_max_ms": 11198.0,
+      "alert_latency_last_avg_ms": 11197.0,
+      "alert_latency_last_p95_ms": 11198.0,
+      "alert_latency_last_max_ms": 11198.0,
+      "cpu_pct_med": 34.324,
+      "ram_mb_med": 308.879,
+      "network_mb_med": 0.048,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "kafka_acks_all_partitions_1_window_early",
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "early",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 9847.0,
+      "alert_latency_first_p95_ms": 9848.0,
+      "alert_latency_first_max_ms": 9848.0,
+      "alert_latency_last_avg_ms": 9847.0,
+      "alert_latency_last_p95_ms": 9848.0,
+      "alert_latency_last_max_ms": 9848.0,
+      "cpu_pct_med": 34.888,
+      "ram_mb_med": 310.199,
+      "network_mb_med": 0.054,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "kafka_acks_all_partitions_1_window_late",
+      "broker": "kafka",
+      "broker_value": "all",
+      "window_mode": "late",
+      "qos": null,
+      "acks": "all",
+      "topic_partitions": 1,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 11197.333,
+      "alert_latency_first_p95_ms": 11198.0,
+      "alert_latency_first_max_ms": 11198.0,
+      "alert_latency_last_avg_ms": 11197.333,
+      "alert_latency_last_p95_ms": 11198.0,
+      "alert_latency_last_max_ms": 11198.0,
+      "cpu_pct_med": 38.107,
+      "ram_mb_med": 311.219,
+      "network_mb_med": 0.046,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_0_window_early",
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "early",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 6638.0,
+      "alert_latency_first_p95_ms": 7759.0,
+      "alert_latency_first_max_ms": 7759.0,
+      "alert_latency_last_avg_ms": 6616.667,
+      "alert_latency_last_p95_ms": 7738.0,
+      "alert_latency_last_max_ms": 7738.0,
+      "cpu_pct_med": 0.084,
+      "ram_mb_med": 0.695,
+      "network_mb_med": 0.006,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_0_window_late",
+      "broker": "mqtt",
+      "broker_value": "0",
+      "window_mode": "late",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 7985.667,
+      "alert_latency_first_p95_ms": 9307.0,
+      "alert_latency_first_max_ms": 9307.0,
+      "alert_latency_last_avg_ms": 7964.667,
+      "alert_latency_last_p95_ms": 9286.0,
+      "alert_latency_last_max_ms": 9286.0,
+      "cpu_pct_med": 0.099,
+      "ram_mb_med": 0.707,
+      "network_mb_med": 0.006,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_1_window_early",
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "early",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 6708.667,
+      "alert_latency_first_p95_ms": 7678.0,
+      "alert_latency_first_max_ms": 7678.0,
+      "alert_latency_last_avg_ms": 6687.667,
+      "alert_latency_last_p95_ms": 7657.0,
+      "alert_latency_last_max_ms": 7657.0,
+      "cpu_pct_med": 0.134,
+      "ram_mb_med": 0.703,
+      "network_mb_med": 0.007,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_1_window_late",
+      "broker": "mqtt",
+      "broker_value": "1",
+      "window_mode": "late",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 8126.0,
+      "alert_latency_first_p95_ms": 9027.0,
+      "alert_latency_first_max_ms": 9027.0,
+      "alert_latency_last_avg_ms": 8105.0,
+      "alert_latency_last_p95_ms": 9006.0,
+      "alert_latency_last_max_ms": 9006.0,
+      "cpu_pct_med": 0.098,
+      "ram_mb_med": 0.699,
+      "network_mb_med": 0.005,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_2_window_early",
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "early",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 6796.667,
+      "alert_latency_first_p95_ms": 7595.0,
+      "alert_latency_first_max_ms": 7595.0,
+      "alert_latency_last_avg_ms": 6776.0,
+      "alert_latency_last_p95_ms": 7574.0,
+      "alert_latency_last_max_ms": 7574.0,
+      "cpu_pct_med": 0.119,
+      "ram_mb_med": 0.699,
+      "network_mb_med": 0.007,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    },
+    {
+      "config_name": "mqtt_qos_2_window_late",
+      "broker": "mqtt",
+      "broker_value": "2",
+      "window_mode": "late",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 3,
+      "successful_alert_repeats": 3,
+      "alert_latency_first_avg_ms": 8076.667,
+      "alert_latency_first_p95_ms": 9180.0,
+      "alert_latency_first_max_ms": 9180.0,
+      "alert_latency_last_avg_ms": 8055.667,
+      "alert_latency_last_p95_ms": 9159.0,
+      "alert_latency_last_max_ms": 9159.0,
+      "cpu_pct_med": 0.17,
+      "ram_mb_med": 0.707,
+      "network_mb_med": 0.008,
+      "peak_consumer_lag_med": 0.0,
+      "validation_issue_runs": 0
+    }
+  ],
+  "summary": {
+    "total_tests": 36,
+    "completed_tests": 36,
+    "failed_tests": 0
+  },
+  "artifacts": {
+    "performance_table": "benchmarks\\scenario_d_results_full_performance_table.md",
+    "analysis_report": "benchmarks\\scenario_d_results_full_analysis.md"
+  }
+}

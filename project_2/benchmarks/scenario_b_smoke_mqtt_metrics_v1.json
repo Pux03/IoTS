@@ -1,0 +1,246 @@
+{
+  "generated_at": "2026-06-08T16:01:03Z",
+  "scenario": "B",
+  "tests": [
+    {
+      "scenario": "B",
+      "config_name": "mqtt_qos_0_outage",
+      "broker": "mqtt",
+      "broker_value": "0",
+      "devices": 20,
+      "interval_sec": 0.2,
+      "warmup_sec": 2,
+      "outage_sec": 4,
+      "post_reconnect_run_sec": 4,
+      "db_write_disabled": false,
+      "qos": 0,
+      "acks": null,
+      "warmup_phase": {
+        "generated_messages": 240,
+        "sent_messages": 240,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 260,
+        "analytics_processed_messages": 260,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "outage_phase": {
+        "generated_messages": 580,
+        "sent_messages": 60,
+        "dropped_messages": 168,
+        "send_errors": 0,
+        "storage_received_messages": 40,
+        "analytics_processed_messages": 40,
+        "publish_queue_depth_end": 352,
+        "offline_buffer_depth_end": 0
+      },
+      "recovery_phase": {
+        "generated_messages": 520,
+        "sent_messages": 520,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 520,
+        "analytics_processed_messages": 520,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "drain_phase": {
+        "generated_messages": 40,
+        "sent_messages": 40,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 40,
+        "analytics_processed_messages": 40,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "total_generated_messages": 1640,
+      "total_successful_publish_messages": 1416,
+      "total_dropped_messages": 224,
+      "total_storage_received_messages": 1416,
+      "total_analytics_processed_messages": 1416,
+      "publish_success_rate_vs_generated_pct": 86.341,
+      "storage_capture_rate_vs_generated_pct": 86.341,
+      "storage_capture_rate_vs_successful_publish_pct": 100.0,
+      "publish_throughput_msg_s": 92.987,
+      "storage_throughput_msg_s": 92.987,
+      "analytics_throughput_msg_s": 92.987,
+      "throughput_msg_s": {
+        "warmup": {
+          "publish": 120.0,
+          "storage": 130.0,
+          "analytics": 130.0
+        },
+        "outage": {
+          "publish": 15.0,
+          "storage": 10.0,
+          "analytics": 10.0
+        },
+        "recovery": {
+          "publish": 130.0,
+          "storage": 130.0,
+          "analytics": 130.0
+        },
+        "drain": {
+          "publish": 7.651,
+          "storage": 7.651,
+          "analytics": 7.651
+        },
+        "total": {
+          "publish": 92.987,
+          "storage": 92.987,
+          "analytics": 92.987
+        }
+      },
+      "avg_latency_ms": 867.121,
+      "p95_latency_ms": 4250.0,
+      "max_latency_ms": 4828.639,
+      "latency_sample_count": 1416,
+      "cpu_pct": 1.359,
+      "cpu_pct_avg": 0.696,
+      "ram_mb": 4.918,
+      "ram_mb_avg": 4.697,
+      "network_mb": 1.879,
+      "network_rx_mb": 0.683,
+      "network_tx_mb": 1.196,
+      "resource_sample_count": 22,
+      "recovery_sec_to_ingestion_ready": 1.567,
+      "recovery_sec_to_first_storage_message": 0.558,
+      "pipeline_settled_after_stop": true,
+      "pipeline_completion_sec_after_stop": 5.228,
+      "final_snapshot": {
+        "timestamp": 1780934505.417,
+        "generated_messages": 1640,
+        "sent_messages": 1416,
+        "dropped_messages": 224,
+        "send_errors": 0,
+        "publish_queue_depth": 0,
+        "offline_buffer_depth": 0,
+        "storage_received_messages": 1416,
+        "analytics_processed_messages": 1416,
+        "simulation_running": false,
+        "broker_ready": true
+      },
+      "timeline_outage": [
+        {
+          "elapsed_sec": 0.538,
+          "timestamp": 1780934487.495,
+          "generated_messages": 360,
+          "sent_messages": 300,
+          "dropped_messages": 24,
+          "send_errors": 0,
+          "publish_queue_depth": 36,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": false
+        },
+        {
+          "elapsed_sec": 2.086,
+          "timestamp": 1780934489.043,
+          "generated_messages": 520,
+          "sent_messages": 300,
+          "dropped_messages": 72,
+          "send_errors": 0,
+          "publish_queue_depth": 148,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": false
+        },
+        {
+          "elapsed_sec": 3.65,
+          "timestamp": 1780934490.607,
+          "generated_messages": 680,
+          "sent_messages": 300,
+          "dropped_messages": 120,
+          "send_errors": 0,
+          "publish_queue_depth": 260,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": false
+        },
+        {
+          "elapsed_sec": 5.214,
+          "timestamp": 1780934492.171,
+          "generated_messages": 820,
+          "sent_messages": 300,
+          "dropped_messages": 168,
+          "send_errors": 0,
+          "publish_queue_depth": 352,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": false
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "elapsed_sec": 0.558,
+          "timestamp": 1780934495.254,
+          "generated_messages": 1120,
+          "sent_messages": 896,
+          "dropped_messages": 224,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 916,
+          "analytics_processed_messages": 916,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 2.112,
+          "timestamp": 1780934496.807,
+          "generated_messages": 1280,
+          "sent_messages": 1056,
+          "dropped_messages": 224,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 1076,
+          "analytics_processed_messages": 1076,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 3.647,
+          "timestamp": 1780934498.343,
+          "generated_messages": 1440,
+          "sent_messages": 1216,
+          "dropped_messages": 224,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 1236,
+          "analytics_processed_messages": 1236,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 5.2,
+          "timestamp": 1780934499.896,
+          "generated_messages": 1600,
+          "sent_messages": 1376,
+          "dropped_messages": 224,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 1376,
+          "analytics_processed_messages": 1376,
+          "simulation_running": true,
+          "broker_ready": true
+        }
+      ],
+      "validation_issues": [],
+      "kafka_consumer_lag_summary": null,
+      "kafka_consumer_lag_final": null
+    }
+  ]
+}

@@ -1,0 +1,3735 @@
+{
+  "generated_at": "2026-06-08T14:20:13.406618+00:00",
+  "scenario": "A",
+  "disable_db_write": true,
+  "description": "Massive Sensor Ingestion benchmark for MQTT and Kafka with restart-per-test, latency, resource metrics and Kafka consumer lag.",
+  "tests": [
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_0_devices_100",
+      "broker": "mqtt",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 71.403,
+      "consumer_throughput_msg_per_sec": 48.537,
+      "avg_latency_ms": 10.635,
+      "p95_latency_ms": 23.592,
+      "max_latency_ms": 50.0,
+      "latency_observations": 1000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 1.663,
+      "cpu_pct_avg": 0.729,
+      "ram_mb": 1.18,
+      "ram_mb_avg": 0.914,
+      "network_mb": 2.861,
+      "network_rx_mb": 0.853,
+      "network_tx_mb": 2.008,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.041,
+      "completion_sec_from_start": 20.603,
+      "tool_elapsed_sec": 14.005,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 21,
+      "qos": 0,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 1000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.041
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_0_devices_1000",
+      "broker": "mqtt",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 606.502,
+      "consumer_throughput_msg_per_sec": 404.089,
+      "avg_latency_ms": 40.863,
+      "p95_latency_ms": 96.183,
+      "max_latency_ms": 500.0,
+      "latency_observations": 10000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 10.706,
+      "cpu_pct_avg": 5.182,
+      "ram_mb": 5.297,
+      "ram_mb_avg": 2.972,
+      "network_mb": 26.948,
+      "network_rx_mb": 7.485,
+      "network_tx_mb": 19.463,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.033,
+      "completion_sec_from_start": 24.747,
+      "tool_elapsed_sec": 16.488,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 25,
+      "qos": 0,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 10000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.072
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_0_devices_10000",
+      "broker": "mqtt",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 3700.414,
+      "consumer_throughput_msg_per_sec": 2954.908,
+      "avg_latency_ms": 1337.501,
+      "p95_latency_ms": 2727.876,
+      "max_latency_ms": 3000.0,
+      "latency_observations": 100000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 99.689,
+      "cpu_pct_avg": 25.396,
+      "ram_mb": 53.715,
+      "ram_mb_avg": 19.585,
+      "network_mb": 202.762,
+      "network_rx_mb": 64.168,
+      "network_tx_mb": 138.593,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.076,
+      "completion_sec_from_start": 33.842,
+      "tool_elapsed_sec": 27.024,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 34,
+      "qos": 0,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 100000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.063
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_1_devices_100",
+      "broker": "mqtt",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 66.689,
+      "consumer_throughput_msg_per_sec": 44.411,
+      "avg_latency_ms": 14.95,
+      "p95_latency_ms": 24.13,
+      "max_latency_ms": 50.0,
+      "latency_observations": 1000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 2.3,
+      "cpu_pct_avg": 0.855,
+      "ram_mb": 1.469,
+      "ram_mb_avg": 0.972,
+      "network_mb": 2.935,
+      "network_rx_mb": 0.925,
+      "network_tx_mb": 2.01,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.053,
+      "completion_sec_from_start": 22.517,
+      "tool_elapsed_sec": 14.995,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 23,
+      "qos": 1,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 1000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.027
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_1_devices_1000",
+      "broker": "mqtt",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 707.714,
+      "consumer_throughput_msg_per_sec": 477.418,
+      "avg_latency_ms": 168.255,
+      "p95_latency_ms": 479.335,
+      "max_latency_ms": 500.0,
+      "latency_observations": 10000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 25.501,
+      "cpu_pct_avg": 9.318,
+      "ram_mb": 8.359,
+      "ram_mb_avg": 3.433,
+      "network_mb": 29.82,
+      "network_rx_mb": 9.358,
+      "network_tx_mb": 20.461,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.05,
+      "completion_sec_from_start": 20.946,
+      "tool_elapsed_sec": 14.13,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 21,
+      "qos": 1,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 10000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.039
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_1_devices_10000",
+      "broker": "mqtt",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 1056,
+      "analytics_processed_messages": 1056,
+      "loss_messages": 98944,
+      "loss_pct": 98.944,
+      "producer_throughput_msg_per_sec": 3893.475,
+      "consumer_throughput_msg_per_sec": 27.487,
+      "avg_latency_ms": 11204.954,
+      "p95_latency_ms": 14739.13,
+      "max_latency_ms": 15000.0,
+      "latency_observations": 1056,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 102.22,
+      "cpu_pct_avg": 36.271,
+      "ram_mb": 45.262,
+      "ram_mb_avg": 20.825,
+      "network_mb": 84.071,
+      "network_rx_mb": 70.13,
+      "network_tx_mb": 13.941,
+      "validation_issues": [
+        "storage_received_less_than_sent",
+        "mqtt_latency_probe_received_less_than_sent",
+        "mqtt_latency_histogram_observations_less_than_sent"
+      ],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "counters_stable",
+      "pipeline_completion_sec": 3.106,
+      "completion_sec_from_start": 38.418,
+      "tool_elapsed_sec": 25.684,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 38,
+      "qos": 1,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 1056,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "probe_counters_stable",
+      "mqtt_probe_completion_sec": 3.131
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_2_devices_100",
+      "broker": "mqtt",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 71.674,
+      "consumer_throughput_msg_per_sec": 48.379,
+      "avg_latency_ms": 30.45,
+      "p95_latency_ms": 48.209,
+      "max_latency_ms": 50.0,
+      "latency_observations": 1000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 4.021,
+      "cpu_pct_avg": 1.68,
+      "ram_mb": 1.996,
+      "ram_mb_avg": 1.12,
+      "network_mb": 3.429,
+      "network_rx_mb": 1.213,
+      "network_tx_mb": 2.216,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.044,
+      "completion_sec_from_start": 20.67,
+      "tool_elapsed_sec": 13.952,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 21,
+      "qos": 2,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 1000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.022
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_2_devices_1000",
+      "broker": "mqtt",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 689.227,
+      "consumer_throughput_msg_per_sec": 446.688,
+      "avg_latency_ms": 329.363,
+      "p95_latency_ms": 498.613,
+      "max_latency_ms": 1000.0,
+      "latency_observations": 10000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 45.784,
+      "cpu_pct_avg": 15.616,
+      "ram_mb": 13.738,
+      "ram_mb_avg": 4.789,
+      "network_mb": 35.576,
+      "network_rx_mb": 12.286,
+      "network_tx_mb": 23.29,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.041,
+      "completion_sec_from_start": 22.387,
+      "tool_elapsed_sec": 14.509,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 23,
+      "qos": 2,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 10000,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "all_probe_messages_observed",
+      "mqtt_probe_completion_sec": 0.019
+    },
+    {
+      "scenario": "A",
+      "config_name": "mqtt_qos_2_devices_10000",
+      "broker": "mqtt",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 1040,
+      "analytics_processed_messages": 1040,
+      "loss_messages": 98960,
+      "loss_pct": 98.96,
+      "producer_throughput_msg_per_sec": 3109.84,
+      "consumer_throughput_msg_per_sec": 22.561,
+      "avg_latency_ms": 16637.632,
+      "p95_latency_ms": 19745.846,
+      "max_latency_ms": 20000.0,
+      "latency_observations": 1040,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 100.763,
+      "cpu_pct_avg": 44.517,
+      "ram_mb": 63.02,
+      "ram_mb_avg": 29.409,
+      "network_mb": 111.911,
+      "network_rx_mb": 85.451,
+      "network_tx_mb": 26.459,
+      "validation_issues": [
+        "storage_received_less_than_sent",
+        "mqtt_latency_probe_received_less_than_sent",
+        "mqtt_latency_histogram_observations_less_than_sent"
+      ],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "counters_stable",
+      "pipeline_completion_sec": 3.102,
+      "completion_sec_from_start": 46.097,
+      "tool_elapsed_sec": 32.156,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "emqtt-bench",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 46,
+      "qos": 2,
+      "max_latency_is_histogram_upper_bound": true,
+      "mqtt_probe_received_messages": 1040,
+      "mqtt_probe_settled": true,
+      "mqtt_probe_settle_reason": "probe_counters_stable",
+      "mqtt_probe_completion_sec": 3.152
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_1_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.771,
+      "consumer_throughput_msg_per_sec": 76.161,
+      "avg_latency_ms": 2.41,
+      "p95_latency_ms": 4.0,
+      "max_latency_ms": 378.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 53.324,
+      "cpu_pct_avg": 48.952,
+      "ram_mb": 340.938,
+      "ram_mb_avg": 337.254,
+      "network_mb": 0.562,
+      "network_rx_mb": 0.276,
+      "network_tx_mb": 0.287,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.057,
+      "completion_sec_from_start": 13.13,
+      "tool_elapsed_sec": 13.072,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "0",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.770528,
+        "avg_latency_ms": 2.41,
+        "max_latency_ms": 378.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 4.0,
+        "p99_latency_ms": 31.0,
+        "p999_latency_ms": 378.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_1_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.104,
+      "consumer_throughput_msg_per_sec": 749.738,
+      "avg_latency_ms": 1.16,
+      "p95_latency_ms": 4.0,
+      "max_latency_ms": 342.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 294.32,
+      "cpu_pct_avg": 66.868,
+      "ram_mb": 415.285,
+      "ram_mb_avg": 323.354,
+      "network_mb": 10.504,
+      "network_rx_mb": 4.426,
+      "network_tx_mb": 6.078,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.045,
+      "completion_sec_from_start": 13.338,
+      "tool_elapsed_sec": 13.292,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "0",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.103603,
+        "avg_latency_ms": 1.16,
+        "max_latency_ms": 342.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 4.0,
+        "p99_latency_ms": 14.0,
+        "p999_latency_ms": 20.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_1_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9983.029,
+      "consumer_throughput_msg_per_sec": 7637.086,
+      "avg_latency_ms": 9.3,
+      "p95_latency_ms": 79.0,
+      "max_latency_ms": 345.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 97.785,
+      "cpu_pct_avg": 73.625,
+      "ram_mb": 349.039,
+      "ram_mb_avg": 333.138,
+      "network_mb": 24.322,
+      "network_rx_mb": 8.285,
+      "network_tx_mb": 16.037,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.034,
+      "completion_sec_from_start": 13.094,
+      "tool_elapsed_sec": 13.058,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "0",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9983.028851,
+        "avg_latency_ms": 9.3,
+        "max_latency_ms": 345.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 79.0,
+        "p99_latency_ms": 156.0,
+        "p999_latency_ms": 180.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_4_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.87,
+      "consumer_throughput_msg_per_sec": 77.214,
+      "avg_latency_ms": 1.9,
+      "p95_latency_ms": 3.0,
+      "max_latency_ms": 353.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 105.456,
+      "cpu_pct_avg": 47.103,
+      "ram_mb": 347.461,
+      "ram_mb_avg": 313.194,
+      "network_mb": 2.978,
+      "network_rx_mb": 1.407,
+      "network_tx_mb": 1.57,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.057,
+      "completion_sec_from_start": 12.951,
+      "tool_elapsed_sec": 12.893,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "0",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 141,
+              "log_end_offset": 141,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 232,
+              "log_end_offset": 232,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 279,
+              "log_end_offset": 279,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 348,
+              "log_end_offset": 348,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 141,
+              "log_end_offset": 141,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 232,
+              "log_end_offset": 232,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 279,
+              "log_end_offset": 279,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 348,
+              "log_end_offset": 348,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.870169,
+        "avg_latency_ms": 1.9,
+        "max_latency_ms": 353.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 3.0,
+        "p99_latency_ms": 21.0,
+        "p999_latency_ms": 353.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_4_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 997.606,
+      "consumer_throughput_msg_per_sec": 752.219,
+      "avg_latency_ms": 1.13,
+      "p95_latency_ms": 4.0,
+      "max_latency_ms": 338.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 287.733,
+      "cpu_pct_avg": 81.654,
+      "ram_mb": 452.492,
+      "ram_mb_avg": 329.883,
+      "network_mb": 13.797,
+      "network_rx_mb": 5.714,
+      "network_tx_mb": 8.083,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.035,
+      "completion_sec_from_start": 13.294,
+      "tool_elapsed_sec": 13.259,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "0",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2455,
+              "log_end_offset": 2455,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2483,
+              "log_end_offset": 2483,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2451,
+              "log_end_offset": 2451,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 2611,
+              "log_end_offset": 2611,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2455,
+              "log_end_offset": 2455,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2483,
+              "log_end_offset": 2483,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2451,
+              "log_end_offset": 2451,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 2611,
+              "log_end_offset": 2611,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 997.605746,
+        "avg_latency_ms": 1.13,
+        "max_latency_ms": 338.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 4.0,
+        "p99_latency_ms": 16.0,
+        "p999_latency_ms": 20.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_4_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9982.032,
+      "consumer_throughput_msg_per_sec": 6790.249,
+      "avg_latency_ms": 5.2,
+      "p95_latency_ms": 43.0,
+      "max_latency_ms": 365.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 226.34,
+      "cpu_pct_avg": 54.251,
+      "ram_mb": 377.578,
+      "ram_mb_avg": 314.593,
+      "network_mb": 51.949,
+      "network_rx_mb": 17.768,
+      "network_tx_mb": 34.181,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.089,
+      "completion_sec_from_start": 14.727,
+      "tool_elapsed_sec": 14.637,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 15,
+      "acks": "0",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 23724,
+              "log_end_offset": 23724,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 24835,
+              "log_end_offset": 24835,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 25412,
+              "log_end_offset": 25412,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 26029,
+              "log_end_offset": 26029,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 23724,
+              "log_end_offset": 23724,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 24835,
+              "log_end_offset": 24835,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 25412,
+              "log_end_offset": 25412,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 26029,
+              "log_end_offset": 26029,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9982.032342,
+        "avg_latency_ms": 5.2,
+        "max_latency_ms": 365.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 43.0,
+        "p99_latency_ms": 90.0,
+        "p999_latency_ms": 119.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_8_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.95,
+      "consumer_throughput_msg_per_sec": 76.272,
+      "avg_latency_ms": 1.8,
+      "p95_latency_ms": 3.0,
+      "max_latency_ms": 345.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 57.982,
+      "cpu_pct_avg": 46.025,
+      "ram_mb": 322.742,
+      "ram_mb_avg": 313.654,
+      "network_mb": 0.595,
+      "network_rx_mb": 0.271,
+      "network_tx_mb": 0.325,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.029,
+      "completion_sec_from_start": 13.111,
+      "tool_elapsed_sec": 13.081,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "0",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 155,
+              "log_end_offset": 155,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 138,
+              "log_end_offset": 138,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 47,
+              "log_end_offset": 47,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 194,
+              "log_end_offset": 194,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 187,
+              "log_end_offset": 187,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 155,
+              "log_end_offset": 155,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 138,
+              "log_end_offset": 138,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 47,
+              "log_end_offset": 47,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 194,
+              "log_end_offset": 194,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 187,
+              "log_end_offset": 187,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.950025,
+        "avg_latency_ms": 1.8,
+        "max_latency_ms": 345.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 3.0,
+        "p99_latency_ms": 17.0,
+        "p999_latency_ms": 345.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_8_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.104,
+      "consumer_throughput_msg_per_sec": 761.093,
+      "avg_latency_ms": 1.2,
+      "p95_latency_ms": 4.0,
+      "max_latency_ms": 325.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 268.694,
+      "cpu_pct_avg": 68.66,
+      "ram_mb": 461.988,
+      "ram_mb_avg": 324.983,
+      "network_mb": 12.494,
+      "network_rx_mb": 5.116,
+      "network_tx_mb": 7.378,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.052,
+      "completion_sec_from_start": 13.139,
+      "tool_elapsed_sec": 13.085,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "0",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1248,
+              "log_end_offset": 1248,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1097,
+              "log_end_offset": 1097,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1148,
+              "log_end_offset": 1148,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1503,
+              "log_end_offset": 1503,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1355,
+              "log_end_offset": 1355,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 1134,
+              "log_end_offset": 1134,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 1258,
+              "log_end_offset": 1258,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1257,
+              "log_end_offset": 1257,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1248,
+              "log_end_offset": 1248,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1097,
+              "log_end_offset": 1097,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1148,
+              "log_end_offset": 1148,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1503,
+              "log_end_offset": 1503,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1355,
+              "log_end_offset": 1355,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 1134,
+              "log_end_offset": 1134,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 1258,
+              "log_end_offset": 1258,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1257,
+              "log_end_offset": 1257,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.103603,
+        "avg_latency_ms": 1.2,
+        "max_latency_ms": 325.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 4.0,
+        "p99_latency_ms": 19.0,
+        "p999_latency_ms": 22.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_0_partitions_8_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9980.04,
+      "consumer_throughput_msg_per_sec": 7209.805,
+      "avg_latency_ms": 3.2,
+      "p95_latency_ms": 15.0,
+      "max_latency_ms": 370.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 283.867,
+      "cpu_pct_avg": 53.813,
+      "ram_mb": 481.125,
+      "ram_mb_avg": 329.476,
+      "network_mb": 70.545,
+      "network_rx_mb": 24.184,
+      "network_tx_mb": 46.361,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.035,
+      "completion_sec_from_start": 13.87,
+      "tool_elapsed_sec": 13.835,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "0",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 12250,
+              "log_end_offset": 12250,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 11881,
+              "log_end_offset": 11881,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 11937,
+              "log_end_offset": 11937,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 12361,
+              "log_end_offset": 12361,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12589,
+              "log_end_offset": 12589,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 14221,
+              "log_end_offset": 14221,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 12636,
+              "log_end_offset": 12636,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 12125,
+              "log_end_offset": 12125,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 12250,
+              "log_end_offset": 12250,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 11881,
+              "log_end_offset": 11881,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 11937,
+              "log_end_offset": 11937,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 12361,
+              "log_end_offset": 12361,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12589,
+              "log_end_offset": 12589,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 14221,
+              "log_end_offset": 14221,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 12636,
+              "log_end_offset": 12636,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 12125,
+              "log_end_offset": 12125,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9980.03992,
+        "avg_latency_ms": 3.2,
+        "max_latency_ms": 370.0,
+        "p50_latency_ms": 1.0,
+        "p95_latency_ms": 15.0,
+        "p99_latency_ms": 65.0,
+        "p999_latency_ms": 78.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_1_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.94,
+      "consumer_throughput_msg_per_sec": 76.617,
+      "avg_latency_ms": 3.6,
+      "p95_latency_ms": 7.0,
+      "max_latency_ms": 397.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 93.88,
+      "cpu_pct_avg": 39.271,
+      "ram_mb": 337.652,
+      "ram_mb_avg": 315.364,
+      "network_mb": 2.452,
+      "network_rx_mb": 1.185,
+      "network_tx_mb": 1.267,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.045,
+      "completion_sec_from_start": 13.052,
+      "tool_elapsed_sec": 13.006,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "1",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.940036,
+        "avg_latency_ms": 3.6,
+        "max_latency_ms": 397.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 7.0,
+        "p99_latency_ms": 32.0,
+        "p999_latency_ms": 397.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_1_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.602,
+      "consumer_throughput_msg_per_sec": 749.569,
+      "avg_latency_ms": 5.46,
+      "p95_latency_ms": 23.0,
+      "max_latency_ms": 350.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 235.132,
+      "cpu_pct_avg": 89.477,
+      "ram_mb": 437.859,
+      "ram_mb_avg": 335.165,
+      "network_mb": 13.023,
+      "network_rx_mb": 5.26,
+      "network_tx_mb": 7.763,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.059,
+      "completion_sec_from_start": 13.341,
+      "tool_elapsed_sec": 13.281,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.601957,
+        "avg_latency_ms": 5.46,
+        "max_latency_ms": 350.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 23.0,
+        "p99_latency_ms": 32.0,
+        "p999_latency_ms": 36.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_1_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9963.136,
+      "consumer_throughput_msg_per_sec": 7370.826,
+      "avg_latency_ms": 49.23,
+      "p95_latency_ms": 376.0,
+      "max_latency_ms": 421.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 264.943,
+      "cpu_pct_avg": 61.84,
+      "ram_mb": 404.379,
+      "ram_mb_avg": 319.834,
+      "network_mb": 66.662,
+      "network_rx_mb": 22.699,
+      "network_tx_mb": 43.963,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.092,
+      "completion_sec_from_start": 13.567,
+      "tool_elapsed_sec": 13.473,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9963.136395,
+        "avg_latency_ms": 49.23,
+        "max_latency_ms": 421.0,
+        "p50_latency_ms": 4.0,
+        "p95_latency_ms": 376.0,
+        "p99_latency_ms": 411.0,
+        "p999_latency_ms": 418.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_4_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.88,
+      "consumer_throughput_msg_per_sec": 75.529,
+      "avg_latency_ms": 3.7,
+      "p95_latency_ms": 8.0,
+      "max_latency_ms": 349.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 115.818,
+      "cpu_pct_avg": 56.072,
+      "ram_mb": 347.516,
+      "ram_mb_avg": 319.062,
+      "network_mb": 2.904,
+      "network_rx_mb": 1.334,
+      "network_tx_mb": 1.571,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.046,
+      "completion_sec_from_start": 13.24,
+      "tool_elapsed_sec": 13.193,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 203,
+              "log_end_offset": 203,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 420,
+              "log_end_offset": 420,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 284,
+              "log_end_offset": 284,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 203,
+              "log_end_offset": 203,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 420,
+              "log_end_offset": 420,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 284,
+              "log_end_offset": 284,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.880144,
+        "avg_latency_ms": 3.7,
+        "max_latency_ms": 349.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 8.0,
+        "p99_latency_ms": 35.0,
+        "p999_latency_ms": 349.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_4_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.104,
+      "consumer_throughput_msg_per_sec": 752.615,
+      "avg_latency_ms": 5.63,
+      "p95_latency_ms": 23.0,
+      "max_latency_ms": 381.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 297.012,
+      "cpu_pct_avg": 95.528,
+      "ram_mb": 476.402,
+      "ram_mb_avg": 335.581,
+      "network_mb": 13.457,
+      "network_rx_mb": 5.293,
+      "network_tx_mb": 8.164,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.037,
+      "completion_sec_from_start": 13.287,
+      "tool_elapsed_sec": 13.249,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2714,
+              "log_end_offset": 2714,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2603,
+              "log_end_offset": 2603,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2173,
+              "log_end_offset": 2173,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 2510,
+              "log_end_offset": 2510,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2714,
+              "log_end_offset": 2714,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2603,
+              "log_end_offset": 2603,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2173,
+              "log_end_offset": 2173,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 2510,
+              "log_end_offset": 2510,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.103603,
+        "avg_latency_ms": 5.63,
+        "max_latency_ms": 381.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 23.0,
+        "p99_latency_ms": 36.0,
+        "p999_latency_ms": 44.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_4_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9978.048,
+      "consumer_throughput_msg_per_sec": 5529.75,
+      "avg_latency_ms": 9.28,
+      "p95_latency_ms": 47.0,
+      "max_latency_ms": 356.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 305.054,
+      "cpu_pct_avg": 117.2,
+      "ram_mb": 465.328,
+      "ram_mb_avg": 357.328,
+      "network_mb": 71.375,
+      "network_rx_mb": 24.362,
+      "network_tx_mb": 47.013,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.04,
+      "completion_sec_from_start": 18.084,
+      "tool_elapsed_sec": 18.042,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 18,
+      "acks": "1",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 24163,
+              "log_end_offset": 24163,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 26064,
+              "log_end_offset": 26064,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 25801,
+              "log_end_offset": 25801,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 23972,
+              "log_end_offset": 23972,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 24163,
+              "log_end_offset": 24163,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 26064,
+              "log_end_offset": 26064,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 25801,
+              "log_end_offset": 25801,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 23972,
+              "log_end_offset": 23972,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9978.048294,
+        "avg_latency_ms": 9.28,
+        "max_latency_ms": 356.0,
+        "p50_latency_ms": 3.0,
+        "p95_latency_ms": 47.0,
+        "p99_latency_ms": 72.0,
+        "p999_latency_ms": 87.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_8_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.86,
+      "consumer_throughput_msg_per_sec": 75.523,
+      "avg_latency_ms": 4.65,
+      "p95_latency_ms": 14.0,
+      "max_latency_ms": 452.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 129.261,
+      "cpu_pct_avg": 57.091,
+      "ram_mb": 347.027,
+      "ram_mb_avg": 320.741,
+      "network_mb": 2.974,
+      "network_rx_mb": 1.335,
+      "network_tx_mb": 1.639,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.079,
+      "completion_sec_from_start": 13.241,
+      "tool_elapsed_sec": 13.161,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 155,
+              "log_end_offset": 155,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 192,
+              "log_end_offset": 192,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 155,
+              "log_end_offset": 155,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 192,
+              "log_end_offset": 192,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.860196,
+        "avg_latency_ms": 4.65,
+        "max_latency_ms": 452.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 14.0,
+        "p99_latency_ms": 48.0,
+        "p999_latency_ms": 452.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_8_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.303,
+      "consumer_throughput_msg_per_sec": 772.618,
+      "avg_latency_ms": 4.6,
+      "p95_latency_ms": 19.0,
+      "max_latency_ms": 365.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 271.705,
+      "cpu_pct_avg": 64.844,
+      "ram_mb": 457.176,
+      "ram_mb_avg": 324.24,
+      "network_mb": 15.191,
+      "network_rx_mb": 6.067,
+      "network_tx_mb": 9.124,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.056,
+      "completion_sec_from_start": 12.943,
+      "tool_elapsed_sec": 12.885,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "1",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1153,
+              "log_end_offset": 1153,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1158,
+              "log_end_offset": 1158,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1839,
+              "log_end_offset": 1839,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1094,
+              "log_end_offset": 1094,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1413,
+              "log_end_offset": 1413,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 937,
+              "log_end_offset": 937,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 938,
+              "log_end_offset": 938,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1468,
+              "log_end_offset": 1468,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1153,
+              "log_end_offset": 1153,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1158,
+              "log_end_offset": 1158,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1839,
+              "log_end_offset": 1839,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1094,
+              "log_end_offset": 1094,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1413,
+              "log_end_offset": 1413,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 937,
+              "log_end_offset": 937,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 938,
+              "log_end_offset": 938,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1468,
+              "log_end_offset": 1468,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.302885,
+        "avg_latency_ms": 4.6,
+        "max_latency_ms": 365.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 19.0,
+        "p99_latency_ms": 35.0,
+        "p999_latency_ms": 39.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_1_partitions_8_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9987.017,
+      "consumer_throughput_msg_per_sec": 7505.817,
+      "avg_latency_ms": 7.8,
+      "p95_latency_ms": 40.0,
+      "max_latency_ms": 385.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 274.529,
+      "cpu_pct_avg": 71.95,
+      "ram_mb": 474.023,
+      "ram_mb_avg": 331.83,
+      "network_mb": 72.199,
+      "network_rx_mb": 24.651,
+      "network_tx_mb": 47.548,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.052,
+      "completion_sec_from_start": 13.323,
+      "tool_elapsed_sec": 13.271,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "1",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 13792,
+              "log_end_offset": 13792,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 13010,
+              "log_end_offset": 13010,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 11380,
+              "log_end_offset": 11380,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 11855,
+              "log_end_offset": 11855,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12186,
+              "log_end_offset": 12186,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 12079,
+              "log_end_offset": 12079,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 13823,
+              "log_end_offset": 13823,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 11875,
+              "log_end_offset": 11875,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 13792,
+              "log_end_offset": 13792,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 13010,
+              "log_end_offset": 13010,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 11380,
+              "log_end_offset": 11380,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 11855,
+              "log_end_offset": 11855,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12186,
+              "log_end_offset": 12186,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 12079,
+              "log_end_offset": 12079,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 13823,
+              "log_end_offset": 13823,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 11875,
+              "log_end_offset": 11875,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9987.016878,
+        "avg_latency_ms": 7.8,
+        "max_latency_ms": 385.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 40.0,
+        "p99_latency_ms": 58.0,
+        "p999_latency_ms": 88.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_1_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.93,
+      "consumer_throughput_msg_per_sec": 75.58,
+      "avg_latency_ms": 8.28,
+      "p95_latency_ms": 16.0,
+      "max_latency_ms": 479.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 92.136,
+      "cpu_pct_avg": 49.431,
+      "ram_mb": 340.184,
+      "ram_mb_avg": 312.182,
+      "network_mb": 2.59,
+      "network_rx_mb": 1.251,
+      "network_tx_mb": 1.34,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.036,
+      "completion_sec_from_start": 13.231,
+      "tool_elapsed_sec": 13.194,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "all",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1000,
+              "log_end_offset": 1000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.930049,
+        "avg_latency_ms": 8.28,
+        "max_latency_ms": 479.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 16.0,
+        "p99_latency_ms": 133.0,
+        "p999_latency_ms": 479.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_1_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 997.606,
+      "consumer_throughput_msg_per_sec": 756.372,
+      "avg_latency_ms": 9.48,
+      "p95_latency_ms": 29.0,
+      "max_latency_ms": 443.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 249.872,
+      "cpu_pct_avg": 95.254,
+      "ram_mb": 439.02,
+      "ram_mb_avg": 333.655,
+      "network_mb": 12.841,
+      "network_rx_mb": 5.155,
+      "network_tx_mb": 7.686,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.062,
+      "completion_sec_from_start": 13.221,
+      "tool_elapsed_sec": 13.158,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "all",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 10000,
+              "log_end_offset": 10000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 997.605746,
+        "avg_latency_ms": 9.48,
+        "max_latency_ms": 443.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 29.0,
+        "p99_latency_ms": 128.0,
+        "p999_latency_ms": 130.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_1_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9954.211,
+      "consumer_throughput_msg_per_sec": 7607.455,
+      "avg_latency_ms": 55.41,
+      "p95_latency_ms": 457.0,
+      "max_latency_ms": 530.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 58.85,
+      "cpu_pct_avg": 47.035,
+      "ram_mb": 326.199,
+      "ram_mb_avg": 319.492,
+      "network_mb": 14.398,
+      "network_rx_mb": 4.88,
+      "network_tx_mb": 9.518,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.039,
+      "completion_sec_from_start": 13.145,
+      "tool_elapsed_sec": 13.105,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "all",
+      "topic_partitions": 1,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 100000,
+              "log_end_offset": 100000,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9954.210631,
+        "avg_latency_ms": 55.41,
+        "max_latency_ms": 530.0,
+        "p50_latency_ms": 3.0,
+        "p95_latency_ms": 457.0,
+        "p99_latency_ms": 509.0,
+        "p999_latency_ms": 527.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_4_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.93,
+      "consumer_throughput_msg_per_sec": 75.643,
+      "avg_latency_ms": 8.05,
+      "p95_latency_ms": 18.0,
+      "max_latency_ms": 463.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 113.346,
+      "cpu_pct_avg": 47.586,
+      "ram_mb": 349.836,
+      "ram_mb_avg": 317.969,
+      "network_mb": 2.818,
+      "network_rx_mb": 1.293,
+      "network_tx_mb": 1.524,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.05,
+      "completion_sec_from_start": 13.22,
+      "tool_elapsed_sec": 13.167,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "all",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 233,
+              "log_end_offset": 233,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 279,
+              "log_end_offset": 279,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 302,
+              "log_end_offset": 302,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 233,
+              "log_end_offset": 233,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 279,
+              "log_end_offset": 279,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 302,
+              "log_end_offset": 302,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.930049,
+        "avg_latency_ms": 8.05,
+        "max_latency_ms": 463.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 18.0,
+        "p99_latency_ms": 131.0,
+        "p999_latency_ms": 463.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_4_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.303,
+      "consumer_throughput_msg_per_sec": 760.456,
+      "avg_latency_ms": 10.89,
+      "p95_latency_ms": 35.0,
+      "max_latency_ms": 455.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 103.967,
+      "cpu_pct_avg": 78.112,
+      "ram_mb": 342.668,
+      "ram_mb_avg": 327.684,
+      "network_mb": 3.086,
+      "network_rx_mb": 1.167,
+      "network_tx_mb": 1.92,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.046,
+      "completion_sec_from_start": 13.15,
+      "tool_elapsed_sec": 13.103,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "all",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2005,
+              "log_end_offset": 2005,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2213,
+              "log_end_offset": 2213,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2701,
+              "log_end_offset": 2701,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 3081,
+              "log_end_offset": 3081,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 2005,
+              "log_end_offset": 2005,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 2213,
+              "log_end_offset": 2213,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 2701,
+              "log_end_offset": 2701,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 3081,
+              "log_end_offset": 3081,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.302885,
+        "avg_latency_ms": 10.89,
+        "max_latency_ms": 455.0,
+        "p50_latency_ms": 3.0,
+        "p95_latency_ms": 35.0,
+        "p99_latency_ms": 133.0,
+        "p999_latency_ms": 138.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_4_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9980.04,
+      "consumer_throughput_msg_per_sec": 7544.323,
+      "avg_latency_ms": 21.82,
+      "p95_latency_ms": 136.0,
+      "max_latency_ms": 470.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 308.365,
+      "cpu_pct_avg": 63.042,
+      "ram_mb": 469.418,
+      "ram_mb_avg": 328.726,
+      "network_mb": 73.693,
+      "network_rx_mb": 25.122,
+      "network_tx_mb": 48.571,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.061,
+      "completion_sec_from_start": 13.255,
+      "tool_elapsed_sec": 13.194,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "all",
+      "topic_partitions": 4,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 25120,
+              "log_end_offset": 25120,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 25903,
+              "log_end_offset": 25903,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 24894,
+              "log_end_offset": 24894,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 24083,
+              "log_end_offset": 24083,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 25120,
+              "log_end_offset": 25120,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 25903,
+              "log_end_offset": 25903,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 24894,
+              "log_end_offset": 24894,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 24083,
+              "log_end_offset": 24083,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9980.03992,
+        "avg_latency_ms": 21.82,
+        "max_latency_ms": 470.0,
+        "p50_latency_ms": 4.0,
+        "p95_latency_ms": 136.0,
+        "p99_latency_ms": 277.0,
+        "p999_latency_ms": 401.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_8_devices_100",
+      "broker": "kafka",
+      "devices": 100,
+      "messages_sent": 1000,
+      "messages_received": 1000,
+      "analytics_processed_messages": 1000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 99.94,
+      "consumer_throughput_msg_per_sec": 77.095,
+      "avg_latency_ms": 8.01,
+      "p95_latency_ms": 19.0,
+      "max_latency_ms": 448.0,
+      "latency_observations": 1000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 108.623,
+      "cpu_pct_avg": 43.403,
+      "ram_mb": 353.375,
+      "ram_mb_avg": 315.49,
+      "network_mb": 3.362,
+      "network_rx_mb": 1.509,
+      "network_tx_mb": 1.854,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.054,
+      "completion_sec_from_start": 12.971,
+      "tool_elapsed_sec": 12.917,
+      "target_throughput_msg_per_sec": 100.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "all",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 99,
+              "log_end_offset": 99,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 187,
+              "log_end_offset": 187,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 232,
+              "log_end_offset": 232,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 47,
+              "log_end_offset": 47,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 62,
+              "log_end_offset": 62,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 1000,
+          "log_end_offset": 1000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 94,
+              "log_end_offset": 94,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 93,
+              "log_end_offset": 93,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 99,
+              "log_end_offset": 99,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 187,
+              "log_end_offset": 187,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 232,
+              "log_end_offset": 232,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 47,
+              "log_end_offset": 47,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 62,
+              "log_end_offset": 62,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 186,
+              "log_end_offset": 186,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 1000,
+      "log_end_offset": 1000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 1000.0,
+        "records_per_sec": 99.940036,
+        "avg_latency_ms": 8.01,
+        "max_latency_ms": 448.0,
+        "p50_latency_ms": 2.0,
+        "p95_latency_ms": 19.0,
+        "p99_latency_ms": 134.0,
+        "p999_latency_ms": 448.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_8_devices_1000",
+      "broker": "kafka",
+      "devices": 1000,
+      "messages_sent": 10000,
+      "messages_received": 10000,
+      "analytics_processed_messages": 10000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 998.901,
+      "consumer_throughput_msg_per_sec": 751.089,
+      "avg_latency_ms": 10.5,
+      "p95_latency_ms": 37.0,
+      "max_latency_ms": 514.0,
+      "latency_observations": 10000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 288.862,
+      "cpu_pct_avg": 91.856,
+      "ram_mb": 457.355,
+      "ram_mb_avg": 335.261,
+      "network_mb": 14.626,
+      "network_rx_mb": 5.774,
+      "network_tx_mb": 8.852,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.034,
+      "completion_sec_from_start": 13.314,
+      "tool_elapsed_sec": 13.278,
+      "target_throughput_msg_per_sec": 1000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 14,
+      "acks": "all",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1366,
+              "log_end_offset": 1366,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1210,
+              "log_end_offset": 1210,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1002,
+              "log_end_offset": 1002,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1050,
+              "log_end_offset": 1050,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1321,
+              "log_end_offset": 1321,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 1371,
+              "log_end_offset": 1371,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 1568,
+              "log_end_offset": 1568,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1112,
+              "log_end_offset": 1112,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 10000,
+          "log_end_offset": 10000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 1366,
+              "log_end_offset": 1366,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 1210,
+              "log_end_offset": 1210,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 1002,
+              "log_end_offset": 1002,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 1050,
+              "log_end_offset": 1050,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 1321,
+              "log_end_offset": 1321,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 1371,
+              "log_end_offset": 1371,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 1568,
+              "log_end_offset": 1568,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 1112,
+              "log_end_offset": 1112,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 10000,
+      "log_end_offset": 10000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 10000.0,
+        "records_per_sec": 998.901209,
+        "avg_latency_ms": 10.5,
+        "max_latency_ms": 514.0,
+        "p50_latency_ms": 3.0,
+        "p95_latency_ms": 37.0,
+        "p99_latency_ms": 134.0,
+        "p999_latency_ms": 136.0
+      }
+    },
+    {
+      "scenario": "A",
+      "config_name": "kafka_acks_all_partitions_8_devices_10000",
+      "broker": "kafka",
+      "devices": 10000,
+      "messages_sent": 100000,
+      "messages_received": 100000,
+      "analytics_processed_messages": 100000,
+      "loss_messages": 0,
+      "loss_pct": 0.0,
+      "producer_throughput_msg_per_sec": 9964.129,
+      "consumer_throughput_msg_per_sec": 7784.524,
+      "avg_latency_ms": 13.54,
+      "p95_latency_ms": 69.0,
+      "max_latency_ms": 436.0,
+      "latency_observations": 100000,
+      "latency_source": "kafka-producer-perf-test_summary",
+      "cpu_pct": 206.192,
+      "cpu_pct_avg": 70.689,
+      "ram_mb": 364.797,
+      "ram_mb_avg": 320.413,
+      "network_mb": 37.502,
+      "network_rx_mb": 12.746,
+      "network_tx_mb": 24.756,
+      "validation_issues": [],
+      "pipeline_settled": true,
+      "pipeline_settle_reason": "all_messages_observed",
+      "pipeline_completion_sec": 0.063,
+      "completion_sec_from_start": 12.846,
+      "tool_elapsed_sec": 12.782,
+      "target_throughput_msg_per_sec": 10000.0,
+      "tool": "kafka-producer-perf-test.sh",
+      "interval_sec": 1.0,
+      "duration_sec": 10,
+      "resource_sample_count": 13,
+      "acks": "all",
+      "topic_partitions": 8,
+      "consumer_lag_groups": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 11408,
+              "log_end_offset": 11408,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 12345,
+              "log_end_offset": 12345,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 13918,
+              "log_end_offset": 13918,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 12876,
+              "log_end_offset": 12876,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12234,
+              "log_end_offset": 12234,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 11980,
+              "log_end_offset": 11980,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 11852,
+              "log_end_offset": 11852,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 13387,
+              "log_end_offset": 13387,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 100000,
+          "log_end_offset": 100000,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 11408,
+              "log_end_offset": 11408,
+              "lag": 0
+            },
+            {
+              "partition": 1,
+              "current_offset": 12345,
+              "log_end_offset": 12345,
+              "lag": 0
+            },
+            {
+              "partition": 2,
+              "current_offset": 13918,
+              "log_end_offset": 13918,
+              "lag": 0
+            },
+            {
+              "partition": 3,
+              "current_offset": 12876,
+              "log_end_offset": 12876,
+              "lag": 0
+            },
+            {
+              "partition": 4,
+              "current_offset": 12234,
+              "log_end_offset": 12234,
+              "lag": 0
+            },
+            {
+              "partition": 5,
+              "current_offset": 11980,
+              "log_end_offset": 11980,
+              "lag": 0
+            },
+            {
+              "partition": 6,
+              "current_offset": 11852,
+              "log_end_offset": 11852,
+              "lag": 0
+            },
+            {
+              "partition": 7,
+              "current_offset": 13387,
+              "log_end_offset": 13387,
+              "lag": 0
+            }
+          ]
+        }
+      },
+      "current_offset": 100000,
+      "log_end_offset": 100000,
+      "lag": 0,
+      "consumer_lag": 0,
+      "kafka_producer_summary": {
+        "records": 100000.0,
+        "records_per_sec": 9964.129135,
+        "avg_latency_ms": 13.54,
+        "max_latency_ms": 436.0,
+        "p50_latency_ms": 3.0,
+        "p95_latency_ms": 69.0,
+        "p99_latency_ms": 166.0,
+        "p999_latency_ms": 220.0
+      }
+    }
+  ],
+  "summary": {
+    "total_tests": 36,
+    "completed_tests": 36,
+    "failed_tests": 0
+  }
+}

@@ -27,7 +27,7 @@ Sistem se sastoji od sledećih komponenti:
 
 4. **Monitoring Stack**:
    - **Prometheus**: Prikuplja metrike iz svih mikroservisa.
-   - **cAdvisor**: Prikuplja resurse (CPU/RAM) svakog Docker kontejnera.
+   - **Resource Monitor**: Prikuplja CPU/RAM i mrežne metrike svih Docker kontejnera preko Docker stats API-ja.
    - **Grafana**: Prekonfigurisana sa vizuelnim dashboard-om na portu `3000`.
 
 ---
@@ -69,6 +69,25 @@ docker-compose up -d --build
 ```
 
 ### Korak 3: Pokretanje benchmark scenarija
+Za kompletan Scenario A sa namenskim alatima koristite:
+```bash
+python benchmarks/run_scenario_a.py
+```
+
+`run_scenario_a.py` sada automatski pokriva MQTT `QoS 0/1/2`, Kafka `acks 0/1/all`, Kafka particije `1/4/8`, restart staka po testu, resursne metrike i Kafka consumer lag.
+
+Za Scenario B outage/recovery benchmark koristite:
+```bash
+python benchmarks/run_scenario_b.py
+```
+
+`run_scenario_b.py` automatski restartuje stack po testu i podrzava dva moda:
+- `tool_benchmark`, gde se outage meri nad namenskim publisher alatima (`emqtt-bench` / `kafka-producer-perf-test.sh`)
+- `app_buffered`, gde se outage meri nad `data-ingestion` servisom da bi se video uticaj aplikacionog buffering-a
+
+Runner meri throughput, `avg/p95/max` latenciju, CPU/RAM/network footprint, recovery vremena, i za Kafka cuva consumer lag kroz konfiguracije `acks 0/1/all` i particije `1/4/8`.
+
+Detaljniji opis benchmark skripti je u `benchmarks/README.md`.
 Pokrenite automatsku Python skriptu koja rekonfiguriše brokere, pokreće scenarije (A, B, C, D) i beleži podatke:
 ```bash
 python benchmarks/run_all_scenarios.py

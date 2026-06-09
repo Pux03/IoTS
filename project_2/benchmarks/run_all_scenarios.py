@@ -1,3 +1,10 @@
+"""
+Legacy application-scenario orchestrator.
+
+For the PDF-aligned broker benchmark flow that uses dedicated protocol tools,
+prefer `benchmarks/run_protocol_benchmarks.py`.
+"""
+
 import subprocess
 import time
 import urllib.request
@@ -228,6 +235,10 @@ def run_scenario_d():
     return {"latency_ms": latency, "alerts_total": alerts}
 
 def main():
+    print(
+        "NOTE: This script is kept for application-level scenario orchestration. "
+        "For PDF-aligned benchmark tooling, use benchmarks/run_protocol_benchmarks.py."
+    )
     # Proširena lista konfiguracija koja uključuje kompletan opseg zahteva:
     # MQTT: QoS 0, QoS 1, QoS 2
     # Kafka: Acks 0, Acks 1, Acks all

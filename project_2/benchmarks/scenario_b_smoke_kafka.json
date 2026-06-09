@@ -1,0 +1,462 @@
+{
+  "generated_at": "2026-06-08T15:25:34Z",
+  "scenario": "B",
+  "tests": [
+    {
+      "scenario": "B",
+      "config_name": "kafka_acks_1_outage",
+      "broker": "kafka",
+      "broker_value": "1",
+      "devices": 20,
+      "interval_sec": 0.2,
+      "warmup_sec": 2,
+      "outage_sec": 5,
+      "post_reconnect_run_sec": 5,
+      "db_write_disabled": false,
+      "qos": null,
+      "acks": "1",
+      "warmup_phase": {
+        "generated_messages": 240,
+        "sent_messages": 236,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 256,
+        "analytics_processed_messages": 256,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "outage_phase": {
+        "generated_messages": 740,
+        "sent_messages": 64,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 44,
+        "analytics_processed_messages": 44,
+        "publish_queue_depth_end": 672,
+        "offline_buffer_depth_end": 0
+      },
+      "recovery_phase": {
+        "generated_messages": 3580,
+        "sent_messages": 4380,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 4400,
+        "analytics_processed_messages": 4400,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "drain_phase": {
+        "generated_messages": 820,
+        "sent_messages": 820,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "storage_received_messages": 800,
+        "analytics_processed_messages": 800,
+        "publish_queue_depth_end": 0,
+        "offline_buffer_depth_end": 0
+      },
+      "total_generated_messages": 5500,
+      "total_successful_publish_messages": 5500,
+      "total_dropped_messages": 0,
+      "total_storage_received_messages": 5500,
+      "total_analytics_processed_messages": 5500,
+      "publish_success_rate_vs_generated_pct": 100.0,
+      "storage_capture_rate_vs_generated_pct": 100.0,
+      "storage_capture_rate_vs_successful_publish_pct": 100.0,
+      "recovery_sec_to_ingestion_ready": 0.295,
+      "recovery_sec_to_first_storage_message": 9.74,
+      "pipeline_settled_after_stop": true,
+      "pipeline_completion_sec_after_stop": 5.306,
+      "final_snapshot": {
+        "timestamp": 1780932431.731,
+        "generated_messages": 5500,
+        "sent_messages": 5500,
+        "dropped_messages": 0,
+        "send_errors": 0,
+        "publish_queue_depth": 0,
+        "offline_buffer_depth": 0,
+        "storage_received_messages": 5500,
+        "analytics_processed_messages": 5500,
+        "simulation_running": false,
+        "broker_ready": true
+      },
+      "timeline_outage": [
+        {
+          "elapsed_sec": 0.543,
+          "timestamp": 1780932374.922,
+          "generated_messages": 360,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 52,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 2.098,
+          "timestamp": 1780932376.477,
+          "generated_messages": 520,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 212,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 3.654,
+          "timestamp": 1780932378.033,
+          "generated_messages": 660,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 352,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 5.243,
+          "timestamp": 1780932379.623,
+          "generated_messages": 820,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 512,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true
+        },
+        {
+          "elapsed_sec": 6.863,
+          "timestamp": 1780932381.242,
+          "generated_messages": 980,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 672,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "elapsed_sec": 0.587,
+          "timestamp": 1780932383.053,
+          "generated_messages": 1160,
+          "sent_messages": 300,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 852,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 300,
+          "analytics_processed_messages": 300,
+          "simulation_running": true,
+          "broker_ready": true,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 300,
+              "log_end_offset": 300,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 300,
+                  "log_end_offset": 300,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 548,
+              "log_end_offset": 556,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 548,
+                  "log_end_offset": 556,
+                  "lag": 8
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 9.74,
+          "timestamp": 1780932392.206,
+          "generated_messages": 2080,
+          "sent_messages": 860,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 1212,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 892,
+          "analytics_processed_messages": 892,
+          "simulation_running": true,
+          "broker_ready": true,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 1308,
+              "log_end_offset": 1316,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 1308,
+                  "log_end_offset": 1316,
+                  "lag": 8
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 1908,
+              "log_end_offset": 1916,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 1908,
+                  "log_end_offset": 1916,
+                  "lag": 8
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 18.511,
+          "timestamp": 1780932400.976,
+          "generated_messages": 2940,
+          "sent_messages": 2228,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 704,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 2260,
+          "analytics_processed_messages": 2260,
+          "simulation_running": true,
+          "broker_ready": true,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 2700,
+              "log_end_offset": 2708,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 2700,
+                  "log_end_offset": 2708,
+                  "lag": 8
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 3268,
+              "log_end_offset": 3276,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 3268,
+                  "log_end_offset": 3276,
+                  "lag": 8
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 27.318,
+          "timestamp": 1780932409.784,
+          "generated_messages": 3820,
+          "sent_messages": 3604,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 208,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 3636,
+          "analytics_processed_messages": 3636,
+          "simulation_running": true,
+          "broker_ready": true,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 4052,
+              "log_end_offset": 4060,
+              "lag": 8,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 4052,
+                  "log_end_offset": 4060,
+                  "lag": 8
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 4476,
+              "log_end_offset": 4480,
+              "lag": 4,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 4476,
+                  "log_end_offset": 4480,
+                  "lag": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "elapsed_sec": 35.999,
+          "timestamp": 1780932418.466,
+          "generated_messages": 4680,
+          "sent_messages": 4680,
+          "dropped_messages": 0,
+          "send_errors": 0,
+          "publish_queue_depth": 0,
+          "offline_buffer_depth": 0,
+          "storage_received_messages": 4700,
+          "analytics_processed_messages": 4700,
+          "simulation_running": true,
+          "broker_ready": true,
+          "consumer_lag_groups": {
+            "data-storage-group": {
+              "group_id": "data-storage-group",
+              "topic": "iot-events",
+              "current_offset": 4980,
+              "log_end_offset": 4980,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 4980,
+                  "log_end_offset": 4980,
+                  "lag": 0
+                }
+              ]
+            },
+            "analytics-group": {
+              "group_id": "analytics-group",
+              "topic": "iot-events",
+              "current_offset": 5380,
+              "log_end_offset": 5380,
+              "lag": 0,
+              "partitions": [
+                {
+                  "partition": 0,
+                  "current_offset": 5380,
+                  "log_end_offset": 5380,
+                  "lag": 0
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "validation_issues": [],
+      "kafka_consumer_lag_summary": {
+        "data-storage-group": {
+          "max_lag": 8,
+          "time_to_zero_lag_sec": 35.999,
+          "final": {
+            "group_id": "data-storage-group",
+            "topic": "iot-events",
+            "current_offset": 4980,
+            "log_end_offset": 4980,
+            "lag": 0,
+            "partitions": [
+              {
+                "partition": 0,
+                "current_offset": 4980,
+                "log_end_offset": 4980,
+                "lag": 0
+              }
+            ]
+          }
+        },
+        "analytics-group": {
+          "max_lag": 8,
+          "time_to_zero_lag_sec": 35.999,
+          "final": {
+            "group_id": "analytics-group",
+            "topic": "iot-events",
+            "current_offset": 5380,
+            "log_end_offset": 5380,
+            "lag": 0,
+            "partitions": [
+              {
+                "partition": 0,
+                "current_offset": 5380,
+                "log_end_offset": 5380,
+                "lag": 0
+              }
+            ]
+          }
+        }
+      },
+      "kafka_consumer_lag_final": {
+        "data-storage-group": {
+          "group_id": "data-storage-group",
+          "topic": "iot-events",
+          "current_offset": 5500,
+          "log_end_offset": 5500,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 5500,
+              "log_end_offset": 5500,
+              "lag": 0
+            }
+          ]
+        },
+        "analytics-group": {
+          "group_id": "analytics-group",
+          "topic": "iot-events",
+          "current_offset": 5500,
+          "log_end_offset": 5500,
+          "lag": 0,
+          "partitions": [
+            {
+              "partition": 0,
+              "current_offset": 5500,
+              "log_end_offset": 5500,
+              "lag": 0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
