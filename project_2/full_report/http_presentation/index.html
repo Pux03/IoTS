@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT Brokers - Projektna Prezentacija</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="outline">
+      <div class="outline__header">
+        <p class="eyebrow">Projekt 2</p>
+        <h1>MQTT vs Kafka</h1>
+        <p class="outline__note">IoT mikroservisna arhitektura, 4 scenarija, 1 odluka: edge ili cloud.</p>
+      </div>
+
+      <nav class="outline__nav" aria-label="Sadrzaj prezentacije">
+        <button class="outline__item active" data-slide-target="0">01 Uvod</button>
+        <button class="outline__item" data-slide-target="1">02 Arhitektura</button>
+        <button class="outline__item" data-slide-target="2">03 Metodologija</button>
+        <button class="outline__item" data-slide-target="3">04 Scenario A</button>
+        <button class="outline__item" data-slide-target="4">05 Scenario B</button>
+        <button class="outline__item" data-slide-target="5">06 Scenario C</button>
+        <button class="outline__item" data-slide-target="6">07 Scenario D</button>
+        <button class="outline__item" data-slide-target="7">08 Pitanja</button>
+        <button class="outline__item" data-slide-target="8">09 Zakljucak</button>
+      </nav>
+
+      <div class="outline__footer">
+        <p>Izvori brojki:</p>
+        <a href="../../benchmarks/scenario_a_results_full_performance_table.md">Scenario A tabela</a>
+        <a href="../../benchmarks/scenario_b_results_full_performance_table.md">Scenario B tabela</a>
+        <a href="../../benchmarks/scenario_c_results_full_performance_table.md">Scenario C tabela</a>
+        <a href="../../benchmarks/scenario_d_results_full_performance_table.md">Scenario D tabela</a>
+        <a href="../tehnicki_izvestaj.md">Puni izvestaj</a>
+      </div>
+    </aside>
+
+    <main class="stage">
+      <div class="stage__topbar">
+        <div class="stage__progress">
+          <span class="stage__progress-bar" id="progress-bar"></span>
+        </div>
+        <div class="stage__meta">
+          <span id="slide-index">01</span>
+          <span>/ 09</span>
+        </div>
+      </div>
+
+      <div class="slides" id="slides">
+        <section class="slide active" data-title="Uvod">
+          <div class="slide__content slide__content--hero">
+            <p class="eyebrow">IoT publish-subscribe evaluacija</p>
+            <h2>Sta se isplati na edge-u, a sta u cloudu?</h2>
+            <p class="lead">
+              Projekat poredi <strong>MQTT</strong> i <strong>Apache Kafka</strong> kroz istu IoT mikroservisnu arhitekturu,
+              sa fokusom na throughput, latenciju, pouzdanost, backlog i resursni footprint.
+            </p>
+
+            <div class="hero-metrics">
+              <article class="metric-card">
+                <span class="metric-card__value">3</span>
+                <span class="metric-card__label">mikroservisa</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-card__value">2</span>
+                <span class="metric-card__label">brokera</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-card__value">4</span>
+                <span class="metric-card__label">eksperimentalna scenarija</span>
+              </article>
+            </div>
+
+            <div class="callout-grid">
+              <div class="callout">
+                <h3>MQTT</h3>
+                <p>Laksi, manji i pogodniji za edge uredjaje i alerting tokove sa malim footprint-om.</p>
+              </div>
+              <div class="callout">
+                <h3>Kafka</h3>
+                <p>Jaca za skaliranje, burst, replay, lag observability i data-intensive cloud obradu.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Arhitektura">
+          <div class="slide__content">
+            <p class="eyebrow">Sistem</p>
+            <h2>Jedna arhitektura, dva message brokera</h2>
+
+            <div class="architecture">
+              <div class="arch-box arch-box--devices">IoT uredjaji<br />simulacija poruka</div>
+              <div class="arch-arrow">&rarr;</div>
+              <div class="arch-box arch-box--ingestion">Data Ingestion Service<br />Python / FastAPI</div>
+              <div class="arch-arrow">&rarr;</div>
+              <div class="arch-stack">
+                <div class="arch-box arch-box--broker">MQTT<br />Mosquitto</div>
+                <div class="arch-box arch-box--broker alt">Kafka<br />KRaft</div>
+              </div>
+              <div class="arch-arrow">&rarr;</div>
+              <div class="arch-branch">
+                <div class="arch-box arch-box--storage">Data Storage Service<br />Node.js / PostgreSQL</div>
+                <div class="arch-box arch-box--analytics">Analytics Service<br />10s tumbling window</div>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="panel">
+                <h3>Operativne karakteristike</h3>
+                <ul class="clean-list">
+                  <li>asinhroni i event-driven tok</li>
+                  <li>isti servisni sloj nad oba brokera</li>
+                  <li>batching / gasenje DB write-a u stress scenarijima</li>
+                  <li>alert kad prosecna temperatura predje 50 C</li>
+                </ul>
+              </div>
+              <div class="panel">
+                <h3>Sta se meri</h3>
+                <ul class="clean-list">
+                  <li>throughput, loss i p95 latencija</li>
+                  <li>CPU, RAM i network footprint</li>
+                  <li>backlog, recovery, consumer lag</li>
+                  <li>end-to-end alert latencija</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Metodologija">
+          <div class="slide__content">
+            <p class="eyebrow">Benchmark pristup</p>
+            <h2>Namenski alati i ponovljivi run-ovi</h2>
+
+            <div class="three-col">
+              <article class="panel">
+                <h3>MQTT</h3>
+                <p><code>emqtt-bench</code> za QoS 0, 1 i 2.</p>
+              </article>
+              <article class="panel">
+                <h3>Kafka</h3>
+                <p><code>kafka-producer-perf-test.sh</code> za acks 0, 1 i all.</p>
+              </article>
+              <article class="panel">
+                <h3>Resursi</h3>
+                <p>Docker stats API i monitoring sloj za CPU, RAM i mrezu.</p>
+              </article>
+            </div>
+
+            <div class="method-grid">
+              <div class="panel accent">
+                <h3>Scenario A</h3>
+                <p>100, 1000 i 10000 uredjaja, fokus na throughput i loss.</p>
+              </div>
+              <div class="panel accent">
+                <h3>Scenario B</h3>
+                <p>30s outage, zatim reconnect i pracenje recovery mehanizama.</p>
+              </div>
+              <div class="panel accent">
+                <h3>Scenario C</h3>
+                <p>Burst 50 -> 5000 msg/s, backlog i recovery time.</p>
+              </div>
+              <div class="panel accent">
+                <h3>Scenario D</h3>
+                <p>Latencija od kriticnog event-a do alarma u analytics sloju.</p>
+              </div>
+            </div>
+
+            <p class="slide-note">
+              Sve brojke u prezentaciji uzete su iz finalnih performance tabela, bez dodatnih naknadnih procena.
+            </p>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Scenario A">
+          <div class="slide__content">
+            <p class="eyebrow">Scenario A</p>
+            <h2>Massive Sensor Ingestion</h2>
+
+            <div class="compare-banner">
+              <div>
+                <span class="tag">MQTT</span>
+                <p><strong>QoS 1/2</strong> na <strong>10000</strong> uredjaja kolabiraju sa oko <strong>99% loss</strong>.</p>
+              </div>
+              <div>
+                <span class="tag tag--dark">Kafka</span>
+                <p><strong>0% loss</strong> kroz ceo matrix, do skoro <strong>10k msg/s</strong> producer throughput-a.</p>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil</th>
+                  <th>Loss %</th>
+                  <th>Producer msg/s</th>
+                  <th>Consumer msg/s</th>
+                  <th>p95 ms</th>
+                  <th>RAM MB</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MQTT QoS 0, 10000</td>
+                  <td>0.000</td>
+                  <td>3700.414</td>
+                  <td>2954.908</td>
+                  <td>2727.876</td>
+                  <td>53.715</td>
+                </tr>
+                <tr>
+                  <td>MQTT QoS 1, 10000</td>
+                  <td>98.944</td>
+                  <td>3893.475</td>
+                  <td>27.487</td>
+                  <td>14739.130</td>
+                  <td>45.262</td>
+                </tr>
+                <tr>
+                  <td>Kafka acks=1, 8p, 10000</td>
+                  <td>0.000</td>
+                  <td>9987.017</td>
+                  <td>7505.817</td>
+                  <td>40.000</td>
+                  <td>474.023</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="two-col">
+              <div class="panel">
+                <h3>Sta ovo znaci?</h3>
+                <p>MQTT ostaje korisna na manjim skalama, ali pri velikom broju uredjaja i jacim garancijama isporuke brzo postaje usko grlo.</p>
+              </div>
+              <div class="panel">
+                <h3>Glavni trade-off</h3>
+                <p>Kafka kupuje robustnost i throughput ogromnim CPU/RAM troskom, ali zato ne gubi poruke u istom opsegu.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Scenario B">
+          <div class="slide__content">
+            <p class="eyebrow">Scenario B</p>
+            <h2>Edge Connectivity Failures</h2>
+
+            <div class="timeline">
+              <div class="timeline__step">Normalan rad</div>
+              <div class="timeline__arrow">&rarr;</div>
+              <div class="timeline__step warning">30s network disconnect</div>
+              <div class="timeline__arrow">&rarr;</div>
+              <div class="timeline__step success">Reconnect + recovery</div>
+            </div>
+
+            <div class="three-col">
+              <article class="panel">
+                <h3>MQTT QoS 0</h3>
+                <p><strong>50.000% loss</strong> u tool modu, ali najbrzi ready: <strong>0.219s</strong>.</p>
+              </article>
+              <article class="panel">
+                <h3>MQTT QoS 2</h3>
+                <p><strong>0% loss</strong>, ali ready raste na <strong>10.764s</strong> i RAM na <strong>13.094 MB</strong>.</p>
+              </article>
+              <article class="panel">
+                <h3>Kafka acks=1</h3>
+                <p><strong>0% loss</strong>, jasna lag slika, ali tool p95 je oko <strong>47392 ms</strong>.</p>
+              </article>
+            </div>
+
+            <div class="compare-strip">
+              <div class="strip-card">
+                <span class="strip-card__label">App buffered MQTT QoS 2</span>
+                <strong>189.055 msg/s</strong>
+                <span>70.096 s p95</span>
+              </div>
+              <div class="strip-card dark">
+                <span class="strip-card__label">App buffered Kafka acks=1, 8p</span>
+                <strong>124.441 msg/s</strong>
+                <span>110.844 s p95, Max Lag 16</span>
+              </div>
+            </div>
+
+            <p class="slide-note">
+              Zakljucak: MQTT je laksa za edge reconnect, a Kafka je bolja kada je bitna observability slika recovery-ja.
+            </p>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Scenario C">
+          <div class="slide__content">
+            <p class="eyebrow">Scenario C</p>
+            <h2>Burst Event Load</h2>
+
+            <div class="hero-metrics burst">
+              <article class="metric-card">
+                <span class="metric-card__value">50</span>
+                <span class="metric-card__label">warmup msg/s</span>
+              </article>
+              <article class="metric-card danger">
+                <span class="metric-card__value">5000</span>
+                <span class="metric-card__label">burst msg/s</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-card__value">0%</span>
+                <span class="metric-card__label">Kafka loss</span>
+              </article>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil</th>
+                  <th>Burst msg/s</th>
+                  <th>p95 ms</th>
+                  <th>Peak Backlog/Lag</th>
+                  <th>Recovery s</th>
+                  <th>Loss %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MQTT QoS 0</td>
+                  <td>1737.992</td>
+                  <td>20.912</td>
+                  <td>1</td>
+                  <td>19.643</td>
+                  <td>48.838</td>
+                </tr>
+                <tr>
+                  <td>MQTT QoS 2</td>
+                  <td>625.827</td>
+                  <td>967.645</td>
+                  <td>220</td>
+                  <td>57.208</td>
+                  <td>21.653</td>
+                </tr>
+                <tr>
+                  <td>Kafka acks=1, 8p</td>
+                  <td>3114.134</td>
+                  <td>104.000</td>
+                  <td>Lag 410</td>
+                  <td>0.000</td>
+                  <td>0.000</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="two-col">
+              <div class="panel">
+                <h3>MQTT obrazac</h3>
+                <p>Za nizak p95 mora da prihvati visok loss. Za manji loss mora da prihvati veliki backlog i spor recovery.</p>
+              </div>
+              <div class="panel">
+                <h3>Kafka obrazac</h3>
+                <p>Loss ostaje nula, a burst pritisak se vidi kroz consumer lag i veci RAM footprint.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Scenario D">
+          <div class="slide__content">
+            <p class="eyebrow">Scenario D</p>
+            <h2>Real-Time Alerting</h2>
+
+            <div class="compare-banner">
+              <div>
+                <span class="tag">MQTT</span>
+                <p>Alert p95 oko <strong>7.6s - 9.3s</strong> uz RAM oko <strong>0.7 MB</strong>.</p>
+              </div>
+              <div>
+                <span class="tag tag--dark">Kafka</span>
+                <p>Alert p95 oko <strong>9.8s - 11.2s</strong> uz RAM oko <strong>305-311 MB</strong>.</p>
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="panel accent">
+                <h3>Early mode</h3>
+                <p>MQTT QoS 0: <strong>7759 ms</strong> p95</p>
+                <p>Kafka acks=1: <strong>9851 ms</strong> p95</p>
+              </div>
+              <div class="panel accent">
+                <h3>Late mode</h3>
+                <p>MQTT QoS 2: <strong>9180 ms</strong> p95</p>
+                <p>Kafka acks=all: <strong>11198 ms</strong> p95</p>
+              </div>
+            </div>
+
+            <p class="slide-note">
+              Ovde tumbling window od 10 sekundi dominira alert latencijom, pa su razlike izmedju brokera manje od razlike izmedju edge footprint-a.
+            </p>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Pitanja">
+          <div class="slide__content">
+            <p class="eyebrow">Inzenjerska pitanja</p>
+            <h2>Sta brojke govore o edge i cloud izboru?</h2>
+
+            <div class="qa-grid">
+              <article class="panel">
+                <h3>Zasto MQTT za edge?</h3>
+                <p>Zato sto kroz sve tabele ima drasticno manji RAM footprint i jednostavniji deployment. U alerting scenariju radi sa oko <strong>0.7 MB</strong> RAM.</p>
+              </article>
+              <article class="panel">
+                <h3>Zasto nije dobra za veliku istorijsku analitiku?</h3>
+                <p>Zato sto pod velikim opterecenjem i jacim delivery garancijama brzo dolazi do ogranicenja. Scenario A i C to pokazuju najjasnije.</p>
+              </article>
+              <article class="panel">
+                <h3>Zasto Kafka za cloud?</h3>
+                <p>Zato sto drzi <strong>0% loss</strong> kroz masovni ingest i burst, i daje jasan signal pritiska kroz lag i particionisanje.</p>
+              </article>
+              <article class="panel">
+                <h3>Koja je cena Kafka skalabilnosti?</h3>
+                <p>Visok CPU/RAM trosak. U tabelama ide od oko <strong>305 MB</strong> do preko <strong>900 MB</strong> RAM, zavisno od scenarija i particija.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" data-title="Zakljucak">
+          <div class="slide__content">
+            <p class="eyebrow">Finalna odluka</p>
+            <h2>Preporuka za izbor brokera</h2>
+
+            <div class="recommendation-grid">
+              <article class="recommendation">
+                <h3>Biraj MQTT kada...</h3>
+                <ul class="clean-list">
+                  <li>prioritet je mali footprint</li>
+                  <li>servis ide blize uredjajima</li>
+                  <li>potreban je jeftin edge ingest</li>
+                  <li>real-time alerting mora biti lagan</li>
+                </ul>
+              </article>
+              <article class="recommendation dark">
+                <h3>Biraj Kafka kada...</h3>
+                <ul class="clean-list">
+                  <li>prioritet su throughput i pouzdanost</li>
+                  <li>bitni su replay, lag i observability</li>
+                  <li>radis burst i outage recovery u cloudu</li>
+                  <li>gradis data-intensive pipeline</li>
+                </ul>
+              </article>
+            </div>
+
+            <div class="final-statement">
+              <p>
+                Najbolji inzenjerski ishod ovog projekta nije izbor jednog univerzalnog brokera, vec slojevita preporuka:
+                <strong>MQTT na edge-u, Kafka u centralnom cloud sloju.</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button id="prev-slide" class="control-button" aria-label="Prethodni slajd">&larr;</button>
+        <button id="next-slide" class="control-button" aria-label="Sledeci slajd">&rarr;</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,104 +1,233 @@
 # IoT Mikroservisi - MQTT vs Kafka Evaluacija
 
-Projekat 2 u okviru predmeta **Internet stvari i servisa**.
-Ovaj projekat predstavlja asinhroni, event-driven sistem mikroservisa kontejnerizovanih pomoću Docker Compose-a, sa implementiranim scenarijima za uporednu evaluaciju protokola **MQTT (Mosquitto)** i **Apache Kafka**.
+Projekat 2 iz predmeta `Internet stvari i servisa`.
 
----
+Repo sadrzi asinhroni, event-driven IoT mikroservisni sistem koji radi nad dva brokera:
+- `MQTT (Mosquitto)`
+- `Apache Kafka` u `KRaft` rezimu
 
-## 🏗️ Arhitektura Sistema
+Sistem je namenjen za eksperimentalno poredjenje ova dva pristupa kroz cetiri scenarija:
+- `Scenario A`: Massive Sensor Ingestion
+- `Scenario B`: Edge Connectivity Failures
+- `Scenario C`: Burst Event Load
+- `Scenario D`: Real-Time Alerting
 
-Sistem se sastoji od sledećih komponenti:
+## Arhitektura
 
-1. **Data Ingestion Service (Python/FastAPI)**:
-   - Simulira rad velikog broja IoT uređaja.
-   - Generiše realistične podatke o prolazima (Access Control System).
-   - Podržava konfiguraciju MQTT QoS-a (0, 1, 2) i Kafka potvrda prijema (`acks=0, 1, all`).
-   - Eksportuje metrike o poslatoj količini i brzinama na `/metrics`.
+Sistem se sastoji od sledecih komponenti:
 
-2. **Data Storage Service (Node.js)**:
-   - Pretplatilac na MQTT/Kafka teme.
-   - Upisuje događaje u **PostgreSQL** bazu u paketima (batching) od **500 poruka** radi optimizacije I/O podsistema.
-   - Omogućava privremeno isključivanje upisa u bazu preko promenljive `DISABLE_DB_WRITE=true` radi testiranja propusne moći samog brokera.
+1. `Data Ingestion Service` (`Python / FastAPI`)
+   - simulira IoT uredjaje
+   - publikuje poruke na MQTT ili Kafka broker
+   - podrzava `MQTT QoS 0/1/2` i `Kafka acks=0/1/all`
+   - iznosi health i metrike
 
-3. **Analytics Service (Node.js)**:
-   - Implementira **Tumbling Window** (fiksni vremenski prozor) od **10 sekundi**.
-   - Izračunava prosečnu temperaturu u prozoru. Ako prosek pređe **50°C**, ispisuje kritičan alarm u logu.
-   - Za Scenario D računa **end-to-end latenciju** od trenutka generisanja u simulatoru do alarmiranja.
+2. `Data Storage Service` (`Node.js / Express`)
+   - cita poruke sa brokera
+   - upisuje ih u `PostgreSQL`
+   - koristi batching (`500` poruka) i podrzava `DISABLE_DB_WRITE=true`
 
-4. **Monitoring Stack**:
-   - **Prometheus**: Prikuplja metrike iz svih mikroservisa.
-   - **Resource Monitor**: Prikuplja CPU/RAM i mrežne metrike svih Docker kontejnera preko Docker stats API-ja.
-   - **Grafana**: Prekonfigurisana sa vizuelnim dashboard-om na portu `3000`.
+3. `Analytics Service` (`Node.js / Express`)
+   - radi `10s` tumbling window obradu
+   - racuna prosecnu temperaturu
+   - podize alert kada prosek predje prag
+   - za Scenario D meri end-to-end alert latenciju
 
----
+4. Prateci sloj
+   - `PostgreSQL`
+   - `Prometheus`
+   - `Grafana`
+   - `resource-monitor` za CPU/RAM/network metrike preko Docker stats API-ja
 
-## 📂 Struktura Projekta
+## Struktura Projekta
 
+```text
+project_2/
+|-- docker-compose.yml
+|-- README.md
+|-- IoTS - Projekat 2.pdf
+|-- analytics-service/
+|-- benchmarks/
+|   |-- README.md
+|   |-- run_all_scenarios.py
+|   |-- run_protocol_benchmarks.py
+|   |-- run_scenario_a.py
+|   |-- run_scenario_b.py
+|   |-- run_scenario_c.py
+|   |-- run_scenario_d.py
+|   |-- scenario_a_results_full.json
+|   |-- scenario_a_results_full_performance_table.md
+|   |-- scenario_a_results_full_analysis.md
+|   |-- scenario_b_results_full.json
+|   |-- scenario_b_results_full_performance_table.md
+|   |-- scenario_b_results_full_analysis.md
+|   |-- scenario_c_results_full.json
+|   |-- scenario_c_results_full_performance_table.md
+|   |-- scenario_c_results_full_analysis.md
+|   |-- scenario_d_results_full.json
+|   |-- scenario_d_results_full_performance_table.md
+|   |-- scenario_d_results_full_analysis.md
+|-- config/
+|-- data-ingestion/
+|-- data-storage/
+|-- db/
+|   `-- init.sql
+|-- full_report/
+|   |-- tehnicki_izvestaj.md
+|   `-- http_presentation/
+|       |-- index.html
+|       |-- styles.css
+|       |-- script.js
+|       `-- README.md
+|-- report/
+|   `-- technical_report.md
+`-- resource-monitor/
 ```
-/project_2
-├── docker-compose.yml
-├── db/
-│   └── init.sql                 # Šema baze podataka
-├── config/
-│   ├── mosquitto/
-│   │   └── mosquitto.conf       # MQTT konfiguracija
-│   ├── prometheus/
-│   │   └── prometheus.yml       # Prometheus scrape konfiguracija
-│   └── grafana/
-│       └── provisioning/        # Automatsko učitavanje dashborda i data source-a
-├── data-ingestion/              # Python simulator (FastAPI)
-├── data-storage/                # Node.js subscriber za PostgreSQL
-├── analytics-service/           # Node.js stream analitika (Tumbling Window)
-├── benchmarks/
-│   ├── run_all_scenarios.py     # Automatska skripta za pokretanje scenarija
-│   └── results.json             # Sačuvani rezultati merenja
-└── README.md
-```
 
----
+## Zahtevi
 
-## 🚀 Kako Pokrenuti Projekat
+Za rad su potrebni:
+- `Docker Desktop` ili ekvivalentan Docker runtime
+- `docker compose` (Compose V2)
+- `Python 3`
+- po potrebi `Node.js` za lokalne provere, iako se servisi izvrsavaju kroz kontejnere
 
-### Korak 1: Pokretanje Docker-a
-Uverite se da je Docker Desktop pokrenut na vašem računaru.
+## Pokretanje Sistemskog Staka
 
-### Korak 2: Pokretanje celokupnog staka
-Pokrenite Docker Compose da izgradi i podigne sve servise:
+Iz korena projekta:
+
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
-### Korak 3: Pokretanje benchmark scenarija
-Za kompletan Scenario A sa namenskim alatima koristite:
+Korisni endpoint-i:
+- `http://localhost:8000/health` - data-ingestion
+- `http://localhost:8001/health` - data-storage
+- `http://localhost:8002/health` - analytics-service
+- `http://localhost:3000` - Grafana
+- `http://localhost:9090` - Prometheus
+
+Gasenje staka:
+
+```bash
+docker compose down --remove-orphans
+```
+
+## Pokretanje Benchmark Scenarija
+
+Detaljnija dokumentacija benchmark runner-a je u:
+- `benchmarks/README.md`
+
+### Scenario A
+
+Massive ingest, `100 / 1000 / 10000` uredjaja, MQTT `QoS 0/1/2`, Kafka `acks=0/1/all`, Kafka particije `1/4/8`.
+
 ```bash
 python benchmarks/run_scenario_a.py
 ```
 
-`run_scenario_a.py` sada automatski pokriva MQTT `QoS 0/1/2`, Kafka `acks 0/1/all`, Kafka particije `1/4/8`, restart staka po testu, resursne metrike i Kafka consumer lag.
+Ako vec postoji finalni JSON i treba samo regenerisati tabelu i analysis:
 
-Za Scenario B outage/recovery benchmark koristite:
+```bash
+python benchmarks/run_scenario_a.py --results-file benchmarks/scenario_a_results_full.json --artifacts-only
+```
+
+### Scenario B
+
+Outage / reconnect test sa `docker network disconnect`, MQTT i Kafka recovery, tool i app-buffered mod.
+
 ```bash
 python benchmarks/run_scenario_b.py
 ```
 
-`run_scenario_b.py` automatski restartuje stack po testu i podrzava dva moda:
-- `tool_benchmark`, gde se outage meri nad namenskim publisher alatima (`emqtt-bench` / `kafka-producer-perf-test.sh`)
-- `app_buffered`, gde se outage meri nad `data-ingestion` servisom da bi se video uticaj aplikacionog buffering-a
+### Scenario C
 
-Runner meri throughput, `avg/p95/max` latenciju, CPU/RAM/network footprint, recovery vremena, i za Kafka cuva consumer lag kroz konfiguracije `acks 0/1/all` i particije `1/4/8`.
+Burst opterecenje `50 -> 5000 msg/s`, backlog, backpressure i recovery.
 
-Detaljniji opis benchmark skripti je u `benchmarks/README.md`.
-Pokrenite automatsku Python skriptu koja rekonfiguriše brokere, pokreće scenarije (A, B, C, D) i beleži podatke:
 ```bash
-python benchmarks/run_all_scenarios.py
+python benchmarks/run_scenario_c.py
 ```
 
-### Korak 4: Pregled metrika
-- **Grafana Dashboard**: Pristupite na `http://localhost:3000` (Korisničko ime i šifra: `admin` / `admin`). Dashboard **"IoT MQTT vs Kafka Benchmark"** se učitava automatski i prikazuje protok, latenciju i resurse kontejnera u realnom vremenu.
-- **PgAdmin / Postgres**: Port `5432` za pregled unetih događaja u bazi.
+### Scenario D
 
----
+Real-time alerting benchmark, alert latencija i resursni footprint.
 
-## 📊 Tehnički Izveštaj i Rezultati
+```bash
+python benchmarks/run_scenario_d.py
+```
 
-Kompletan uporedni tehnički izveštaj sa detaljnim odgovorima na inženjerska pitanja se nalazi u fajlu **[technical_report.md](file:///c:/Users/Lenovo/Desktop/The%20Vault/Faks/IoTS/project_2/report/technical_report.md)**.
+## Rezultati i Artefakti
+
+Za svaki scenario postoje tri glavna artefakta:
+- `scenario_*_results_full.json`
+- `scenario_*_results_full_performance_table.md`
+- `scenario_*_results_full_analysis.md`
+
+To znaci da trenutno postoje:
+- `benchmarks/scenario_a_results_full.json`
+- `benchmarks/scenario_a_results_full_performance_table.md`
+- `benchmarks/scenario_a_results_full_analysis.md`
+- `benchmarks/scenario_b_results_full.json`
+- `benchmarks/scenario_b_results_full_performance_table.md`
+- `benchmarks/scenario_b_results_full_analysis.md`
+- `benchmarks/scenario_c_results_full.json`
+- `benchmarks/scenario_c_results_full_performance_table.md`
+- `benchmarks/scenario_c_results_full_analysis.md`
+- `benchmarks/scenario_d_results_full.json`
+- `benchmarks/scenario_d_results_full_performance_table.md`
+- `benchmarks/scenario_d_results_full_analysis.md`
+
+## Izvestaji
+
+U repou postoje dve glavne tekstualne verzije izvestaja:
+
+- `report/technical_report.md`
+  - standardni tehnicki izvestaj zasnovan na finalnim rezultatima
+
+- `full_report/tehnicki_izvestaj.md`
+  - prosireni objedinjeni izvestaj koji koristi finalne performance tabele svih scenarija
+
+## HTTP Prezentacija
+
+U folderu:
+- `full_report/http_presentation/`
+
+nalazi se staticka web prezentacija projekta.
+
+Pokretanje lokalno:
+
+```bash
+python -m http.server 8088 --directory full_report/http_presentation
+```
+
+Zatim otvoriti:
+
+```text
+http://localhost:8088
+```
+
+## Monitoring
+
+Grafana dashboard i monitoring sloj sluze za vizuelni pregled:
+- throughput metrika
+- latencije
+- CPU/RAM/network resursa
+- storage i analytics brojaca
+
+Grafana podrazumevano radi na:
+
+```text
+http://localhost:3000
+```
+
+Podrazumevani kredencijali:
+
+```text
+admin / admin
+```
+
+## Napomene
+
+- Tokom stress testova visokog intenziteta, DB write moze biti iskljucen da PostgreSQL ne postane usko grlo umesto samog brokera.
+- `run_all_scenarios.py` postoji kao legacy orchestrator, ali su za finalne eksperimente primarni namenski runner-i `run_scenario_a.py`, `run_scenario_b.py`, `run_scenario_c.py` i `run_scenario_d.py`.
+- Ako se radi samo analiza i pisanje izvestaja, najvazniji ulazi su `scenario_*_results_full_performance_table.md` i `scenario_*_results_full_analysis.md`.
