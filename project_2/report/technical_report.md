@@ -7,10 +7,10 @@ Ovaj izvestaj sumira rezultate projekta 2 kroz cetiri obavezna scenarija:
 - Scenario D: Real-Time Alerting
 
 Sve brojke u nastavku su zasnovane na stvarno izvrsenim benchmark artefaktima:
-- [scenario_a_results_full.json](/c:/Users/jorda/Desktop/IoTS--Ptojekti/IoTS/project_2/benchmarks/scenario_a_results_full.json:1)
-- [scenario_b_results_full.json](/c:/Users/jorda/Desktop/IoTS--Ptojekti/IoTS/project_2/benchmarks/scenario_b_results_full.json:1)
-- [scenario_c_results_full.json](/c:/Users/jorda/Desktop/IoTS--Ptojekti/IoTS/project_2/benchmarks/scenario_c_results_full.json:1)
-- [scenario_d_results_full.json](/c:/Users/jorda/Desktop/IoTS--Ptojekti/IoTS/project_2/benchmarks/scenario_d_results_full.json:1)
+- [scenario_a_results_full.json](../benchmarks/scenario_a_results_full.json)
+- [scenario_b_results_full.json](../benchmarks/scenario_b_results_full.json)
+- [scenario_c_results_full.json](../benchmarks/scenario_c_results_full.json)
+- [scenario_d_results_full.json](../benchmarks/scenario_d_results_full.json)
 
 ## 1. Kratak Opis Implementacije
 
@@ -24,7 +24,7 @@ Sistem podrzava dva brokera:
 - `Apache Kafka` u `KRaft` rezimu sa `acks=0`, `acks=1` i `acks=all`
 
 Celokupan stack se pokrece kroz Docker Compose:
-- [docker-compose.yml](/c:/Users/jorda/Desktop/IoTS--Ptojekti/IoTS/project_2/docker-compose.yml:1)
+- [docker-compose.yml](../docker-compose.yml)
 
 ## 2. Metodologija Merenja
 

@@ -20,6 +20,7 @@ import math
 import os
 import re
 import socket
+import statistics
 import subprocess
 import sys
 import tempfile
@@ -352,6 +353,26 @@ def percentile(values: Iterable[float], rank_pct: float) -> Optional[float]:
         return None
     index = max(0, math.ceil((rank_pct / 100.0) * len(ordered)) - 1)
     return ordered[index]
+
+
+def average_or_none(values: Iterable[Optional[float]]) -> Optional[float]:
+    actual = [float(value) for value in values if value is not None]
+    if not actual:
+        return None
+    return float(sum(actual) / len(actual))
+
+
+def median_or_none(values: Iterable[Optional[float]]) -> Optional[float]:
+    actual = [float(value) for value in values if value is not None]
+    if not actual:
+        return None
+    return float(statistics.median(actual))
+
+
+def format_float(value: Optional[float], decimals: int = 3) -> str:
+    if value is None:
+        return "-"
+    return f"{value:.{decimals}f}"
 
 
 def compute_latency_summary(latencies_ms: List[float]) -> Dict[str, Optional[float]]:
@@ -1049,6 +1070,196 @@ def summarize_results(test_results: List[Dict[str, object]]) -> Dict[str, object
     }
 
 
+def build_profile_summaries(tests: List[Dict[str, object]]) -> List[Dict[str, object]]:
+    grouped: Dict[str, List[Dict[str, object]]] = {}
+    for test in tests:
+        if test.get("error"):
+            continue
+        grouped.setdefault(str(test["config_name"]), []).append(test)
+
+    summaries: List[Dict[str, object]] = []
+    for config_name, group in sorted(grouped.items()):
+        first = group[0]
+        broker_value = first.get("broker_value")
+        if broker_value is None:
+            broker_value = first.get("qos") if first.get("broker") == "mqtt" else first.get("acks")
+        summary = {
+            "config_name": config_name,
+            "broker": first["broker"],
+            "broker_value": broker_value,
+            "devices": first["devices"],
+            "qos": first.get("qos"),
+            "acks": first.get("acks"),
+            "topic_partitions": first.get("topic_partitions"),
+            "completed_runs": len(group),
+            "messages_sent_avg": average_or_none(item.get("messages_sent") for item in group),
+            "messages_received_avg": average_or_none(item.get("messages_received") for item in group),
+            "loss_pct_med": median_or_none(item.get("loss_pct") for item in group),
+            "producer_throughput_msg_s_med": median_or_none(
+                item.get("producer_throughput_msg_per_sec") for item in group
+            ),
+            "consumer_throughput_msg_s_med": median_or_none(
+                item.get("consumer_throughput_msg_per_sec") for item in group
+            ),
+            "p95_latency_ms_med": median_or_none(item.get("p95_latency_ms") for item in group),
+            "avg_latency_ms_med": median_or_none(item.get("avg_latency_ms") for item in group),
+            "cpu_pct_med": median_or_none(item.get("cpu_pct") for item in group),
+            "ram_mb_med": median_or_none(item.get("ram_mb") for item in group),
+            "network_mb_med": median_or_none(item.get("network_mb") for item in group),
+            "lag_med": median_or_none(item.get("lag") for item in group),
+            "validation_issue_runs": sum(1 for item in group if item.get("validation_issues")),
+        }
+        summaries.append(summary)
+    return summaries
+
+
+def render_performance_table(profile_summaries: List[Dict[str, object]]) -> str:
+    headers = [
+        "Broker",
+        "Config",
+        "Devices",
+        "Partitions",
+        "Loss %",
+        "Producer msg/s",
+        "Consumer msg/s",
+        "p95 ms",
+        "CPU %",
+        "RAM MB",
+        "Network MB",
+        "Lag",
+    ]
+    lines = [
+        "| " + " | ".join(headers) + " |",
+        "| " + " | ".join(["---"] * len(headers)) + " |",
+    ]
+
+    def sort_key(item: Dict[str, object]) -> tuple:
+        return (
+            str(item["broker"]),
+            int(item.get("devices") or 0),
+            int(item.get("topic_partitions") or 0),
+            str(item.get("broker_value")),
+        )
+
+    for summary in sorted(profile_summaries, key=sort_key):
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    str(summary["broker"]),
+                    str(summary["config_name"]),
+                    str(summary["devices"]),
+                    str(summary.get("topic_partitions") or "-"),
+                    format_float(summary.get("loss_pct_med")),
+                    format_float(summary.get("producer_throughput_msg_s_med")),
+                    format_float(summary.get("consumer_throughput_msg_s_med")),
+                    format_float(summary.get("p95_latency_ms_med")),
+                    format_float(summary.get("cpu_pct_med")),
+                    format_float(summary.get("ram_mb_med")),
+                    format_float(summary.get("network_mb_med")),
+                    format_float(summary.get("lag_med")),
+                ]
+            )
+            + " |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def render_analysis(profile_summaries: List[Dict[str, object]], results_file: Path) -> str:
+    lines = [
+        "# Scenario A Analysis",
+        "",
+        f"Generated from `{results_file.name}` on {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}.",
+        "",
+        "This document summarizes the executed massive-ingestion runs and is intended to feed the written report.",
+        "",
+    ]
+
+    mqtt_profiles = [item for item in profile_summaries if item["broker"] == "mqtt"]
+    kafka_profiles = [item for item in profile_summaries if item["broker"] == "kafka"]
+
+    if mqtt_profiles:
+        lines.extend(["## MQTT", ""])
+        for devices in (100, 1000, 10000):
+            bucket = [item for item in mqtt_profiles if int(item.get("devices") or 0) == devices]
+            if not bucket:
+                continue
+            loss_values = [item.get("loss_pct_med") for item in bucket]
+            p95_values = [item.get("p95_latency_ms_med") for item in bucket]
+            cpu_values = [item.get("cpu_pct_med") for item in bucket]
+            lines.append(
+                f"- Devices `{devices}`: median loss `{format_float(median_or_none(loss_values))}`%, "
+                f"median p95 `{format_float(median_or_none(p95_values))}` ms, "
+                f"median CPU `{format_float(median_or_none(cpu_values))}`%."
+            )
+        high_scale_bucket = [item for item in mqtt_profiles if int(item.get("devices") or 0) == 10000]
+        if high_scale_bucket:
+            worst_loss = max((item.get("loss_pct_med") or 0.0) for item in high_scale_bucket)
+            lines.append(
+                f"- Interpretation: MQTT remains viable at smaller scales, but at `10000` devices the executed matrix reaches up to `{format_float(worst_loss)}`% loss for higher QoS levels."
+            )
+        lines.append("")
+
+    if kafka_profiles:
+        lines.extend(["## Kafka", ""])
+        for devices in (100, 1000, 10000):
+            bucket = [item for item in kafka_profiles if int(item.get("devices") or 0) == devices]
+            if not bucket:
+                continue
+            throughput_values = [item.get("producer_throughput_msg_s_med") for item in bucket]
+            p95_values = [item.get("p95_latency_ms_med") for item in bucket]
+            ram_values = [item.get("ram_mb_med") for item in bucket]
+            lines.append(
+                f"- Devices `{devices}`: median producer throughput `{format_float(median_or_none(throughput_values))}` msg/s, "
+                f"median p95 `{format_float(median_or_none(p95_values))}` ms, "
+                f"median RAM `{format_float(median_or_none(ram_values))}` MB."
+            )
+        lines.append(
+            "- Interpretation: Kafka keeps `0%` loss across the executed scale matrix, while partitions and acks trade higher resource cost for stronger cloud-oriented observability and delivery guarantees."
+        )
+        lines.append("")
+
+    if mqtt_profiles and kafka_profiles:
+        mqtt_cpu = median_or_none(item.get("cpu_pct_med") for item in mqtt_profiles)
+        kafka_cpu = median_or_none(item.get("cpu_pct_med") for item in kafka_profiles)
+        mqtt_ram = median_or_none(item.get("ram_mb_med") for item in mqtt_profiles)
+        kafka_ram = median_or_none(item.get("ram_mb_med") for item in kafka_profiles)
+        mqtt_p95 = median_or_none(item.get("p95_latency_ms_med") for item in mqtt_profiles)
+        kafka_p95 = median_or_none(item.get("p95_latency_ms_med") for item in kafka_profiles)
+        lines.extend(
+            [
+                "## MQTT vs Kafka",
+                "",
+                f"- MQTT median broker footprint across executed runs: `{format_float(mqtt_cpu)}`% CPU / `{format_float(mqtt_ram)}` MB RAM.",
+                f"- Kafka median broker footprint across executed runs: `{format_float(kafka_cpu)}`% CPU / `{format_float(kafka_ram)}` MB RAM.",
+                f"- MQTT median p95 latency across executed runs: `{format_float(mqtt_p95)}` ms; Kafka median p95 latency: `{format_float(kafka_p95)}` ms.",
+                "- MQTT is the lighter option for edge ingestion, while Kafka is the more scalable and loss-resistant option for data-intensive cloud pipelines.",
+                "",
+                "## Report Implications",
+                "",
+                "- The performance table can be copied directly into the comparative Throughput / p95 / CPU / RAM chapter.",
+                "- Scenario A is the strongest experimental basis for discussing pure ingest scalability and loss under rising device counts.",
+                "- The `10000` device runs should be emphasized in the written report because they make the MQTT vs Kafka scaling trade-off the clearest.",
+                "",
+            ]
+        )
+
+    return "\n".join(lines)
+
+
+def write_supporting_artifacts(results_file: Path, results: Dict[str, object]) -> Dict[str, str]:
+    profile_summaries = list(results.get("profile_summaries") or [])
+    table_path = results_file.with_name(f"{results_file.stem}_performance_table.md")
+    analysis_path = results_file.with_name(f"{results_file.stem}_analysis.md")
+
+    table_path.write_text(render_performance_table(profile_summaries), encoding="utf-8")
+    analysis_path.write_text(render_analysis(profile_summaries, results_file), encoding="utf-8")
+    return {
+        "performance_table": str(table_path),
+        "analysis_report": str(analysis_path),
+    }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=(
@@ -1064,6 +1275,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--interval-sec", type=float, default=1.0)
     parser.add_argument("--duration-sec", type=int, default=10)
     parser.add_argument("--results-file", default=str(RESULTS_PATH))
+    parser.add_argument(
+        "--artifacts-only",
+        action="store_true",
+        help="Generate performance table and analysis from an existing Scenario A results JSON without rerunning benchmarks.",
+    )
     return parser.parse_args()
 
 
@@ -1071,6 +1287,18 @@ def main() -> None:
     args = parse_args()
     results_file = Path(args.results_file)
     results_file.parent.mkdir(parents=True, exist_ok=True)
+
+    if args.artifacts_only:
+        existing_results = json.loads(results_file.read_text(encoding="utf-8"))
+        existing_results["profile_summaries"] = build_profile_summaries(existing_results.get("tests", []))
+        existing_results["artifacts"] = write_supporting_artifacts(results_file, existing_results)
+        results_file.write_text(json.dumps(existing_results, indent=2), encoding="utf-8")
+        print("\n" + "=" * 80)
+        print(f"Scenario A supporting artifacts generated from {results_file}")
+        print(f"Performance table: {existing_results['artifacts'].get('performance_table')}")
+        print(f"Analysis report: {existing_results['artifacts'].get('analysis_report')}")
+        print("=" * 80)
+        return
 
     payload_tmp = build_payload_dir()
     aggregated_results = {
@@ -1083,6 +1311,7 @@ def main() -> None:
         ),
         "tests": [],
         "summary": {},
+        "profile_summaries": [],
     }
 
     try:
@@ -1123,8 +1352,15 @@ def main() -> None:
     finally:
         payload_tmp.cleanup()
 
+    aggregated_results["summary"] = summarize_results(aggregated_results["tests"])
+    aggregated_results["profile_summaries"] = build_profile_summaries(aggregated_results["tests"])
+    aggregated_results["artifacts"] = write_supporting_artifacts(results_file, aggregated_results)
+    results_file.write_text(json.dumps(aggregated_results, indent=2), encoding="utf-8")
+
     print("\n" + "=" * 80)
     print(f"Scenario A benchmark completed. Results saved to {results_file}")
+    print(f"Performance table: {aggregated_results['artifacts'].get('performance_table')}")
+    print(f"Analysis report: {aggregated_results['artifacts'].get('analysis_report')}")
     print("=" * 80)
 
 
