@@ -1,5 +1,4 @@
 services:
-  # REST API microservice
   rest-service:
     build:
       context: ./rest_service
@@ -7,15 +6,15 @@ services:
     container_name: iot-rest-service
     restart: always
     environment:
-      - ConnectionStrings__PostgresDb=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
+      - ConnectionStrings__DefaultConnection=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
       - ASPNETCORE_URLS=http://+:8080
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
-  # GRPC microservice
   grpc-service:
     build:
       context: ./grpc_service
@@ -23,12 +22,13 @@ services:
     container_name: iot-grpc-service
     restart: always
     environment:
-      - ConnectionStrings__PostgresDb=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
+      - ConnectionStrings__DefaultConnection=Host=iot-access-control-system-postgres;Database=access_control_system;Username=admin;Password=admin
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "50051:8080" # gRPC standardni port, mapiran na 8080 unutar kontejnera
+      - "50051:8080"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   graphql-service:
     build: ./graphql_service
@@ -36,9 +36,14 @@ services:
     ports:
       - "4000:4000"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       - DB_HOST=iot-access-control-system-postgres
+      - DB_PORT=5432
+      - DB_NAME=access_control_system
+      - DB_USER=admin
+      - DB_PASSWORD=admin
 
   benchmark-service:
     build:
@@ -53,7 +58,6 @@ services:
       - grpc-service
       - graphql-service
 
-  # POSTGRES database
   postgres:
     image: postgres:15
     container_name: iot-access-control-system-postgres
@@ -66,6 +70,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d access_control_system"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   postgres_data:

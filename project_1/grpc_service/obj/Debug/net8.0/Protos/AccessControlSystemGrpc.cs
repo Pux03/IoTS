@@ -8,9 +8,6 @@
 using grpc = global::Grpc.Core;
 
 namespace accesscontrol {
-  /// <summary>
-  /// gRPC servis
-  /// </summary>
   public static partial class AccessControlService
   {
     static readonly string __ServiceName = "accesscontrol.AccessControlService";
@@ -57,6 +54,14 @@ namespace accesscontrol {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::accesscontrol.GetEventsResponse> __Marshaller_accesscontrol_GetEventsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.GetEventsResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::accesscontrol.SelectiveEventsRequest> __Marshaller_accesscontrol_SelectiveEventsRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.SelectiveEventsRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::accesscontrol.SelectiveEventsResponse> __Marshaller_accesscontrol_SelectiveEventsResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.SelectiveEventsResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::accesscontrol.HeavyQueryRequest> __Marshaller_accesscontrol_HeavyQueryRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.HeavyQueryRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::accesscontrol.HeavyQueryResponse> __Marshaller_accesscontrol_HeavyQueryResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.HeavyQueryResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::accesscontrol.CreateEventRequest> __Marshaller_accesscontrol_CreateEventRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.CreateEventRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::accesscontrol.CreateEventResponse> __Marshaller_accesscontrol_CreateEventResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::accesscontrol.CreateEventResponse.Parser));
@@ -78,6 +83,22 @@ namespace accesscontrol {
         __Marshaller_accesscontrol_GetEventsResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::accesscontrol.SelectiveEventsRequest, global::accesscontrol.SelectiveEventsResponse> __Method_GetSelectiveEvents = new grpc::Method<global::accesscontrol.SelectiveEventsRequest, global::accesscontrol.SelectiveEventsResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetSelectiveEvents",
+        __Marshaller_accesscontrol_SelectiveEventsRequest,
+        __Marshaller_accesscontrol_SelectiveEventsResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::accesscontrol.HeavyQueryRequest, global::accesscontrol.HeavyQueryResponse> __Method_GetHeavyQuery = new grpc::Method<global::accesscontrol.HeavyQueryRequest, global::accesscontrol.HeavyQueryResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetHeavyQuery",
+        __Marshaller_accesscontrol_HeavyQueryRequest,
+        __Marshaller_accesscontrol_HeavyQueryResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::accesscontrol.CreateEventRequest, global::accesscontrol.CreateEventResponse> __Method_CreateEvent = new grpc::Method<global::accesscontrol.CreateEventRequest, global::accesscontrol.CreateEventResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
@@ -95,36 +116,30 @@ namespace accesscontrol {
     [grpc::BindServiceMethod(typeof(AccessControlService), "BindService")]
     public abstract partial class AccessControlServiceBase
     {
-      /// <summary>
-      /// Vraca jedan event
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::accesscontrol.GetEventResponse> GetEvent(global::accesscontrol.GetEventRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      /// Vraca listu eventova
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::accesscontrol.GetEventsResponse> GetEvents(global::accesscontrol.GetEventsRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      /// <summary>
-      /// Dodavanje eventa u bazu
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::accesscontrol.SelectiveEventsResponse> GetSelectiveEvents(global::accesscontrol.SelectiveEventsRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::accesscontrol.HeavyQueryResponse> GetHeavyQuery(global::accesscontrol.HeavyQueryRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::accesscontrol.CreateEventResponse> CreateEvent(global::accesscontrol.CreateEventRequest request, grpc::ServerCallContext context)
       {
@@ -141,6 +156,8 @@ namespace accesscontrol {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetEvent, serviceImpl.GetEvent)
           .AddMethod(__Method_GetEvents, serviceImpl.GetEvents)
+          .AddMethod(__Method_GetSelectiveEvents, serviceImpl.GetSelectiveEvents)
+          .AddMethod(__Method_GetHeavyQuery, serviceImpl.GetHeavyQuery)
           .AddMethod(__Method_CreateEvent, serviceImpl.CreateEvent).Build();
     }
 
@@ -153,6 +170,8 @@ namespace accesscontrol {
     {
       serviceBinder.AddMethod(__Method_GetEvent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::accesscontrol.GetEventRequest, global::accesscontrol.GetEventResponse>(serviceImpl.GetEvent));
       serviceBinder.AddMethod(__Method_GetEvents, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::accesscontrol.GetEventsRequest, global::accesscontrol.GetEventsResponse>(serviceImpl.GetEvents));
+      serviceBinder.AddMethod(__Method_GetSelectiveEvents, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::accesscontrol.SelectiveEventsRequest, global::accesscontrol.SelectiveEventsResponse>(serviceImpl.GetSelectiveEvents));
+      serviceBinder.AddMethod(__Method_GetHeavyQuery, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::accesscontrol.HeavyQueryRequest, global::accesscontrol.HeavyQueryResponse>(serviceImpl.GetHeavyQuery));
       serviceBinder.AddMethod(__Method_CreateEvent, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::accesscontrol.CreateEventRequest, global::accesscontrol.CreateEventResponse>(serviceImpl.CreateEvent));
     }
 

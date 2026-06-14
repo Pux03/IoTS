@@ -2,39 +2,40 @@ import http from "k6/http";
 import { check } from "k6";
 
 export const options = {
-  vus: __ENV.VUS ? parseInt(__ENV.VUS) : 10,
-  duration: __ENV.DURATION || "10s",
+  vus: __ENV.VUS ? parseInt(__ENV.VUS, 10) : 10,
+  duration: __ENV.DURATION || "30s",
 };
 
-function generateRandomCardUid() {
-  const chars = "0123456789ABCDEF";
-  let uid = "";
-  for (let i = 0; i < 8; i++) {
-    uid += chars[Math.floor(Math.random() * chars.length)];
-    if (i % 2 === 1 && i < 7) uid += " ";
+function randomHex(size) {
+  const chars = "0123456789abcdef";
+  let value = "";
+  for (let i = 0; i < size; i += 1) {
+    value += chars[Math.floor(Math.random() * chars.length)];
   }
-  return uid;
+  return value;
+}
+
+function uuid() {
+  return `${randomHex(8)}-${randomHex(4)}-${randomHex(4)}-${randomHex(4)}-${randomHex(12)}`;
 }
 
 export default function () {
-  const url = "http://rest-service:8080/api/events";
-
   const payload = JSON.stringify({
-    device_id: `ESP32-NODE-${__VU}`,
-    card_uid: generateRandomCardUid(),
-    access_granted: Math.random() > 0.1,
-    battery_voltage: 3.7,
-    temperature: 22.5,
-    signal_strength: -50,
+    event_id: uuid(),
     timestamp: new Date().toISOString(),
+    device_id: `RFID-REST-${__VU}`,
+    card_uid: randomHex(8).toUpperCase(),
+    access_granted: Math.random() > 0.1,
+    door_id: "MAIN_GATE",
+    zone: "GROUND_FLOOR",
+    signal_strength: -50 - Math.floor(Math.random() * 25),
+    battery_voltage: 3.6 + Math.random() * 0.4,
+    response_time_ms: 10 + Math.floor(Math.random() * 120),
     event_type: "RFID_SCAN",
-    zone: "Blok A",
-    door_id: "DOOR-1",
-    response_time_ms: 10,
-    event_id: crypto.randomUUID(),
+    temperature: 21 + Math.random() * 5,
   });
 
-  const res = http.post(url, payload, {
+  const res = http.post("http://rest-service:8080/api/events", payload, {
     headers: { "Content-Type": "application/json" },
   });
 

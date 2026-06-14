@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package accesscontrol;
+
+import "google/protobuf/timestamp.proto";
+
+message Event {
+  int64 id = 1;
+  string event_id = 2;
+  google.protobuf.Timestamp timestamp = 3;
+  string device_id = 4;
+  string card_uid = 5;
+  bool access_granted = 6;
+  string door_id = 7;
+  string zone = 8;
+  int32 signal_strength = 9;
+  float battery_voltage = 10;
+  int32 response_time_ms = 11;
+  string event_type = 12;
+  float temperature = 13;
+}
+
+message SelectiveEvent {
+  string device_id = 1;
+  string card_uid = 2;
+}
+
+message HeavyQueryResult {
+  string device_id = 1;
+  string event_type = 2;
+  string zone = 3;
+  int32 count = 4;
+  double average_response_time_ms = 5;
+  double average_battery_voltage = 6;
+  float minimum_temperature = 7;
+  float maximum_temperature = 8;
+  google.protobuf.Timestamp first_timestamp = 9;
+  google.protobuf.Timestamp last_timestamp = 10;
+}
+
+message GetEventRequest {
+  int64 id = 1;
+}
+
+message GetEventsRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+message SelectiveEventsRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+message HeavyQueryRequest {
+  string device_id = 1;
+  string card_uid = 2;
+  string event_type = 3;
+  google.protobuf.Timestamp from_date = 4;
+  google.protobuf.Timestamp to_date = 5;
+  string search_term = 6;
+  int32 page_size = 7;
+}
+
+message GetEventResponse {
+  Event event = 1;
+}
+
+message GetEventsResponse {
+  repeated Event events = 1;
+}
+
+message SelectiveEventsResponse {
+  repeated SelectiveEvent events = 1;
+}
+
+message HeavyQueryResponse {
+  repeated HeavyQueryResult results = 1;
+}
+
+message CreateEventRequest {
+  Event event = 1;
+}
+
+message CreateEventResponse {
+  Event event = 1;
+}
+
+service AccessControlService {
+  rpc GetEvent(GetEventRequest) returns (GetEventResponse);
+  rpc GetEvents(GetEventsRequest) returns (GetEventsResponse);
+  rpc GetSelectiveEvents(SelectiveEventsRequest) returns (SelectiveEventsResponse);
+  rpc GetHeavyQuery(HeavyQueryRequest) returns (HeavyQueryResponse);
+  rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse);
+}
