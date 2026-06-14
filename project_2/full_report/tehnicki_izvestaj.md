@@ -105,6 +105,20 @@ Scenario A meri kako se sistem ponasa pri paralelnom radu `100`, `1000` i `10000
 
 #### Zakljucci Scenario A
 
+##### Sta se vidi po MQTT profilima
+
+- Pri `100` uredjaja svi MQTT profili rade stabilno, sa `0%` loss, malim CPU/RAM footprint-om i prihvatljivim latencijama.
+- Pri `1000` uredjaja i dalje nema loss-a, ali se jasno vidi cena jacih garancija isporuke: `QoS 1` i `QoS 2` imaju mnogo visi `p95` i vecu potrosnju resursa od `QoS 0`.
+- Pri `10000` uredjaja `QoS 0` jos uspeva da odrzi planirano opterecenje bez loss-a, ali uz mnogo veci `p95` i znatno manji throughput od Kafke.
+- Pri `10000` uredjaja `QoS 1` i `QoS 2` vise ne uspevaju da odrze trazeni workload, sto se vidi kroz ekstreman pad consumer throughput-a i ogroman izracunati shortfall u odnosu na planirani volumen.
+
+##### Sta se vidi po Kafka profilima
+
+- Kafka je stabilna kroz sve profile: `0%` loss pri `100`, `1000` i `10000` uredjaja.
+- Povecanje broja uredjaja daje gotovo linearno povecanje producer throughput-a, sto pokazuje da sistem dobro skaluje u masovnom ingest scenariju.
+- Efekat `acks` i particionisanja najvise se vidi na resursima i latenciji, ne na pouzdanosti: svi profili ostaju bez loss-a, ali se CPU, RAM i `p95` menjaju od konfiguracije do konfiguracije.
+- Kafka je zato znatno pogodnija za cloud-side ingest kada je prioritet da se zadrzi pouzdanost i pri velikom broju uredjaja.
+
 - `Kafka` drzi `0%` loss kroz sve profile, bez obzira na `acks`, broj uredjaja i broj particija.
 - Kod `Kafka` se vidi da rast broja uredjaja uglavnom povecava throughput skoro linearno do `10000` uredjaja, dok `p95` i RAM rastu, ali ne dolazi do raspada sistema.
 - `MQTT` je vrlo lagana pri `100` i `1000` uredjaja i u svim tim profilima ima `0%` loss, sto potvrduje da je pogodna za manje edge topologije.
@@ -145,6 +159,20 @@ Scenario B meri ponasanje sistema tokom `30s` mreznog prekida i oporavak posle r
 
 #### Zakljucci Scenario B
 
+##### Sta se vidi po MQTT profilima
+
+- U `tool_benchmark` modu `QoS 0` ima najjednostavnije reconnect ponasanje, ali i najveci loss, sto pokazuje cenu `at most once` pristupa pod outage-om.
+- `QoS 1` i posebno `QoS 2` poboljsavaju pouzdanost, ali se to placa vecim vremenom do pune spremnosti i vecim CPU/RAM troskom.
+- U `app_buffered` modu MQTT izgleda znatno bolje po pitanju loss-a zato sto u oporavku ucestvuje i aplikacioni buffer, ne samo broker/session mehanizam.
+- MQTT kroz sve profile ostaje veoma lagana po resursima u odnosu na Kafku, sto je jak argument za edge reconnect slucajeve.
+
+##### Sta se vidi po Kafka profilima
+
+- U `tool_benchmark` modu `acks=1` i `acks=all` drze `0%` loss kroz sve testirane particije, dok `acks=0` ima mali ali konzistentan gubitak.
+- Kafka recovery je metodoloski laksa za pracenje jer svaki profil daje jasan signal kroz `Max Lag`, odnosno kroz offset-based observability.
+- U `app_buffered` modu Kafka takodje drzi `0%` loss, ali cena toga je vrlo visoka RAM potrosnja, posebno kod `4` i `8` particija.
+- Iz Kafka profila se vidi da particionisanje ne donosi veliku razliku u throughput-u u ovom outage scenariju, ali znacajno podize resursni trosak.
+
 - U `tool_benchmark` modu se vidi cistiji broker-level recovery. Tu `MQTT QoS 0` ima najmanji overhead za reconnect, ali uz `50%` loss, sto je najgori rezultat u toj grupi.
 - `MQTT QoS 2` pokazuje kako jace delivery garancije popravljaju pouzdanost: `0%` loss, ali uz veci `Ready s`, veci CPU i RAM.
 - `Kafka acks=1` i `acks=all` u `tool_benchmark` modu drze `0%` loss kroz sve particije. `acks=0` je jedina Kafka konfiguracija u ovoj grupi sa malim, ali prisutnim loss-om od oko `3.96-3.97%`.
@@ -173,6 +201,20 @@ Scenario C simulira nagli skok opterecenja sa `50` na `5000 msg/s`, uz pracenje 
 | mqtt | mqtt_qos_2 | - | 46.370 | 625.827 | 967.645 | 103.672 | 28.812 | 220.000 | 57.208 | 0.000 | 21.653 |
 
 #### Zakljucci Scenario C
+
+##### Sta se vidi po MQTT profilima
+
+- `QoS 0` pokazuje da MQTT moze da ostvari dobar odziv pod burst-om, ali uz veoma visok loss, pa je brzina postignuta na racun pouzdanosti.
+- Prelazak na `QoS 1` smanjuje loss, ali odmah donosi veliki skok `p95`, backlog-a i recovery vremena.
+- `QoS 2` dodatno smanjuje loss u odnosu na `QoS 0`, ali postaje najskuplja konfiguracija po CPU-u i vremenu oporavka.
+- MQTT profili zato jasno pokazuju da se pod burst opterecenjem vrlo tesko istovremeno dobijaju mali loss, mali `p95` i brz recovery.
+
+##### Sta se vidi po Kafka profilima
+
+- Kafka drzi `0%` loss u svim burst profilima, nezavisno od `acks` i broja particija.
+- Pritisak sistema se ne vidi kroz aplikacioni backlog, nego kroz `Peak Lag`, sto je tipicno cloud/data-pipeline ponasanje.
+- Particionisanje ne daje uvek linearan rast burst throughput-a, ali svi Kafka profili ostaju znacajno iznad MQTT profila po pitanju pouzdanosti pod burst-om.
+- Kafka profili zato pokazuju da je broker mnogo pogodniji za data-intensive burst workload-e nego za ultra-lagani edge deployment.
 
 - `Kafka` drzi `0%` loss u svim burst profilima i to je najvazniji nalaz ove tabele.
 - `Kafka` burst throughput ostaje veoma visok, u rasponu od `2684.398` do `3114.134 msg/s`, a pritisak sistema ne vidi se kroz loss vec kroz `Peak Lag`.
@@ -204,6 +246,20 @@ Scenario D meri end-to-end latenciju od trenutka generisanja kriticne vrednosti 
 | mqtt | mqtt_qos_2_window_late | late | - | 8076.667 | 9180.000 | 9180.000 | 0.170 | 0.707 | 0.008 | 0.000 | 3/3 |
 
 #### Zakljucci Scenario D
+
+##### Sta se vidi po MQTT profilima
+
+- Svi MQTT profili prolaze stabilno i imaju veoma mali resursni footprint.
+- Razlike izmedju `QoS 0`, `QoS 1` i `QoS 2` su male u odnosu na efekat pozicije poruke unutar tumbling window-a.
+- `early` profili su uvek brzi od `late` profila, sto potvrdjuje da je u ovom scenariju glavna determinanta alert latencije upravo analytics prozor.
+- MQTT profili kao celina pokazuju da je broker veoma pogodan za laki edge alerting put.
+
+##### Sta se vidi po Kafka profilima
+
+- Svi Kafka profili takodje prolaze uspesno, bez peak lag-a, sto znaci da workload nije dovoljan da stvori backlog u alert scenariju.
+- Razlike izmedju `acks=0`, `acks=1` i `acks=all` su male u apsolutnim alert vremenima; veci deo ukupne latencije dolazi od tumbling window logike.
+- Kafka ostaje znacajno teza od MQTT-a po CPU/RAM footprint-u i u ovom scenariju ne dobija prednost u samoj alert latenciji.
+- Iz Kafka profila se vidi da je ovaj broker smisleniji kada je alerting samo deo sireg cloud pipeline-a, a ne kada je prioritet minimalan edge odziv.
 
 - U svim profilima `MQTT` ima manju alert latenciju od `Kafka`.
 - Kod `MQTT` se jasno vidi efekat tumbling window-a:
