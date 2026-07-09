@@ -1,0 +1,4190 @@
+{
+  "generated_at": "2026-06-15T15:26:36Z",
+  "scenario": "C",
+  "description": "Burst Event Load benchmark with dedicated tools, backlog tracking and recovery metrics.",
+  "tests": [
+    {
+      "scenario": "C",
+      "config_name": "mqtt_qos_0",
+      "run_name": "mqtt_qos_0_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "0",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "warmup_rate_msg_s": 50,
+      "burst_rate_msg_s": 5000,
+      "burst_extra_rate_msg_s": 4950,
+      "warmup_sec": 20,
+      "burst_sec": 5,
+      "recovery_sec": 20,
+      "baseline_planned_messages": 2250,
+      "burst_planned_messages": 24750,
+      "messages_sent": 52810,
+      "messages_received": 27000,
+      "analytics_processed_messages": 27000,
+      "loss_messages": 25810,
+      "loss_pct": 48.873,
+      "duplicate_storage_messages_estimate": 0,
+      "duplicate_analytics_messages_estimate": 0,
+      "avg_latency_ms": 5.363,
+      "p95_latency_ms": 16.18,
+      "max_latency_ms": 50.0,
+      "latency_observations": 27000,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 25.934,
+      "cpu_pct_avg": 6.73,
+      "ram_mb": 11.973,
+      "ram_mb_avg": 5.622,
+      "network_mb": 71.019,
+      "network_rx_mb": 19.339,
+      "network_tx_mb": 51.68,
+      "resource_sample_count": 64,
+      "warmup_phase": {
+        "duration_sec": 20.316,
+        "messages_sent": 1800,
+        "storage_received_messages": 928,
+        "analytics_processed_messages": 929,
+        "publish_throughput_msg_s": 88.6,
+        "storage_throughput_msg_s": 45.678,
+        "analytics_throughput_msg_s": 45.728,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 0,
+        "peak_consumer_lag": 0
+      },
+      "burst_phase": {
+        "duration_sec": 6.047,
+        "messages_sent": 29058,
+        "storage_received_messages": 15137,
+        "analytics_processed_messages": 15250,
+        "publish_throughput_msg_s": 4805.358,
+        "storage_throughput_msg_s": 2503.225,
+        "analytics_throughput_msg_s": 2521.912,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 0,
+        "peak_consumer_lag": 0
+      },
+      "recovery_phase": {
+        "duration_sec": 20.759,
+        "messages_sent": 11856,
+        "storage_received_messages": 6027,
+        "analytics_processed_messages": 5994,
+        "publish_throughput_msg_s": 571.126,
+        "storage_throughput_msg_s": 290.332,
+        "analytics_throughput_msg_s": 288.742,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 22,
+        "peak_consumer_lag": 0
+      },
+      "drain_phase": {
+        "duration_sec": 3.61,
+        "messages_sent": 0,
+        "storage_received_messages": 0,
+        "analytics_processed_messages": 0,
+        "publish_throughput_msg_s": 0.0,
+        "storage_throughput_msg_s": 0.0,
+        "analytics_throughput_msg_s": 0.0,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 22,
+        "peak_consumer_lag": 0,
+        "settled": true,
+        "settle_reason": "pipeline_drained"
+      },
+      "peak_pipeline_backlog_messages": 0,
+      "peak_storage_batch_queue_depth": 0,
+      "peak_analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "peak_mqtt_publish_overrun_messages": 22,
+      "time_to_peak_backlog_sec": 0.0,
+      "recovery_sec_to_backlog_zero": 18.452,
+      "recovery_sec_to_baseline_storage_throughput": 1.839,
+      "drain_time_sec": 3.61,
+      "validation_issues": [
+        "mqtt_latency_probe_received_less_than_sent"
+      ],
+      "publisher_results": {
+        "baseline": {
+          "kind": "baseline",
+          "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+          "target_rate": 50,
+          "configured_rate": 50.0,
+          "planned_messages": 2250,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\n1s pub total=100 rate=99.80/sec\n\n1s connect_succ total=1 rate=1.00/sec\n\n2s pub total=200 rate=100.00/sec\n\n3s pub total=300 rate=100.00/sec\n\n4s pub total=400 rate=100.00/sec\n\n5s pub total=500 rate=100.00/sec\n\n6s pub total=600 rate=100.00/sec\n\n7s pub total=700 rate=100.00/sec\n\n8s pub total=800 rate=100.00/sec\n\n9s pub total=900 rate=100.00/sec\n\n10s pub total=1000 rate=100.00/sec\n\n11s pub total=1100 rate=100.00/sec\n\n12s pub total=1200 rate=100.00/sec\n\n13s pub total=1300 rate=100.00/sec\n\n14s pub total=1400 rate=100.00/sec\n\n15s pub total=1500 rate=100.00/sec\n\n16s pub total=1600 rate=100.00/sec\n\n17s pub total=1700 rate=100.00/sec\n\n18s pub total=1800 rate=100.00/sec\n\n19s pub total=1900 rate=100.00/sec\n\n20s pub total=2000 rate=100.00/sec\n\n21s pub total=2100 rate=100.00/sec\n\n22s pub total=2200 rate=100.00/sec\n\n23s pub total=2300 rate=100.00/sec\n\n24s pub total=2400 rate=100.00/sec\n\n25s pub total=2500 rate=99.80/sec\n\n26s pub total=2600 rate=100.20/sec\n\n27s pub total=2700 rate=100.00/sec\n\n28s pub total=2800 rate=100.00/sec\n\n29s pub total=2900 rate=100.00/sec\n\n30s pub total=3000 rate=100.00/sec\n\n31s pub total=3100 rate=100.00/sec\n\n32s pub total=3200 rate=100.00/sec\n\n33s pub total=3300 rate=100.00/sec\n\n34s pub total=3400 rate=100.00/sec\n\n35s pub total=3500 rate=100.00/sec\n\n36s pub total=3600 rate=100.00/sec\n\n37s pub total=3700 rate=100.00/sec\n\n38s pub total=3800 rate=100.00/sec\n\n39s pub total=3900 rate=100.00/sec\n\n40s pub total=4000 rate=100.00/sec\n\n41s pub total=4100 rate=100.00/sec\n\n42s pub total=4200 rate=100.00/sec\n\n43s pub total=4300 rate=100.00/sec\n\n44s pub total=4400 rate=100.00/sec\n\n45s pub total=4500 rate=100.00/sec\n\npublish complete",
+          "messages_sent": 4500,
+          "publish_overrun_messages": 0
+        },
+        "burst": {
+          "kind": "burst",
+          "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+          "target_rate": 4950,
+          "configured_rate": 4950.0,
+          "planned_messages": 24750,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 8 workers, addrs pool size: 1 and req interval: 80 ms \n\n\n1s connect_succ total=97 rate=96.81/sec\nCollected 8 'go' signals, start publishing\n\n2s pub total=8688 rate=4339.66/sec\n\n2s connect_succ total=99 rate=2.00/sec\n\n3s pub total=18570 rate=9882.00/sec\n\n4s pub total=28458 rate=9888.00/sec\n\n5s pub total=38354 rate=9896.00/sec\n\n6s pub total=48310 rate=9956.00/sec\n\n6s pub_overrun total=22 rate=3.67/sec\n\npublish complete",
+          "messages_sent": 48310,
+          "publish_overrun_messages": 22
+        }
+      },
+      "mqtt_probe_result": {
+        "probe_received_messages": 27000,
+        "probe_settled": true,
+        "probe_settle_reason": "probe_counters_stable",
+        "probe_completion_sec": 3.129,
+        "latency_summary": {
+          "avg_latency_ms": 5.363,
+          "p95_latency_ms": 16.18,
+          "max_latency_ms": 50.0,
+          "observations": 27000
+        },
+        "max_latency_is_histogram_upper_bound": true
+      },
+      "kafka_consumer_lag_final": null,
+      "timeline_warmup": [
+        {
+          "timestamp": 1781537245.552,
+          "elapsed_sec": 1.399,
+          "phase": "warmup",
+          "phase_elapsed_sec": 0.581,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537246.964,
+          "elapsed_sec": 2.811,
+          "phase": "warmup",
+          "phase_elapsed_sec": 1.993,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537248.403,
+          "elapsed_sec": 4.25,
+          "phase": "warmup",
+          "phase_elapsed_sec": 3.432,
+          "sent_messages": 100,
+          "storage_received_messages": 53,
+          "analytics_processed_messages": 55,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537249.852,
+          "elapsed_sec": 5.699,
+          "phase": "warmup",
+          "phase_elapsed_sec": 4.881,
+          "sent_messages": 200,
+          "storage_received_messages": 126,
+          "analytics_processed_messages": 126,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537251.326,
+          "elapsed_sec": 7.173,
+          "phase": "warmup",
+          "phase_elapsed_sec": 6.355,
+          "sent_messages": 400,
+          "storage_received_messages": 199,
+          "analytics_processed_messages": 200,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 400,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537252.745,
+          "elapsed_sec": 8.592,
+          "phase": "warmup",
+          "phase_elapsed_sec": 7.774,
+          "sent_messages": 500,
+          "storage_received_messages": 272,
+          "analytics_processed_messages": 273,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 500,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537254.219,
+          "elapsed_sec": 10.066,
+          "phase": "warmup",
+          "phase_elapsed_sec": 9.248,
+          "sent_messages": 600,
+          "storage_received_messages": 343,
+          "analytics_processed_messages": 343,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 600,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537255.692,
+          "elapsed_sec": 11.539,
+          "phase": "warmup",
+          "phase_elapsed_sec": 10.721,
+          "sent_messages": 800,
+          "storage_received_messages": 416,
+          "analytics_processed_messages": 417,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537257.143,
+          "elapsed_sec": 12.99,
+          "phase": "warmup",
+          "phase_elapsed_sec": 12.172,
+          "sent_messages": 900,
+          "storage_received_messages": 490,
+          "analytics_processed_messages": 491,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 900,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537258.571,
+          "elapsed_sec": 14.418,
+          "phase": "warmup",
+          "phase_elapsed_sec": 13.6,
+          "sent_messages": 1100,
+          "storage_received_messages": 563,
+          "analytics_processed_messages": 564,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537260.022,
+          "elapsed_sec": 15.869,
+          "phase": "warmup",
+          "phase_elapsed_sec": 15.051,
+          "sent_messages": 1200,
+          "storage_received_messages": 634,
+          "analytics_processed_messages": 635,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537261.453,
+          "elapsed_sec": 17.301,
+          "phase": "warmup",
+          "phase_elapsed_sec": 16.482,
+          "sent_messages": 1400,
+          "storage_received_messages": 707,
+          "analytics_processed_messages": 708,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1400,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537262.891,
+          "elapsed_sec": 18.739,
+          "phase": "warmup",
+          "phase_elapsed_sec": 17.92,
+          "sent_messages": 1500,
+          "storage_received_messages": 779,
+          "analytics_processed_messages": 779,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1500,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537264.304,
+          "elapsed_sec": 20.152,
+          "phase": "warmup",
+          "phase_elapsed_sec": 19.333,
+          "sent_messages": 1700,
+          "storage_received_messages": 850,
+          "analytics_processed_messages": 851,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1700,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537265.452,
+          "elapsed_sec": 21.299,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.481,
+          "sent_messages": 1800,
+          "storage_received_messages": 904,
+          "analytics_processed_messages": 905,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537265.868,
+          "elapsed_sec": 21.715,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.897,
+          "sent_messages": 1800,
+          "storage_received_messages": 928,
+          "analytics_processed_messages": 929,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_burst": [
+        {
+          "timestamp": 1781537267.687,
+          "elapsed_sec": 23.534,
+          "phase": "burst",
+          "phase_elapsed_sec": 0.951,
+          "sent_messages": 1900,
+          "storage_received_messages": 992,
+          "analytics_processed_messages": 992,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 1900,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537269.542,
+          "elapsed_sec": 25.389,
+          "phase": "burst",
+          "phase_elapsed_sec": 2.806,
+          "sent_messages": 2100,
+          "storage_received_messages": 1090,
+          "analytics_processed_messages": 1092,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537271.506,
+          "elapsed_sec": 27.353,
+          "phase": "burst",
+          "phase_elapsed_sec": 4.77,
+          "sent_messages": 10988,
+          "storage_received_messages": 5116,
+          "analytics_processed_messages": 5242,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2300,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 8688,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537272.751,
+          "elapsed_sec": 28.598,
+          "phase": "burst",
+          "phase_elapsed_sec": 6.015,
+          "sent_messages": 20970,
+          "storage_received_messages": 11226,
+          "analytics_processed_messages": 11255,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2400,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 18570,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537273.734,
+          "elapsed_sec": 29.581,
+          "phase": "burst",
+          "phase_elapsed_sec": 6.998,
+          "sent_messages": 30958,
+          "storage_received_messages": 16129,
+          "analytics_processed_messages": 16242,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2500,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 28458,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "timestamp": 1781537274.755,
+          "elapsed_sec": 30.602,
+          "phase": "recovery",
+          "phase_elapsed_sec": 1.022,
+          "sent_messages": 40954,
+          "storage_received_messages": 20973,
+          "analytics_processed_messages": 21006,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2600,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 38354,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537276.594,
+          "elapsed_sec": 32.441,
+          "phase": "recovery",
+          "phase_elapsed_sec": 2.86,
+          "sent_messages": 51110,
+          "storage_received_messages": 26192,
+          "analytics_processed_messages": 26193,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 2800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537278.447,
+          "elapsed_sec": 34.295,
+          "phase": "recovery",
+          "phase_elapsed_sec": 4.714,
+          "sent_messages": 51310,
+          "storage_received_messages": 26284,
+          "analytics_processed_messages": 26285,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 3000,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537280.304,
+          "elapsed_sec": 36.152,
+          "phase": "recovery",
+          "phase_elapsed_sec": 6.571,
+          "sent_messages": 51510,
+          "storage_received_messages": 26378,
+          "analytics_processed_messages": 26378,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 3200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537282.139,
+          "elapsed_sec": 37.986,
+          "phase": "recovery",
+          "phase_elapsed_sec": 8.405,
+          "sent_messages": 51710,
+          "storage_received_messages": 26471,
+          "analytics_processed_messages": 26472,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 3400,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537283.911,
+          "elapsed_sec": 39.758,
+          "phase": "recovery",
+          "phase_elapsed_sec": 10.177,
+          "sent_messages": 51910,
+          "storage_received_messages": 26563,
+          "analytics_processed_messages": 26563,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 3600,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537285.803,
+          "elapsed_sec": 41.65,
+          "phase": "recovery",
+          "phase_elapsed_sec": 12.069,
+          "sent_messages": 52110,
+          "storage_received_messages": 26651,
+          "analytics_processed_messages": 26651,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 3800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537287.719,
+          "elapsed_sec": 43.566,
+          "phase": "recovery",
+          "phase_elapsed_sec": 13.985,
+          "sent_messages": 52310,
+          "storage_received_messages": 26746,
+          "analytics_processed_messages": 26747,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4000,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537289.532,
+          "elapsed_sec": 45.379,
+          "phase": "recovery",
+          "phase_elapsed_sec": 15.798,
+          "sent_messages": 52410,
+          "storage_received_messages": 26842,
+          "analytics_processed_messages": 26843,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537291.305,
+          "elapsed_sec": 47.152,
+          "phase": "recovery",
+          "phase_elapsed_sec": 17.571,
+          "sent_messages": 52610,
+          "storage_received_messages": 26932,
+          "analytics_processed_messages": 26932,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4300,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537293.207,
+          "elapsed_sec": 49.054,
+          "phase": "recovery",
+          "phase_elapsed_sec": 19.473,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537294.544,
+          "elapsed_sec": 50.391,
+          "phase": "recovery",
+          "phase_elapsed_sec": 20.811,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537295.514,
+          "elapsed_sec": 51.361,
+          "phase": "recovery",
+          "phase_elapsed_sec": 21.781,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_drain": [
+        {
+          "timestamp": 1781537297.063,
+          "elapsed_sec": 52.91,
+          "phase": "drain",
+          "phase_elapsed_sec": 0.825,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537298.866,
+          "elapsed_sec": 54.713,
+          "phase": "drain",
+          "phase_elapsed_sec": 2.628,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537300.673,
+          "elapsed_sec": 56.52,
+          "phase": "drain",
+          "phase_elapsed_sec": 4.435,
+          "sent_messages": 52810,
+          "storage_received_messages": 27000,
+          "analytics_processed_messages": 27000,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-0-1-1781537244152",
+              "messages_sent": 4500,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-0-1-1781537265867",
+              "messages_sent": 48310,
+              "publish_overrun_messages": 22,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ]
+    },
+    {
+      "scenario": "C",
+      "config_name": "mqtt_qos_1",
+      "run_name": "mqtt_qos_1_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "1",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "warmup_rate_msg_s": 50,
+      "burst_rate_msg_s": 5000,
+      "burst_extra_rate_msg_s": 4950,
+      "warmup_sec": 20,
+      "burst_sec": 5,
+      "recovery_sec": 20,
+      "baseline_planned_messages": 2250,
+      "burst_planned_messages": 24750,
+      "messages_sent": 26346,
+      "messages_received": 14731,
+      "analytics_processed_messages": 14903,
+      "loss_messages": 11615,
+      "loss_pct": 44.086,
+      "duplicate_storage_messages_estimate": 0,
+      "duplicate_analytics_messages_estimate": 0,
+      "avg_latency_ms": 264.641,
+      "p95_latency_ms": 475.34,
+      "max_latency_ms": 500.0,
+      "latency_observations": 18082,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 67.64,
+      "cpu_pct_avg": 11.448,
+      "ram_mb": 14.5,
+      "ram_mb_avg": 6.231,
+      "network_mb": 52.975,
+      "network_rx_mb": 20.447,
+      "network_tx_mb": 32.528,
+      "resource_sample_count": 64,
+      "warmup_phase": {
+        "duration_sec": 20.015,
+        "messages_sent": 850,
+        "storage_received_messages": 889,
+        "analytics_processed_messages": 890,
+        "publish_throughput_msg_s": 42.468,
+        "storage_throughput_msg_s": 44.417,
+        "analytics_throughput_msg_s": 44.467,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 0,
+        "peak_consumer_lag": 0
+      },
+      "burst_phase": {
+        "duration_sec": 5.093,
+        "messages_sent": 9521,
+        "storage_received_messages": 3015,
+        "analytics_processed_messages": 3077,
+        "publish_throughput_msg_s": 1869.429,
+        "storage_throughput_msg_s": 591.989,
+        "analytics_throughput_msg_s": 604.163,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 341,
+        "peak_consumer_lag": 0
+      },
+      "recovery_phase": {
+        "duration_sec": 20.151,
+        "messages_sent": 10846,
+        "storage_received_messages": 7998,
+        "analytics_processed_messages": 8462,
+        "publish_throughput_msg_s": 538.236,
+        "storage_throughput_msg_s": 396.903,
+        "analytics_throughput_msg_s": 419.93,
+        "peak_pipeline_backlog_messages": 292,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 933,
+        "peak_consumer_lag": 0
+      },
+      "drain_phase": {
+        "duration_sec": 3.638,
+        "messages_sent": 0,
+        "storage_received_messages": 0,
+        "analytics_processed_messages": 0,
+        "publish_throughput_msg_s": 0.0,
+        "storage_throughput_msg_s": 0.0,
+        "analytics_throughput_msg_s": 0.0,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 933,
+        "peak_consumer_lag": 0,
+        "settled": true,
+        "settle_reason": "pipeline_drained"
+      },
+      "peak_pipeline_backlog_messages": 292,
+      "peak_storage_batch_queue_depth": 0,
+      "peak_analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "peak_mqtt_publish_overrun_messages": 933,
+      "time_to_peak_backlog_sec": 6.107,
+      "recovery_sec_to_backlog_zero": 20.151,
+      "recovery_sec_to_baseline_storage_throughput": 2.416,
+      "drain_time_sec": 3.638,
+      "validation_issues": [
+        "analytics_processed_exceeded_storage_received",
+        "mqtt_latency_probe_received_less_than_sent"
+      ],
+      "publisher_results": {
+        "baseline": {
+          "kind": "baseline",
+          "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+          "target_rate": 50,
+          "configured_rate": 50.0,
+          "planned_messages": 2250,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\n1s pub total=50 rate=49.85/sec\n\n1s pub_succ total=50 rate=49.85/sec\n\n1s connect_succ total=1 rate=1.00/sec\n\n2s pub total=100 rate=50.00/sec\n\n2s pub_succ total=100 rate=50.00/sec\n\n3s pub total=150 rate=50.00/sec\n\n3s pub_succ total=150 rate=50.00/sec\n\n4s pub total=200 rate=50.00/sec\n\n4s pub_succ total=200 rate=50.00/sec\n\n5s pub total=250 rate=50.00/sec\n\n5s pub_succ total=250 rate=50.00/sec\n\n6s pub total=300 rate=50.00/sec\n\n6s pub_succ total=300 rate=50.00/sec\n\n7s pub total=350 rate=50.00/sec\n\n7s pub_succ total=350 rate=50.00/sec\n\n8s pub total=400 rate=50.00/sec\n\n8s pub_succ total=400 rate=50.00/sec\n\n9s pub total=450 rate=50.00/sec\n\n9s pub_succ total=450 rate=50.00/sec\n\n10s pub total=500 rate=50.00/sec\n\n10s pub_succ total=500 rate=50.00/sec\n\n11s pub total=550 rate=50.00/sec\n\n11s pub_succ total=550 rate=50.00/sec\n\n12s pub total=600 rate=50.00/sec\n\n12s pub_succ total=600 rate=50.00/sec\n\n13s pub total=650 rate=50.00/sec\n\n13s pub_succ total=650 rate=50.00/sec\n\n14s pub total=700 rate=50.00/sec\n\n14s pub_succ total=700 rate=50.00/sec\n\n15s pub total=750 rate=50.00/sec\n\n15s pub_succ total=750 rate=50.00/sec\n\n16s pub total=800 rate=50.00/sec\n\n16s pub_succ total=800 rate=50.00/sec\n\n17s pub total=850 rate=50.00/sec\n\n17s pub_succ total=850 rate=50.00/sec\n\n18s pub total=900 rate=50.00/sec\n\n18s pub_succ total=900 rate=50.00/sec\n\n19s pub total=950 rate=50.00/sec\n\n19s pub_succ total=950 rate=50.00/sec\n\n20s pub total=1000 rate=50.00/sec\n\n20s pub_succ total=1000 rate=50.00/sec\n\n21s pub total=1050 rate=50.00/sec\n\n21s pub_succ total=1050 rate=50.00/sec\n\n22s pub total=1100 rate=50.00/sec\n\n22s pub_succ total=1100 rate=50.00/sec\n\n23s pub total=1150 rate=50.00/sec\n\n23s pub_succ total=1150 rate=50.00/sec\n\n24s pub total=1200 rate=50.00/sec\n\n24s pub_succ total=1200 rate=49.90/sec\n\n25s pub total=1250 rate=50.00/sec\n\n25s pub_succ total=1250 rate=50.10/sec\n\n26s pub total=1300 rate=50.00/sec\n\n26s pub_succ total=1300 rate=50.00/sec\n\n27s pub total=1350 rate=50.00/sec\n\n27s pub_succ total=1350 rate=50.00/sec\n\n28s pub total=1400 rate=50.00/sec\n\n28s pub_succ total=1400 rate=50.00/sec\n\n29s pub total=1450 rate=50.00/sec\n\n29s pub_succ total=1450 rate=50.00/sec\n\n30s pub total=1500 rate=50.00/sec\n\n30s pub_succ total=1500 rate=50.00/sec\n\n31s pub total=1550 rate=50.00/sec\n\n31s pub_succ total=1550 rate=50.00/sec\n\n32s pub total=1600 rate=50.00/sec\n\n32s pub_succ total=1600 rate=50.00/sec\n\n33s pub total=1650 rate=50.00/sec\n\n33s pub_succ total=1650 rate=50.00/sec\n\n34s pub total=1700 rate=50.00/sec\n\n34s pub_succ total=1700 rate=50.00/sec\n\n35s pub total=1750 rate=50.00/sec\n\n35s pub_succ total=1750 rate=50.00/sec\n\n36s pub total=1800 rate=50.00/sec\n\n36s pub_succ total=1800 rate=50.00/sec\n\n37s pub total=1850 rate=50.00/sec\n\n37s pub_succ total=1850 rate=50.00/sec\n\n38s pub total=1900 rate=50.00/sec\n\n38s pub_succ total=1900 rate=50.00/sec\n\n39s pub total=1950 rate=50.00/sec\n\n39s pub_succ total=1950 rate=50.00/sec\n\n40s pub total=2000 rate=50.00/sec\n\n40s pub_succ total=2000 rate=50.00/sec\n\n41s pub total=2050 rate=50.00/sec\n\n41s pub_succ total=2050 rate=50.00/sec\n\n42s pub total=2100 rate=50.00/sec\n\n42s pub_succ total=2100 rate=50.00/sec\n\n43s pub total=2150 rate=50.00/sec\n\n43s pub_succ total=2150 rate=50.00/sec\n\n44s pub total=2200 rate=50.00/sec\n\n44s pub_succ total=2200 rate=50.00/sec\n\n45s pub total=2250 rate=50.00/sec\n\n45s pub_succ total=2250 rate=50.00/sec\n\npublish complete",
+          "messages_sent": 2250,
+          "publish_overrun_messages": 0
+        },
+        "burst": {
+          "kind": "burst",
+          "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+          "target_rate": 4950,
+          "configured_rate": 4950.0,
+          "planned_messages": 24750,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 8 workers, addrs pool size: 1 and req interval: 80 ms \n\n\n1s connect_succ total=97 rate=96.81/sec\nCollected 8 'go' signals, start publishing\n\n2s pub total=4310 rate=2151.77/sec\n\n2s pub_overrun total=58 rate=28.96/sec\n\n2s pub_succ total=4316 rate=2154.77/sec\n\n2s connect_succ total=99 rate=2.00/sec\n\n3s pub total=9229 rate=4923.92/sec\n\n3s pub_overrun total=341 rate=282.72/sec\n\n3s pub_succ total=9271 rate=4950.05/sec\n\n4s pub total=14220 rate=4991.00/sec\n\n4s pub_overrun total=442 rate=100.80/sec\n\n4s pub_succ total=14250 rate=4944.39/sec\n\n5s pub total=19138 rate=4918.00/sec\n\n5s pub_overrun total=850 rate=409.64/sec\n\n5s pub_succ total=19139 rate=4933.40/sec\n\n6s pub total=24091 rate=4953.00/sec\n\n6s pub_overrun total=933 rate=83.00/sec\n\n6s pub_succ total=24096 rate=4957.00/sec\n\npublish complete",
+          "messages_sent": 24096,
+          "publish_overrun_messages": 933
+        }
+      },
+      "mqtt_probe_result": {
+        "probe_received_messages": 18082,
+        "probe_settled": true,
+        "probe_settle_reason": "probe_counters_stable",
+        "probe_completion_sec": 3.18,
+        "latency_summary": {
+          "avg_latency_ms": 264.641,
+          "p95_latency_ms": 475.34,
+          "max_latency_ms": 500.0,
+          "observations": 18082
+        },
+        "max_latency_is_histogram_upper_bound": true
+      },
+      "kafka_consumer_lag_final": null,
+      "timeline_warmup": [
+        {
+          "timestamp": 1781537356.872,
+          "elapsed_sec": 2.056,
+          "phase": "warmup",
+          "phase_elapsed_sec": 0.816,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537358.357,
+          "elapsed_sec": 3.541,
+          "phase": "warmup",
+          "phase_elapsed_sec": 2.301,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537359.77,
+          "elapsed_sec": 4.954,
+          "phase": "warmup",
+          "phase_elapsed_sec": 3.714,
+          "sent_messages": 0,
+          "storage_received_messages": 33,
+          "analytics_processed_messages": 34,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537361.174,
+          "elapsed_sec": 6.357,
+          "phase": "warmup",
+          "phase_elapsed_sec": 5.118,
+          "sent_messages": 100,
+          "storage_received_messages": 103,
+          "analytics_processed_messages": 104,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537362.601,
+          "elapsed_sec": 7.785,
+          "phase": "warmup",
+          "phase_elapsed_sec": 6.545,
+          "sent_messages": 150,
+          "storage_received_messages": 173,
+          "analytics_processed_messages": 174,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 150,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537364.077,
+          "elapsed_sec": 9.26,
+          "phase": "warmup",
+          "phase_elapsed_sec": 8.021,
+          "sent_messages": 250,
+          "storage_received_messages": 246,
+          "analytics_processed_messages": 247,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 250,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537365.469,
+          "elapsed_sec": 10.653,
+          "phase": "warmup",
+          "phase_elapsed_sec": 9.413,
+          "sent_messages": 300,
+          "storage_received_messages": 319,
+          "analytics_processed_messages": 319,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 300,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537366.911,
+          "elapsed_sec": 12.095,
+          "phase": "warmup",
+          "phase_elapsed_sec": 10.855,
+          "sent_messages": 350,
+          "storage_received_messages": 388,
+          "analytics_processed_messages": 389,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 350,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537368.325,
+          "elapsed_sec": 13.508,
+          "phase": "warmup",
+          "phase_elapsed_sec": 12.269,
+          "sent_messages": 450,
+          "storage_received_messages": 461,
+          "analytics_processed_messages": 462,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 450,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537369.753,
+          "elapsed_sec": 14.937,
+          "phase": "warmup",
+          "phase_elapsed_sec": 13.697,
+          "sent_messages": 500,
+          "storage_received_messages": 532,
+          "analytics_processed_messages": 532,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 500,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537371.185,
+          "elapsed_sec": 16.368,
+          "phase": "warmup",
+          "phase_elapsed_sec": 15.129,
+          "sent_messages": 600,
+          "storage_received_messages": 603,
+          "analytics_processed_messages": 605,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 600,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537372.605,
+          "elapsed_sec": 17.788,
+          "phase": "warmup",
+          "phase_elapsed_sec": 16.549,
+          "sent_messages": 650,
+          "storage_received_messages": 674,
+          "analytics_processed_messages": 675,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 650,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537374.061,
+          "elapsed_sec": 19.245,
+          "phase": "warmup",
+          "phase_elapsed_sec": 18.005,
+          "sent_messages": 700,
+          "storage_received_messages": 745,
+          "analytics_processed_messages": 746,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 700,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537375.48,
+          "elapsed_sec": 20.664,
+          "phase": "warmup",
+          "phase_elapsed_sec": 19.424,
+          "sent_messages": 800,
+          "storage_received_messages": 819,
+          "analytics_processed_messages": 819,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 800,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537376.486,
+          "elapsed_sec": 21.67,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.43,
+          "sent_messages": 850,
+          "storage_received_messages": 869,
+          "analytics_processed_messages": 869,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 850,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537376.887,
+          "elapsed_sec": 22.071,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.832,
+          "sent_messages": 850,
+          "storage_received_messages": 889,
+          "analytics_processed_messages": 890,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 850,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_burst": [
+        {
+          "timestamp": 1781537378.811,
+          "elapsed_sec": 23.994,
+          "phase": "burst",
+          "phase_elapsed_sec": 1.075,
+          "sent_messages": 950,
+          "storage_received_messages": 952,
+          "analytics_processed_messages": 952,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 950,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537380.867,
+          "elapsed_sec": 26.051,
+          "phase": "burst",
+          "phase_elapsed_sec": 3.131,
+          "sent_messages": 1050,
+          "storage_received_messages": 1056,
+          "analytics_processed_messages": 1056,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1050,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537382.934,
+          "elapsed_sec": 28.118,
+          "phase": "burst",
+          "phase_elapsed_sec": 5.198,
+          "sent_messages": 5466,
+          "storage_received_messages": 1743,
+          "analytics_processed_messages": 1838,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 58,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1150,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 4316,
+              "publish_overrun_messages": 58,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537383.903,
+          "elapsed_sec": 29.087,
+          "phase": "burst",
+          "phase_elapsed_sec": 6.167,
+          "sent_messages": 10471,
+          "storage_received_messages": 3967,
+          "analytics_processed_messages": 4029,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 341,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 9271,
+              "publish_overrun_messages": 341,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "timestamp": 1781537384.918,
+          "elapsed_sec": 30.101,
+          "phase": "recovery",
+          "phase_elapsed_sec": 1.015,
+          "sent_messages": 15500,
+          "storage_received_messages": 6733,
+          "analytics_processed_messages": 6441,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 292,
+          "mqtt_publish_overrun_messages": 442,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1250,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 14250,
+              "publish_overrun_messages": 442,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537387.333,
+          "elapsed_sec": 32.517,
+          "phase": "recovery",
+          "phase_elapsed_sec": 3.43,
+          "sent_messages": 25446,
+          "storage_received_messages": 11277,
+          "analytics_processed_messages": 11441,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1350,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537389.208,
+          "elapsed_sec": 34.392,
+          "phase": "recovery",
+          "phase_elapsed_sec": 5.305,
+          "sent_messages": 25546,
+          "storage_received_messages": 13963,
+          "analytics_processed_messages": 14137,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1450,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537391.008,
+          "elapsed_sec": 36.192,
+          "phase": "recovery",
+          "phase_elapsed_sec": 7.105,
+          "sent_messages": 25646,
+          "storage_received_messages": 14056,
+          "analytics_processed_messages": 14230,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1550,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537392.825,
+          "elapsed_sec": 38.008,
+          "phase": "recovery",
+          "phase_elapsed_sec": 8.922,
+          "sent_messages": 25746,
+          "storage_received_messages": 14146,
+          "analytics_processed_messages": 14319,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1650,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537394.802,
+          "elapsed_sec": 39.986,
+          "phase": "recovery",
+          "phase_elapsed_sec": 10.899,
+          "sent_messages": 25846,
+          "storage_received_messages": 14238,
+          "analytics_processed_messages": 14411,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1750,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537396.648,
+          "elapsed_sec": 41.832,
+          "phase": "recovery",
+          "phase_elapsed_sec": 12.745,
+          "sent_messages": 25946,
+          "storage_received_messages": 14337,
+          "analytics_processed_messages": 14511,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1850,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537398.435,
+          "elapsed_sec": 43.619,
+          "phase": "recovery",
+          "phase_elapsed_sec": 14.532,
+          "sent_messages": 26046,
+          "storage_received_messages": 14429,
+          "analytics_processed_messages": 14601,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 1950,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537400.222,
+          "elapsed_sec": 45.406,
+          "phase": "recovery",
+          "phase_elapsed_sec": 16.319,
+          "sent_messages": 26096,
+          "storage_received_messages": 14518,
+          "analytics_processed_messages": 14690,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2000,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537402.089,
+          "elapsed_sec": 47.272,
+          "phase": "recovery",
+          "phase_elapsed_sec": 18.186,
+          "sent_messages": 26196,
+          "storage_received_messages": 14607,
+          "analytics_processed_messages": 14781,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537403.907,
+          "elapsed_sec": 49.09,
+          "phase": "recovery",
+          "phase_elapsed_sec": 20.004,
+          "sent_messages": 26296,
+          "storage_received_messages": 14701,
+          "analytics_processed_messages": 14873,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537405.068,
+          "elapsed_sec": 50.252,
+          "phase": "recovery",
+          "phase_elapsed_sec": 21.165,
+          "sent_messages": 26346,
+          "storage_received_messages": 14731,
+          "analytics_processed_messages": 14903,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2250,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_drain": [
+        {
+          "timestamp": 1781537406.587,
+          "elapsed_sec": 51.771,
+          "phase": "drain",
+          "phase_elapsed_sec": 0.779,
+          "sent_messages": 26346,
+          "storage_received_messages": 14731,
+          "analytics_processed_messages": 14903,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2250,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537408.418,
+          "elapsed_sec": 53.602,
+          "phase": "drain",
+          "phase_elapsed_sec": 2.609,
+          "sent_messages": 26346,
+          "storage_received_messages": 14731,
+          "analytics_processed_messages": 14903,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2250,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537410.225,
+          "elapsed_sec": 55.409,
+          "phase": "drain",
+          "phase_elapsed_sec": 4.416,
+          "sent_messages": 26346,
+          "storage_received_messages": 14731,
+          "analytics_processed_messages": 14903,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 933,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-1-1-1781537354816",
+              "messages_sent": 2250,
+              "publish_overrun_messages": 0,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-1-1-1781537376888",
+              "messages_sent": 24096,
+              "publish_overrun_messages": 933,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ]
+    },
+    {
+      "scenario": "C",
+      "config_name": "mqtt_qos_2",
+      "run_name": "mqtt_qos_2_repeat_1",
+      "repeat_index": 1,
+      "broker": "mqtt",
+      "broker_value": "2",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "warmup_rate_msg_s": 50,
+      "burst_rate_msg_s": 5000,
+      "burst_extra_rate_msg_s": 4950,
+      "warmup_sec": 20,
+      "burst_sec": 5,
+      "recovery_sec": 20,
+      "baseline_planned_messages": 2250,
+      "burst_planned_messages": 24750,
+      "messages_sent": 25666,
+      "messages_received": 18727,
+      "analytics_processed_messages": 18926,
+      "loss_messages": 6939,
+      "loss_pct": 27.036,
+      "duplicate_storage_messages_estimate": 0,
+      "duplicate_analytics_messages_estimate": 0,
+      "avg_latency_ms": 633.068,
+      "p95_latency_ms": 969.473,
+      "max_latency_ms": 1000.0,
+      "latency_observations": 21382,
+      "latency_source": "emqtt-bench_e2e_latency_histogram",
+      "cpu_pct": 102.839,
+      "cpu_pct_avg": 13.231,
+      "ram_mb": 28.359,
+      "ram_mb_avg": 18.444,
+      "network_mb": 76.41,
+      "network_rx_mb": 29.443,
+      "network_tx_mb": 46.967,
+      "resource_sample_count": 115,
+      "warmup_phase": {
+        "duration_sec": 20.354,
+        "messages_sent": 663,
+        "storage_received_messages": 677,
+        "analytics_processed_messages": 677,
+        "publish_throughput_msg_s": 32.573,
+        "storage_throughput_msg_s": 33.261,
+        "analytics_throughput_msg_s": 33.261,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 148,
+        "peak_consumer_lag": 0
+      },
+      "burst_phase": {
+        "duration_sec": 5.781,
+        "messages_sent": 6694,
+        "storage_received_messages": 3064,
+        "analytics_processed_messages": 3321,
+        "publish_throughput_msg_s": 1157.931,
+        "storage_throughput_msg_s": 530.012,
+        "analytics_throughput_msg_s": 574.468,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 5414,
+        "peak_consumer_lag": 0
+      },
+      "recovery_phase": {
+        "duration_sec": 19.85,
+        "messages_sent": 15307,
+        "storage_received_messages": 12673,
+        "analytics_processed_messages": 12633,
+        "publish_throughput_msg_s": 771.134,
+        "storage_throughput_msg_s": 638.438,
+        "analytics_throughput_msg_s": 636.423,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 22675,
+        "peak_consumer_lag": 0
+      },
+      "drain_phase": {
+        "duration_sec": 3.715,
+        "messages_sent": 0,
+        "storage_received_messages": 0,
+        "analytics_processed_messages": 0,
+        "publish_throughput_msg_s": 0.0,
+        "storage_throughput_msg_s": 0.0,
+        "analytics_throughput_msg_s": 0.0,
+        "peak_pipeline_backlog_messages": 0,
+        "peak_storage_batch_queue_depth": 0,
+        "peak_analytics_window_queue_depth": 0,
+        "peak_mqtt_publish_overrun_messages": 23685,
+        "peak_consumer_lag": 0,
+        "settled": true,
+        "settle_reason": "pipeline_drained"
+      },
+      "peak_pipeline_backlog_messages": 0,
+      "peak_storage_batch_queue_depth": 0,
+      "peak_analytics_window_queue_depth": 0,
+      "peak_consumer_lag": 0,
+      "peak_mqtt_publish_overrun_messages": 23685,
+      "time_to_peak_backlog_sec": 0.0,
+      "recovery_sec_to_backlog_zero": 74.125,
+      "recovery_sec_to_baseline_storage_throughput": 2.039,
+      "drain_time_sec": 3.715,
+      "validation_issues": [
+        "analytics_processed_exceeded_storage_received",
+        "mqtt_latency_probe_received_less_than_sent"
+      ],
+      "publisher_results": {
+        "baseline": {
+          "kind": "baseline",
+          "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+          "target_rate": 50,
+          "configured_rate": 50.0,
+          "planned_messages": 2250,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 1 workers, addrs pool size: 1 and req interval: 1000 ms \n\nCollected 1 'go' signals, start publishing\n\n1s pub total=50 rate=49.90/sec\n\n1s pub_succ total=50 rate=49.90/sec\n\n1s connect_succ total=1 rate=1.00/sec\n\n2s pub total=100 rate=50.00/sec\n\n2s pub_succ total=100 rate=50.00/sec\n\n3s pub total=150 rate=50.00/sec\n\n3s pub_succ total=150 rate=50.00/sec\n\n4s pub total=200 rate=50.00/sec\n\n4s pub_succ total=200 rate=50.00/sec\n\n5s pub total=250 rate=50.00/sec\n\n5s pub_succ total=250 rate=50.00/sec\n\n6s pub total=300 rate=50.00/sec\n\n6s pub_succ total=300 rate=50.00/sec\n\n7s pub total=350 rate=50.00/sec\n\n7s pub_succ total=350 rate=50.00/sec\n\n8s pub total=400 rate=50.00/sec\n\n8s pub_succ total=400 rate=50.00/sec\n\n9s pub total=450 rate=50.00/sec\n\n9s pub_succ total=450 rate=50.00/sec\n\n10s pub total=500 rate=50.00/sec\n\n10s pub_succ total=500 rate=50.00/sec\n\n11s pub total=528 rate=28.00/sec\n\n11s pub_overrun total=13 rate=1.18/sec\n\n11s pub_succ total=528 rate=27.97/sec\n\n12s pub total=548 rate=20.00/sec\n\n12s pub_overrun total=33 rate=19.98/sec\n\n12s pub_succ total=548 rate=20.00/sec\n\n13s pub total=567 rate=19.00/sec\n\n13s pub_overrun total=52 rate=19.02/sec\n\n13s pub_succ total=567 rate=19.02/sec\n\n14s pub total=586 rate=19.00/sec\n\n14s pub_overrun total=71 rate=19.00/sec\n\n14s pub_succ total=586 rate=19.00/sec\n\n15s pub total=605 rate=19.00/sec\n\n15s pub_overrun total=90 rate=19.00/sec\n\n15s pub_succ total=605 rate=19.00/sec\n\n16s pub total=624 rate=19.00/sec\n\n16s pub_overrun total=109 rate=19.00/sec\n\n16s pub_succ total=624 rate=18.98/sec\n\n17s pub total=644 rate=20.00/sec\n\n17s pub_overrun total=129 rate=20.00/sec\n\n17s pub_succ total=644 rate=20.02/sec\n\n18s pub total=663 rate=19.00/sec\n\n18s pub_overrun total=148 rate=19.00/sec\n\n18s pub_succ total=663 rate=18.98/sec\n\n19s pub total=682 rate=19.00/sec\n\n19s pub_overrun total=167 rate=19.00/sec\n\n19s pub_succ total=682 rate=19.02/sec\n\n20s pub total=701 rate=19.00/sec\n\n20s pub_overrun total=186 rate=18.98/sec\n\n20s pub_succ total=701 rate=18.94/sec\n\n21s pub total=722 rate=21.00/sec\n\n21s pub_overrun total=207 rate=20.96/sec\n\n21s pub_succ total=722 rate=21.00/sec\n\n22s pub total=740 rate=18.00/sec\n\n22s pub_overrun total=225 rate=18.04/sec\n\n22s pub_succ total=740 rate=18.04/sec\n\n23s pub total=758 rate=18.00/sec\n\n23s pub_overrun total=243 rate=18.02/sec\n\n23s pub_succ total=758 rate=18.02/sec\n\n24s pub total=778 rate=20.00/sec\n\n24s pub_overrun total=263 rate=20.00/sec\n\n24s pub_succ total=778 rate=19.80/sec\n\n25s pub total=798 rate=20.00/sec\n\n25s pub_overrun total=283 rate=19.96/sec\n\n25s pub_succ total=798 rate=20.10/sec\n\n26s pub total=820 rate=22.00/sec\n\n26s pub_overrun total=305 rate=22.02/sec\n\n26s pub_succ total=820 rate=22.07/sec\n\n27s pub total=838 rate=18.00/sec\n\n27s pub_overrun total=323 rate=18.00/sec\n\n27s pub_succ total=838 rate=18.02/sec\n\n28s pub total=857 rate=19.00/sec\n\n28s pub_overrun total=342 rate=19.02/sec\n\n28s pub_succ total=857 rate=18.98/sec\n\n29s pub total=877 rate=20.00/sec\n\n29s pub_overrun total=362 rate=20.00/sec\n\n29s pub_succ total=877 rate=20.04/sec\n\n30s pub total=895 rate=18.00/sec\n\n30s pub_overrun total=380 rate=18.00/sec\n\n30s pub_succ total=895 rate=18.00/sec\n\n31s pub total=914 rate=19.00/sec\n\n31s pub_overrun total=399 rate=18.91/sec\n\n31s pub_succ total=914 rate=18.89/sec\n\n32s pub total=936 rate=22.00/sec\n\n32s pub_overrun total=421 rate=22.09/sec\n\n32s pub_succ total=936 rate=22.07/sec\n\n33s pub total=954 rate=18.00/sec\n\n33s pub_overrun total=439 rate=18.02/sec\n\n33s pub_succ total=954 rate=18.05/sec\n\n34s pub total=975 rate=21.00/sec\n\n34s pub_overrun total=460 rate=21.00/sec\n\n34s pub_succ total=975 rate=20.98/sec\n\n35s pub total=992 rate=17.00/sec\n\n35s pub_overrun total=477 rate=17.00/sec\n\n35s pub_succ total=992 rate=17.00/sec\n\n36s pub total=1011 rate=19.00/sec\n\n36s pub_overrun total=496 rate=19.00/sec\n\n36s pub_succ total=1011 rate=19.00/sec\n\n37s pub total=1030 rate=19.00/sec\n\n37s pub_overrun total=515 rate=19.00/sec\n\n37s pub_succ total=1030 rate=19.02/sec\n\n38s pub total=1050 rate=20.00/sec\n\n38s pub_overrun total=535 rate=20.00/sec\n\n38s pub_succ total=1050 rate=20.00/sec\n\n39s pub total=1068 rate=18.00/sec\n\n39s pub_overrun total=553 rate=18.00/sec\n\n39s pub_succ total=1068 rate=18.00/sec\n\n40s pub total=1088 rate=20.00/sec\n\n40s pub_overrun total=573 rate=20.00/sec\n\n40s pub_succ total=1088 rate=20.00/sec\n\n41s pub total=1106 rate=18.00/sec\n\n41s pub_overrun total=591 rate=18.00/sec\n\n41s pub_succ total=1106 rate=18.00/sec\n\n42s pub total=1126 rate=20.00/sec\n\n42s pub_overrun total=611 rate=20.00/sec\n\n42s pub_succ total=1126 rate=20.00/sec\n\n43s pub total=1145 rate=19.00/sec\n\n43s pub_overrun total=630 rate=19.00/sec\n\n43s pub_succ total=1145 rate=19.00/sec\n\n44s pub total=1164 rate=19.00/sec\n\n44s pub_overrun total=649 rate=19.00/sec\n\n44s pub_succ total=1164 rate=19.00/sec\n\n45s pub total=1183 rate=19.00/sec\n\n45s pub_overrun total=668 rate=19.00/sec\n\n45s pub_succ total=1183 rate=19.00/sec\n\n46s pub total=1203 rate=20.00/sec\n\n46s pub_overrun total=688 rate=20.00/sec\n\n46s pub_succ total=1203 rate=19.98/sec\n\n47s pub total=1222 rate=19.00/sec\n\n47s pub_overrun total=707 rate=19.00/sec\n\n47s pub_succ total=1222 rate=19.00/sec\n\n48s pub total=1242 rate=20.00/sec\n\n48s pub_overrun total=727 rate=20.00/sec\n\n48s pub_succ total=1242 rate=20.00/sec\n\n49s pub total=1262 rate=20.00/sec\n\n49s pub_overrun total=747 rate=19.98/sec\n\n49s pub_succ total=1262 rate=20.00/sec\n\n50s pub total=1281 rate=19.00/sec\n\n50s pub_overrun total=766 rate=19.02/sec\n\n50s pub_succ total=1281 rate=19.00/sec\n\n51s pub total=1300 rate=19.00/sec\n\n51s pub_overrun total=785 rate=19.00/sec\n\n51s pub_succ total=1300 rate=19.02/sec\n\n52s pub total=1320 rate=20.00/sec\n\n52s pub_overrun total=805 rate=19.98/sec\n\n52s pub_succ total=1320 rate=19.98/sec\n\n53s pub total=1339 rate=19.00/sec\n\n53s pub_overrun total=824 rate=19.02/sec\n\n53s pub_succ total=1339 rate=19.02/sec\n\n54s pub total=1359 rate=20.00/sec\n\n54s pub_overrun total=844 rate=20.00/sec\n\n54s pub_succ total=1359 rate=20.00/sec\n\n55s pub total=1379 rate=20.00/sec\n\n55s pub_overrun total=864 rate=20.00/sec\n\n55s pub_succ total=1379 rate=20.00/sec\n\n56s pub total=1398 rate=19.00/sec\n\n56s pub_overrun total=883 rate=19.00/sec\n\n56s pub_succ total=1398 rate=19.00/sec\n\n57s pub total=1418 rate=20.00/sec\n\n57s pub_overrun total=903 rate=19.98/sec\n\n57s pub_succ total=1418 rate=19.96/sec\n\n58s pub total=1437 rate=19.00/sec\n\n58s pub_overrun total=922 rate=19.02/sec\n\n58s pub_succ total=1437 rate=19.02/sec\n\n59s pub total=1456 rate=19.00/sec\n\n59s pub_overrun total=941 rate=19.00/sec\n\n59s pub_succ total=1456 rate=19.00/sec\n\n1m0s pub total=1476 rate=20.00/sec\n\n1m0s pub_overrun total=961 rate=20.00/sec\n\n1m0s pub_succ total=1476 rate=20.00/sec\n\n1m1s pub total=1496 rate=20.00/sec\n\n1m1s pub_overrun total=981 rate=20.00/sec\n\n1m1s pub_succ total=1496 rate=20.02/sec\n\n1m2s pub total=1515 rate=19.00/sec\n\n1m2s pub_overrun total=1000 rate=19.00/sec\n\n1m2s pub_succ total=1515 rate=18.98/sec\n\n1m3s pub total=1534 rate=19.00/sec\n\n1m3s pub_overrun total=1019 rate=19.00/sec\n\n1m3s pub_succ total=1534 rate=19.00/sec\n\n1m4s pub total=1554 rate=20.00/sec\n\n1m4s pub_overrun total=1039 rate=20.00/sec\n\n1m4s pub_succ total=1554 rate=20.02/sec\n\n1m5s pub total=1574 rate=20.00/sec\n\n1m5s pub_overrun total=1059 rate=20.00/sec\n\n1m5s pub_succ total=1574 rate=20.00/sec\n\n1m6s pub total=1593 rate=19.00/sec\n\n1m6s pub_overrun total=1078 rate=19.00/sec\n\n1m6s pub_succ total=1593 rate=18.98/sec\n\n1m7s pub total=1612 rate=19.00/sec\n\n1m7s pub_overrun total=1097 rate=18.98/sec\n\n1m7s pub_succ total=1612 rate=19.00/sec\n\n1m8s pub total=1632 rate=20.00/sec\n\n1m8s pub_overrun total=1117 rate=20.02/sec\n\n1m8s pub_succ total=1632 rate=20.00/sec\n\n1m9s pub total=1651 rate=19.00/sec\n\n1m9s pub_overrun total=1136 rate=19.00/sec\n\n1m9s pub_succ total=1651 rate=19.02/sec\n\n1m10s pub total=1671 rate=20.00/sec\n\n1m10s pub_overrun total=1156 rate=20.00/sec\n\n1m10s pub_succ total=1671 rate=19.98/sec\n\n1m11s pub total=1690 rate=19.00/sec\n\n1m11s pub_overrun total=1175 rate=19.00/sec\n\n1m11s pub_succ total=1690 rate=19.02/sec\n\n1m12s pub total=1709 rate=19.00/sec\n\n1m12s pub_overrun total=1194 rate=19.00/sec\n\n1m12s pub_succ total=1709 rate=18.98/sec\n\n1m13s pub total=1728 rate=19.00/sec\n\n1m13s pub_overrun total=1213 rate=19.00/sec\n\n1m13s pub_succ total=1728 rate=19.00/sec\n\n1m14s pub total=1748 rate=20.00/sec\n\n1m14s pub_overrun total=1233 rate=20.00/sec\n\n1m14s pub_succ total=1748 rate=20.00/sec\n\n1m15s pub total=1767 rate=19.00/sec\n\n1m15s pub_overrun total=1252 rate=19.00/sec\n\n1m15s pub_succ total=1767 rate=19.00/sec\n\n1m16s pub total=1786 rate=19.00/sec\n\n1m16s pub_overrun total=1271 rate=19.00/sec\n\n1m16s pub_succ total=1786 rate=19.02/sec\n\n1m17s pub total=1806 rate=20.00/sec\n\n1m17s pub_overrun total=1291 rate=20.00/sec\n\n1m17s pub_succ total=1806 rate=20.00/sec\n\n1m18s pub total=1825 rate=19.00/sec\n\n1m18s pub_overrun total=1310 rate=19.00/sec\n\n1m18s pub_succ total=1825 rate=19.00/sec\n\n1m19s pub total=1845 rate=20.00/sec\n\n1m19s pub_overrun total=1330 rate=20.00/sec\n\n1m19s pub_succ total=1845 rate=20.00/sec\n\n1m20s pub total=1863 rate=18.00/sec\n\n1m20s pub_overrun total=1348 rate=18.00/sec\n\n1m20s pub_succ total=1863 rate=18.00/sec\n\n1m21s pub total=1882 rate=19.00/sec\n\n1m21s pub_overrun total=1367 rate=19.00/sec\n\n1m21s pub_succ total=1882 rate=18.98/sec\n\n1m22s pub total=1901 rate=19.00/sec\n\n1m22s pub_overrun total=1386 rate=18.98/sec\n\n1m22s pub_succ total=1901 rate=19.00/sec\n\n1m23s pub total=1921 rate=20.00/sec\n\n1m23s pub_overrun total=1406 rate=20.02/sec\n\n1m23s pub_succ total=1921 rate=20.00/sec\n\n1m24s pub total=1940 rate=19.00/sec\n\n1m24s pub_overrun total=1425 rate=18.98/sec\n\n1m24s pub_succ total=1940 rate=19.00/sec\n\n1m25s pub total=1960 rate=20.00/sec\n\n1m25s pub_overrun total=1445 rate=20.02/sec\n\n1m25s pub_succ total=1960 rate=20.02/sec\n\n1m26s pub total=1978 rate=18.00/sec\n\n1m26s pub_overrun total=1463 rate=18.00/sec\n\n1m26s pub_succ total=1978 rate=17.98/sec\n\n1m27s pub total=1998 rate=20.00/sec\n\n1m27s pub_overrun total=1483 rate=20.00/sec\n\n1m27s pub_succ total=1998 rate=20.00/sec\n\n1m28s pub total=2018 rate=20.00/sec\n\n1m28s pub_overrun total=1503 rate=20.00/sec\n\n1m28s pub_succ total=2018 rate=20.02/sec\n\n1m29s pub total=2037 rate=19.00/sec\n\n1m29s pub_overrun total=1522 rate=19.00/sec\n\n1m29s pub_succ total=2037 rate=19.00/sec\n\n1m30s pub total=2057 rate=20.00/sec\n\n1m30s pub_overrun total=1542 rate=20.00/sec\n\n1m30s pub_succ total=2057 rate=19.98/sec\n\n1m31s pub total=2076 rate=19.00/sec\n\n1m31s pub_overrun total=1561 rate=19.00/sec\n\n1m31s pub_succ total=2076 rate=19.02/sec\n\n1m32s pub total=2095 rate=19.00/sec\n\n1m32s pub_overrun total=1580 rate=19.00/sec\n\n1m32s pub_succ total=2095 rate=18.98/sec\n\n1m33s pub total=2115 rate=20.00/sec\n\n1m33s pub_overrun total=1600 rate=20.00/sec\n\n1m33s pub_succ total=2115 rate=20.00/sec\n\n1m34s pub total=2134 rate=19.00/sec\n\n1m34s pub_overrun total=1619 rate=19.00/sec\n\n1m34s pub_succ total=2134 rate=19.02/sec\n\n1m35s pub total=2153 rate=19.00/sec\n\n1m35s pub_overrun total=1638 rate=19.00/sec\n\n1m35s pub_succ total=2153 rate=19.00/sec\n\n1m36s pub total=2173 rate=20.00/sec\n\n1m36s pub_overrun total=1658 rate=20.00/sec\n\n1m36s pub_succ total=2173 rate=19.98/sec\n\n1m37s pub total=2193 rate=20.00/sec\n\n1m37s pub_overrun total=1678 rate=20.00/sec\n\n1m37s pub_succ total=2193 rate=20.02/sec\n\n1m38s pub total=2212 rate=19.00/sec\n\n1m38s pub_overrun total=1697 rate=19.00/sec\n\n1m38s pub_succ total=2212 rate=18.98/sec\n\n1m39s pub total=2232 rate=20.00/sec\n\n1m39s pub_overrun total=1717 rate=19.98/sec\n\n1m39s pub_succ total=2232 rate=20.00/sec\n\npublish complete",
+          "messages_sent": 2232,
+          "publish_overrun_messages": 1717
+        },
+        "burst": {
+          "kind": "burst",
+          "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+          "target_rate": 4950,
+          "configured_rate": 4950.0,
+          "planned_messages": 24750,
+          "completed_cleanly": true,
+          "container_exit_code": 0,
+          "tool_stdout": "Start with 8 workers, addrs pool size: 1 and req interval: 80 ms \n\n\n1s connect_succ total=97 rate=96.81/sec\nCollected 8 'go' signals, start publishing\n\n2s pub total=2541 rate=1269.23/sec\n\n2s pub_overrun total=1075 rate=536.69/sec\n\n2s pub_succ total=2541 rate=1268.60/sec\n\n2s connect_succ total=99 rate=2.00/sec\n\n3s pub total=4568 rate=2027.00/sec\n\n3s pub_overrun total=3104 rate=2031.03/sec\n\n3s pub_succ total=4570 rate=2031.03/sec\n\n4s pub total=6575 rate=2007.00/sec\n\n4s pub_overrun total=5109 rate=2005.00/sec\n\n4s pub_succ total=6575 rate=2005.00/sec\n\n5s pub total=8511 rate=1936.00/sec\n\n5s pub_overrun total=7045 rate=1936.00/sec\n\n5s pub_succ total=8511 rate=1936.00/sec\n\n6s pub total=10501 rate=1990.00/sec\n\n6s pub_overrun total=9036 rate=1991.00/sec\n\n6s pub_succ total=10503 rate=1960.63/sec\n\n7s pub total=12400 rate=1891.43/sec\n\n7s pub_overrun total=10934 rate=1886.68/sec\n\n7s pub_succ total=12400 rate=1914.23/sec\n\n8s pub total=14256 rate=1863.45/sec\n\n8s pub_overrun total=12790 rate=1867.20/sec\n\n8s pub_succ total=14256 rate=1869.08/sec\n\n9s pub total=16057 rate=1797.41/sec\n\n9s pub_overrun total=14626 rate=1798.24/sec\n\n9s pub_succ total=16092 rate=1789.47/sec\n\n10s pub total=18008 rate=1954.91/sec\n\n10s pub_overrun total=16542 rate=1957.10/sec\n\n10s pub_succ total=18008 rate=1967.15/sec\n\n11s pub total=19796 rate=1777.34/sec\n\n11s pub_overrun total=18356 rate=1799.60/sec\n\n11s pub_succ total=19829 rate=1806.55/sec\n\n12s pub total=21607 rate=1821.93/sec\n\n12s pub_overrun total=20141 rate=1799.40/sec\n\n12s pub_succ total=21607 rate=1792.34/sec\n\n13s pub total=23434 rate=1827.00/sec\n\n13s pub_overrun total=21968 rate=1827.00/sec\n\n13s pub_succ total=23434 rate=1823.35/sec\n\npublish complete",
+          "messages_sent": 23434,
+          "publish_overrun_messages": 21968
+        }
+      },
+      "mqtt_probe_result": {
+        "probe_received_messages": 21382,
+        "probe_settled": true,
+        "probe_settle_reason": "probe_counters_stable",
+        "probe_completion_sec": 3.162,
+        "latency_summary": {
+          "avg_latency_ms": 633.068,
+          "p95_latency_ms": 969.473,
+          "max_latency_ms": 1000.0,
+          "observations": 21382
+        },
+        "max_latency_is_histogram_upper_bound": true
+      },
+      "kafka_consumer_lag_final": null,
+      "timeline_warmup": [
+        {
+          "timestamp": 1781537462.378,
+          "elapsed_sec": 1.343,
+          "phase": "warmup",
+          "phase_elapsed_sec": 0.491,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537463.807,
+          "elapsed_sec": 2.772,
+          "phase": "warmup",
+          "phase_elapsed_sec": 1.92,
+          "sent_messages": 0,
+          "storage_received_messages": 0,
+          "analytics_processed_messages": 0,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537465.298,
+          "elapsed_sec": 4.263,
+          "phase": "warmup",
+          "phase_elapsed_sec": 3.411,
+          "sent_messages": 50,
+          "storage_received_messages": 61,
+          "analytics_processed_messages": 63,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 50,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537466.827,
+          "elapsed_sec": 5.791,
+          "phase": "warmup",
+          "phase_elapsed_sec": 4.94,
+          "sent_messages": 100,
+          "storage_received_messages": 136,
+          "analytics_processed_messages": 138,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 100,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537468.277,
+          "elapsed_sec": 7.242,
+          "phase": "warmup",
+          "phase_elapsed_sec": 6.39,
+          "sent_messages": 200,
+          "storage_received_messages": 213,
+          "analytics_processed_messages": 214,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 200,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537469.676,
+          "elapsed_sec": 8.641,
+          "phase": "warmup",
+          "phase_elapsed_sec": 7.789,
+          "sent_messages": 250,
+          "storage_received_messages": 284,
+          "analytics_processed_messages": 285,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 250,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537471.081,
+          "elapsed_sec": 10.046,
+          "phase": "warmup",
+          "phase_elapsed_sec": 9.195,
+          "sent_messages": 350,
+          "storage_received_messages": 354,
+          "analytics_processed_messages": 355,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 350,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537472.494,
+          "elapsed_sec": 11.459,
+          "phase": "warmup",
+          "phase_elapsed_sec": 10.607,
+          "sent_messages": 400,
+          "storage_received_messages": 425,
+          "analytics_processed_messages": 426,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 400,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537473.9,
+          "elapsed_sec": 12.865,
+          "phase": "warmup",
+          "phase_elapsed_sec": 12.013,
+          "sent_messages": 450,
+          "storage_received_messages": 496,
+          "analytics_processed_messages": 496,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 0,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 450,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537475.335,
+          "elapsed_sec": 14.3,
+          "phase": "warmup",
+          "phase_elapsed_sec": 13.448,
+          "sent_messages": 528,
+          "storage_received_messages": 535,
+          "analytics_processed_messages": 535,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 13,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 528,
+              "publish_overrun_messages": 13,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537476.726,
+          "elapsed_sec": 15.691,
+          "phase": "warmup",
+          "phase_elapsed_sec": 14.839,
+          "sent_messages": 548,
+          "storage_received_messages": 562,
+          "analytics_processed_messages": 562,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 33,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 548,
+              "publish_overrun_messages": 33,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537478.161,
+          "elapsed_sec": 17.126,
+          "phase": "warmup",
+          "phase_elapsed_sec": 16.274,
+          "sent_messages": 586,
+          "storage_received_messages": 589,
+          "analytics_processed_messages": 589,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 71,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 586,
+              "publish_overrun_messages": 71,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537479.608,
+          "elapsed_sec": 18.573,
+          "phase": "warmup",
+          "phase_elapsed_sec": 17.721,
+          "sent_messages": 605,
+          "storage_received_messages": 617,
+          "analytics_processed_messages": 617,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 90,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 605,
+              "publish_overrun_messages": 90,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537481.02,
+          "elapsed_sec": 19.985,
+          "phase": "warmup",
+          "phase_elapsed_sec": 19.133,
+          "sent_messages": 644,
+          "storage_received_messages": 644,
+          "analytics_processed_messages": 644,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 129,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 644,
+              "publish_overrun_messages": 129,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537482.312,
+          "elapsed_sec": 21.277,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.425,
+          "sent_messages": 663,
+          "storage_received_messages": 669,
+          "analytics_processed_messages": 670,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 148,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 663,
+              "publish_overrun_messages": 148,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537482.732,
+          "elapsed_sec": 21.697,
+          "phase": "warmup",
+          "phase_elapsed_sec": 20.846,
+          "sent_messages": 663,
+          "storage_received_messages": 677,
+          "analytics_processed_messages": 677,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 148,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 663,
+              "publish_overrun_messages": 148,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_burst": [
+        {
+          "timestamp": 1781537484.745,
+          "elapsed_sec": 23.71,
+          "phase": "burst",
+          "phase_elapsed_sec": 1.136,
+          "sent_messages": 701,
+          "storage_received_messages": 701,
+          "analytics_processed_messages": 702,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 186,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 701,
+              "publish_overrun_messages": 186,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537486.56,
+          "elapsed_sec": 25.525,
+          "phase": "burst",
+          "phase_elapsed_sec": 2.95,
+          "sent_messages": 740,
+          "storage_received_messages": 743,
+          "analytics_processed_messages": 743,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 225,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 740,
+              "publish_overrun_messages": 225,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 0,
+              "publish_overrun_messages": 0,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537488.505,
+          "elapsed_sec": 27.472,
+          "phase": "burst",
+          "phase_elapsed_sec": 4.898,
+          "sent_messages": 3319,
+          "storage_received_messages": 1105,
+          "analytics_processed_messages": 1145,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 1338,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 778,
+              "publish_overrun_messages": 263,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 2541,
+              "publish_overrun_messages": 1075,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537489.593,
+          "elapsed_sec": 28.558,
+          "phase": "burst",
+          "phase_elapsed_sec": 5.984,
+          "sent_messages": 5368,
+          "storage_received_messages": 2405,
+          "analytics_processed_messages": 2578,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 3387,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 798,
+              "publish_overrun_messages": 283,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 4570,
+              "publish_overrun_messages": 3104,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537490.526,
+          "elapsed_sec": 29.491,
+          "phase": "burst",
+          "phase_elapsed_sec": 6.917,
+          "sent_messages": 7395,
+          "storage_received_messages": 3765,
+          "analytics_processed_messages": 4023,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 5414,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 820,
+              "publish_overrun_messages": 305,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 6575,
+              "publish_overrun_messages": 5109,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_recovery": [
+        {
+          "timestamp": 1781537491.525,
+          "elapsed_sec": 30.49,
+          "phase": "recovery",
+          "phase_elapsed_sec": 1.0,
+          "sent_messages": 9349,
+          "storage_received_messages": 5025,
+          "analytics_processed_messages": 5265,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 7368,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 838,
+              "publish_overrun_messages": 323,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 8511,
+              "publish_overrun_messages": 7045,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537493.564,
+          "elapsed_sec": 32.529,
+          "phase": "recovery",
+          "phase_elapsed_sec": 3.038,
+          "sent_messages": 13277,
+          "storage_received_messages": 7745,
+          "analytics_processed_messages": 8003,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 11296,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 877,
+              "publish_overrun_messages": 362,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 12400,
+              "publish_overrun_messages": 10934,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537495.57,
+          "elapsed_sec": 34.535,
+          "phase": "recovery",
+          "phase_elapsed_sec": 5.045,
+          "sent_messages": 17006,
+          "storage_received_messages": 10446,
+          "analytics_processed_messages": 10605,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 15025,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 914,
+              "publish_overrun_messages": 399,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 16092,
+              "publish_overrun_messages": 14626,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537497.558,
+          "elapsed_sec": 36.522,
+          "phase": "recovery",
+          "phase_elapsed_sec": 7.032,
+          "sent_messages": 20783,
+          "storage_received_messages": 12745,
+          "analytics_processed_messages": 12985,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 18795,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 954,
+              "publish_overrun_messages": 439,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 19829,
+              "publish_overrun_messages": 18356,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537499.535,
+          "elapsed_sec": 38.5,
+          "phase": "recovery",
+          "phase_elapsed_sec": 9.009,
+          "sent_messages": 24426,
+          "storage_received_messages": 15165,
+          "analytics_processed_messages": 15545,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22445,
+          "publisher_running_count": 2,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 992,
+              "publish_overrun_messages": 477,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": true,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537501.336,
+          "elapsed_sec": 40.301,
+          "phase": "recovery",
+          "phase_elapsed_sec": 10.81,
+          "sent_messages": 24464,
+          "storage_received_messages": 17506,
+          "analytics_processed_messages": 17705,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22483,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1030,
+              "publish_overrun_messages": 515,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537503.153,
+          "elapsed_sec": 42.118,
+          "phase": "recovery",
+          "phase_elapsed_sec": 12.627,
+          "sent_messages": 24484,
+          "storage_received_messages": 17541,
+          "analytics_processed_messages": 17740,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22503,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1050,
+              "publish_overrun_messages": 535,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537505.096,
+          "elapsed_sec": 44.06,
+          "phase": "recovery",
+          "phase_elapsed_sec": 14.57,
+          "sent_messages": 24522,
+          "storage_received_messages": 17575,
+          "analytics_processed_messages": 17775,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22541,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1088,
+              "publish_overrun_messages": 573,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537506.942,
+          "elapsed_sec": 45.907,
+          "phase": "recovery",
+          "phase_elapsed_sec": 16.416,
+          "sent_messages": 24560,
+          "storage_received_messages": 17613,
+          "analytics_processed_messages": 17812,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22579,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1126,
+              "publish_overrun_messages": 611,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537508.725,
+          "elapsed_sec": 47.689,
+          "phase": "recovery",
+          "phase_elapsed_sec": 18.199,
+          "sent_messages": 24598,
+          "storage_received_messages": 17648,
+          "analytics_processed_messages": 17847,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22617,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1164,
+              "publish_overrun_messages": 649,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537510.566,
+          "elapsed_sec": 49.53,
+          "phase": "recovery",
+          "phase_elapsed_sec": 20.04,
+          "sent_messages": 24637,
+          "storage_received_messages": 17683,
+          "analytics_processed_messages": 17882,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22656,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1203,
+              "publish_overrun_messages": 688,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537511.375,
+          "elapsed_sec": 50.34,
+          "phase": "recovery",
+          "phase_elapsed_sec": 20.849,
+          "sent_messages": 24656,
+          "storage_received_messages": 17698,
+          "analytics_processed_messages": 17898,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 22675,
+          "publisher_running_count": 1,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 1222,
+              "publish_overrun_messages": 707,
+              "running": true,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ],
+      "timeline_drain": [
+        {
+          "timestamp": 1781537565.65,
+          "elapsed_sec": 104.615,
+          "phase": "drain",
+          "phase_elapsed_sec": 0.823,
+          "sent_messages": 25666,
+          "storage_received_messages": 18727,
+          "analytics_processed_messages": 18926,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 23685,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 2232,
+              "publish_overrun_messages": 1717,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537567.499,
+          "elapsed_sec": 106.463,
+          "phase": "drain",
+          "phase_elapsed_sec": 2.672,
+          "sent_messages": 25666,
+          "storage_received_messages": 18727,
+          "analytics_processed_messages": 18926,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 23685,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 2232,
+              "publish_overrun_messages": 1717,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        },
+        {
+          "timestamp": 1781537569.365,
+          "elapsed_sec": 108.33,
+          "phase": "drain",
+          "phase_elapsed_sec": 4.538,
+          "sent_messages": 25666,
+          "storage_received_messages": 18727,
+          "analytics_processed_messages": 18926,
+          "storage_batch_queue_depth": 0,
+          "analytics_window_queue_depth": 0,
+          "pipeline_backlog_messages": 0,
+          "mqtt_publish_overrun_messages": 23685,
+          "publisher_running_count": 0,
+          "publisher_snapshots": [
+            {
+              "kind": "baseline",
+              "container_name": "scenario-c-mqtt-baseline-2-1-1781537461035",
+              "messages_sent": 2232,
+              "publish_overrun_messages": 1717,
+              "running": false,
+              "target_rate": 50,
+              "configured_rate": 50.0,
+              "planned_messages": 2250
+            },
+            {
+              "kind": "burst",
+              "container_name": "scenario-c-mqtt-burst-2-1-1781537482732",
+              "messages_sent": 23434,
+              "publish_overrun_messages": 21968,
+              "running": false,
+              "target_rate": 4950,
+              "configured_rate": 4950.0,
+              "planned_messages": 24750
+            }
+          ],
+          "kafka_consumer_lag_groups": null,
+          "max_kafka_lag": 0
+        }
+      ]
+    }
+  ],
+  "profile_summaries": [
+    {
+      "config_name": "mqtt_qos_0",
+      "broker": "mqtt",
+      "broker_value": "0",
+      "qos": 0,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 1,
+      "loss_pct_med": 48.873,
+      "p95_latency_ms_med": 16.18,
+      "cpu_pct_med": 25.934,
+      "ram_mb_med": 11.973,
+      "network_mb_med": 71.019,
+      "warmup_storage_throughput_msg_s_med": 45.678,
+      "burst_storage_throughput_msg_s_med": 2503.225,
+      "burst_publish_throughput_msg_s_med": 4805.358,
+      "peak_pipeline_backlog_messages_med": 0.0,
+      "peak_storage_batch_queue_depth_med": 0.0,
+      "peak_analytics_window_queue_depth_med": 0.0,
+      "peak_consumer_lag_med": 0.0,
+      "peak_mqtt_publish_overrun_messages_med": 22.0,
+      "recovery_sec_to_backlog_zero_med": 18.452,
+      "recovery_sec_to_baseline_storage_throughput_med": 1.839,
+      "validation_issue_runs": 1
+    },
+    {
+      "config_name": "mqtt_qos_1",
+      "broker": "mqtt",
+      "broker_value": "1",
+      "qos": 1,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 1,
+      "loss_pct_med": 44.086,
+      "p95_latency_ms_med": 475.34,
+      "cpu_pct_med": 67.64,
+      "ram_mb_med": 14.5,
+      "network_mb_med": 52.975,
+      "warmup_storage_throughput_msg_s_med": 44.417,
+      "burst_storage_throughput_msg_s_med": 591.989,
+      "burst_publish_throughput_msg_s_med": 1869.429,
+      "peak_pipeline_backlog_messages_med": 292.0,
+      "peak_storage_batch_queue_depth_med": 0.0,
+      "peak_analytics_window_queue_depth_med": 0.0,
+      "peak_consumer_lag_med": 0.0,
+      "peak_mqtt_publish_overrun_messages_med": 933.0,
+      "recovery_sec_to_backlog_zero_med": 20.151,
+      "recovery_sec_to_baseline_storage_throughput_med": 2.416,
+      "validation_issue_runs": 1
+    },
+    {
+      "config_name": "mqtt_qos_2",
+      "broker": "mqtt",
+      "broker_value": "2",
+      "qos": 2,
+      "acks": null,
+      "topic_partitions": null,
+      "completed_repeats": 1,
+      "loss_pct_med": 27.036,
+      "p95_latency_ms_med": 969.473,
+      "cpu_pct_med": 102.839,
+      "ram_mb_med": 28.359,
+      "network_mb_med": 76.41,
+      "warmup_storage_throughput_msg_s_med": 33.261,
+      "burst_storage_throughput_msg_s_med": 530.012,
+      "burst_publish_throughput_msg_s_med": 1157.931,
+      "peak_pipeline_backlog_messages_med": 0.0,
+      "peak_storage_batch_queue_depth_med": 0.0,
+      "peak_analytics_window_queue_depth_med": 0.0,
+      "peak_consumer_lag_med": 0.0,
+      "peak_mqtt_publish_overrun_messages_med": 23685.0,
+      "recovery_sec_to_backlog_zero_med": 74.125,
+      "recovery_sec_to_baseline_storage_throughput_med": 2.039,
+      "validation_issue_runs": 1
+    }
+  ],
+  "summary": {
+    "total_tests": 3,
+    "completed_tests": 3,
+    "failed_tests": 0
+  },
+  "artifacts": {
+    "performance_table": "C:\\Users\\jorda\\Desktop\\IoTS--Ptojekti\\IoTS\\project_2\\benchmarks\\scenario_c_results_performance_table.md",
+    "analysis_report": "C:\\Users\\jorda\\Desktop\\IoTS--Ptojekti\\IoTS\\project_2\\benchmarks\\scenario_c_results_analysis.md"
+  }
+}
