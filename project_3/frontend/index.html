@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RFID Security Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Project 3</p>
+          <h1>RFID Access Control Dashboard</h1>
+          <p class="subtitle">
+            Live overview of RFID events, unauthorized access alerts, and MaaS risk assessment.
+          </p>
+        </div>
+        <div class="hero-status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">Loading analytics...</span>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="card-grid">
+          <article class="stat-card">
+            <p>Total RFID Events</p>
+            <strong id="total-events">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>Granted Accesses</p>
+            <strong id="granted-accesses">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>Unauthorized Accesses</p>
+            <strong id="unauthorized-accesses">0</strong>
+          </article>
+          <article class="stat-card">
+            <p>Active Devices</p>
+            <strong id="active-devices">0</strong>
+          </article>
+        </section>
+
+        <section class="panel-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Events Through Time</h2>
+              <span id="last-updated">No data yet</span>
+            </div>
+            <canvas id="timeline-chart" width="720" height="260"></canvas>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Granted vs Unauthorized</h2>
+            </div>
+            <canvas id="access-chart" width="420" height="260"></canvas>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Events by Zone</h2>
+            </div>
+            <canvas id="zone-chart" width="420" height="260"></canvas>
+          </article>
+        </section>
+
+        <section class="table-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Recent Events</h2>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Device</th>
+                    <th>Card</th>
+                    <th>Zone</th>
+                    <th>Event Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="events-table"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <h2>Recent Alerts</h2>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Device</th>
+                    <th>Zone</th>
+                    <th>Card</th>
+                    <th>Risk</th>
+                  </tr>
+                </thead>
+                <tbody id="alerts-table"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

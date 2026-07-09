@@ -1,0 +1,4 @@
+fastapi>=0.100.0
+uvicorn>=0.22.0
+paho-mqtt>=1.6.1
+prometheus-client>=0.20.0

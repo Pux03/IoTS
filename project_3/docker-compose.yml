@@ -1,0 +1,147 @@
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: access_control_system
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d access_control_system"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - iot_network
+
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0.18
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mqttdata:/mosquitto/data
+      - mqttlogs:/mosquitto/log
+    networks:
+      - iot_network
+
+  generator:
+    build: ./generator
+    ports:
+      - "8000:8000"
+    environment:
+      MQTT_HOST: mqtt-broker
+      MQTT_PORT: 1883
+      MQTT_QOS: ${MQTT_QOS:-1}
+      MQTT_KEEPALIVE_SEC: 30
+      MQTT_TOPIC: rfid/events
+      PUBLISH_INTERVAL_MS: ${PUBLISH_INTERVAL_MS:-1000}
+    depends_on:
+      - mqtt-broker
+    networks:
+      - iot_network
+
+  data-storage:
+    build: ./data-storage
+    ports:
+      - "8001:8001"
+    environment:
+      MQTT_HOST: mqtt-broker
+      MQTT_PORT: 1883
+      MQTT_QOS: ${MQTT_QOS:-1}
+      MQTT_TOPIC: rfid/events
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: access_control_system
+      DB_USER: admin
+      DB_PASSWORD: admin
+    depends_on:
+      db:
+        condition: service_healthy
+      mqtt-broker:
+        condition: service_started
+    networks:
+      - iot_network
+
+  ekuiper:
+    image: lfedge/ekuiper:2.4.0-alpine
+    ports:
+      - "9081:9081"
+    environment:
+      MQTT_SOURCE__DEFAULT__SERVER: tcp://mqtt-broker:1883
+      MQTT_SOURCE__DEFAULT__QOS: ${MQTT_QOS:-1}
+    depends_on:
+      - mqtt-broker
+    networks:
+      - iot_network
+
+  ekuiper-init:
+    image: python:3.11-slim
+    working_dir: /app
+    command: ["python", "bootstrap.py"]
+    volumes:
+      - ./ekuiper:/app
+    depends_on:
+      - ekuiper
+    restart: "no"
+    networks:
+      - iot_network
+
+  maas:
+    build: ./maas
+    ports:
+      - "8003:8003"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+    networks:
+      - iot_network
+
+  analytics:
+    build: ./analytics
+    ports:
+      - "8002:8002"
+    environment:
+      MQTT_HOST: mqtt-broker
+      MQTT_PORT: 1883
+      MQTT_QOS: ${MQTT_QOS:-1}
+      MQTT_EVENTS_TOPIC: rfid/events
+      MQTT_ALERTS_TOPIC: rfid/alerts
+      MQTT_ANALYTICS_TOPIC: rfid/analytics
+      MAAS_URL: http://maas:8003/predict
+      RECENT_EVENTS_LIMIT: 40
+      RECENT_ALERTS_LIMIT: 25
+      TIMESERIES_RETENTION_MINUTES: 60
+    depends_on:
+      mqtt-broker:
+        condition: service_started
+      maas:
+        condition: service_healthy
+      ekuiper-init:
+        condition: service_completed_successfully
+    networks:
+      - iot_network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - analytics
+    networks:
+      - iot_network
+
+networks:
+  iot_network:
+
+volumes:
+  pgdata:
+  mqttdata:
+  mqttlogs:

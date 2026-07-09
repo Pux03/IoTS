@@ -1,0 +1,15 @@
+{
+  "id": "rfid_unauthorized_access",
+  "sql": "SELECT \"UNAUTHORIZED_ACCESS\" AS alert, device_id, door_id, zone, card_uid, timestamp FROM rfid_events WHERE access_granted = false",
+  "actions": [
+    {
+      "mqtt": {
+        "server": "tcp://mqtt-broker:1883",
+        "topic": "rfid/alerts",
+        "qos": 1,
+        "sendSingle": true,
+        "dataTemplate": "{{toJson .}}"
+      }
+    }
+  ]
+}
