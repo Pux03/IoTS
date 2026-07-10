@@ -10,7 +10,7 @@ Sistem koristi:
 
 - `RFID-only` dogadjaje
 - `MQTT (Mosquitto)` kao jedini broker
-- `eKuiper` za jedan CEP alarm `UNAUTHORIZED_ACCESS`
+- `eKuiper` za CEP alarme `UNAUTHORIZED_ACCESS` i `BRUTE_FORCE_ATTEMPT`
 - `MaaS` mikroservis za procenu rizika
 - jednostavan web dashboard za pregled dogadjaja i alarma
 
@@ -125,11 +125,36 @@ Node.js servis koji:
 
 ### `ekuiper`
 
-`eKuiper` je konfigurisan sa jednim pravilom:
+`eKuiper` je konfigurisan sa dva pravila:
 
-- ako je `access_granted == false`
-- generise alarm `UNAUTHORIZED_ACCESS`
-- objavljuje ga na topic `rfid/alerts`
+- `rfid_unauthorized_access`:
+  - ako je `access_granted == false`
+  - generise alarm `UNAUTHORIZED_ACCESS`
+  - objavljuje ga na topic `rfid/alerts`
+- `rfid_brute_force_attempt`:
+  - prati samo `ACCESS_DENIED`, `CARD_UNKNOWN` i `FORCED_OPEN` dogadjaje
+  - grupise ih po `device_id` u `TUMBLINGWINDOW(ss, 30)`
+  - generise alarm `BRUTE_FORCE_ATTEMPT` kada je `COUNT(*) >= 3`
+  - objavljuje ga na isti topic `rfid/alerts`
+
+Primer agregiranog `BRUTE_FORCE_ATTEMPT` payloada:
+
+```json
+{
+  "alert": "BRUTE_FORCE_ATTEMPT",
+  "device_id": "RFID-LAB-01",
+  "door_id": "SERVER_ROOM",
+  "zone": "SECOND_FLOOR",
+  "card_uid": "A42F90B2",
+  "timestamp": "2026-07-09T13:20:24Z",
+  "attempt_count": 7,
+  "avg_response_time_ms": 118.4,
+  "min_signal_strength": -76,
+  "avg_battery_voltage": 3.29,
+  "window_start_ms": 1783603200000,
+  "window_end_ms": 1783603230000
+}
+```
 
 Napomena:
 
@@ -143,7 +168,7 @@ Node.js servis koji:
 - prima `rfid/events`
 - prima `rfid/alerts`
 - vodi statistiku
-- poziva MaaS za procenu rizika alarma
+- poziva MaaS za procenu rizika CEP alarma
 - objavljuje sazetak na `rfid/analytics`
 - izlaze REST API za dashboard
 
@@ -168,13 +193,16 @@ Workflow:
 
 Ulaz modela:
 
-- `signal_strength`
-- `response_time_ms`
-- `battery_voltage`
+- `attempt_count`
+- `avg_response_time_ms`
+- `min_signal_strength`
+- `avg_battery_voltage`
 - `zone`
 - `door_id`
-- `timestamp`
+- `timestamp` (`event_hour` se izvodi iz njega)
 - `previous_failed_attempts`
+- `avg_response_time_last5`
+- `denial_rate_last10`
 
 Izlaz:
 
@@ -241,7 +269,7 @@ MQTT Broker
 eKuiper CEP
         |
         v
-UNAUTHORIZED_ACCESS alarm
+UNAUTHORIZED_ACCESS ili BRUTE_FORCE_ATTEMPT alarm
         |
         v
 Analytics Service
@@ -257,4 +285,3 @@ Web Dashboard
 
 - Projekat 3 vise nije benchmark projekat.
 - Kafka se ne koristi.
-

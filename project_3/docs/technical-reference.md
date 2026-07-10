@@ -76,7 +76,7 @@ maas/
 | Topic | Producent | Potrosac | Svrha |
 |---|---|---|---|
 | `rfid/events` | `generator` | `data-storage`, `analytics`, `ekuiper` | svi RFID dogadjaji |
-| `rfid/alerts` | `ekuiper` | `analytics` | CEP alarmi `UNAUTHORIZED_ACCESS` |
+| `rfid/alerts` | `ekuiper` | `analytics` | CEP alarmi `UNAUTHORIZED_ACCESS`, `BRUTE_FORCE_ATTEMPT` |
 | `rfid/analytics` | `analytics` | opcioni MQTT subscriber-i | sazetak statistike i poslednji alarm |
 
 ## RFID dogadjaj
@@ -107,16 +107,15 @@ Dozvoljeni `event_type`:
 - `CARD_UNKNOWN`
 - `FORCED_OPEN`
 
-## CEP pravilo
+## CEP pravila
 
-Aktivno je samo jedno eKuiper pravilo:
+Aktivna su dva eKuiper pravila koja objavljuju na `rfid/alerts`.
 
-- ime pravila: `rfid_unauthorized_access`
+### Pravilo 1: `rfid_unauthorized_access`
+
 - ulazni stream: `rfid_events`
 - uslov: `access_granted = false`
 - izlazni topic: `rfid/alerts`
-
-SQL pravilo:
 
 ```sql
 SELECT "UNAUTHORIZED_ACCESS" AS alert, device_id, door_id, zone, card_uid, timestamp
@@ -137,9 +136,56 @@ Primer alarm poruke:
 }
 ```
 
+### Pravilo 2: `rfid_brute_force_attempt`
+
+- ulazni stream: `rfid_events`
+- filtrira samo `ACCESS_DENIED`, `CARD_UNKNOWN` i `FORCED_OPEN`
+- agregira po `device_id` unutar `TUMBLINGWINDOW(ss, 30)`
+- aktivira se kada je `COUNT(*) >= 3`
+- izlazni topic: `rfid/alerts`
+
+```sql
+SELECT
+  "BRUTE_FORCE_ATTEMPT" AS alert,
+  device_id,
+  last_value(door_id, true) AS door_id,
+  last_value(zone, true) AS zone,
+  last_value(card_uid, true) AS card_uid,
+  last_value(timestamp, true) AS timestamp,
+  count(*) AS attempt_count,
+  avg(response_time_ms) AS avg_response_time_ms,
+  min(signal_strength) AS min_signal_strength,
+  avg(battery_voltage) AS avg_battery_voltage,
+  window_start() AS window_start_ms,
+  window_end() AS window_end_ms
+FROM rfid_events
+WHERE event_type IN ("ACCESS_DENIED", "CARD_UNKNOWN", "FORCED_OPEN")
+GROUP BY device_id, TUMBLINGWINDOW(ss, 30)
+HAVING count(*) >= 3
+```
+
+Primer alarm poruke:
+
+```json
+{
+  "alert": "BRUTE_FORCE_ATTEMPT",
+  "device_id": "RFID-LAB-01",
+  "door_id": "SERVER_ROOM",
+  "zone": "SECOND_FLOOR",
+  "card_uid": "A42F90B2",
+  "timestamp": "2026-07-09T13:20:24Z",
+  "attempt_count": 3,
+  "avg_response_time_ms": 121.7,
+  "min_signal_strength": -77,
+  "avg_battery_voltage": 3.28,
+  "window_start_ms": 1783603200000,
+  "window_end_ms": 1783603230000
+}
+```
+
 ## MaaS servis
 
-MaaS ne detektuje alarm, vec procenjuje rizik postojeceg `UNAUTHORIZED_ACCESS` alarma.
+MaaS ne detektuje alarm, vec procenjuje rizik postojeceg CEP alarma kao sto su `UNAUTHORIZED_ACCESS` i `BRUTE_FORCE_ATTEMPT`.
 
 ### Endpoint
 
@@ -149,13 +195,16 @@ MaaS ne detektuje alarm, vec procenjuje rizik postojeceg `UNAUTHORIZED_ACCESS` a
 
 ```json
 {
-  "signal_strength": -69,
-  "response_time_ms": 89,
-  "battery_voltage": 3.17,
+  "attempt_count": 7,
+  "avg_response_time_ms": 118.4,
+  "min_signal_strength": -76,
+  "avg_battery_voltage": 3.29,
   "zone": "SECOND_FLOOR",
   "door_id": "SERVER_ROOM",
   "timestamp": "2026-07-09T14:31:08Z",
-  "previous_failed_attempts": 0
+  "previous_failed_attempts": 0,
+  "avg_response_time_last5": 84.6,
+  "denial_rate_last10": 0.3
 }
 ```
 

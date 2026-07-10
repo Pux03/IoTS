@@ -9,11 +9,17 @@ const nodes = {
   statusDot: document.getElementById('status-dot'),
   statusText: document.getElementById('status-text'),
   lastUpdated: document.getElementById('last-updated'),
+  deviceFilter: document.getElementById('device-filter'),
   eventsTable: document.getElementById('events-table'),
   alertsTable: document.getElementById('alerts-table'),
   timelineChart: document.getElementById('timeline-chart'),
   accessChart: document.getElementById('access-chart'),
   zoneChart: document.getElementById('zone-chart'),
+};
+const ALL_DEVICES_FILTER = 'ALL_DEVICES';
+const viewState = {
+  recentEvents: [],
+  selectedDeviceId: ALL_DEVICES_FILTER,
 };
 
 function formatTime(value) {
@@ -63,6 +69,32 @@ function createPill(label, variant) {
   return span;
 }
 
+function formatAlertLabel(value, attemptCount) {
+  const baseLabel = String(value || 'UNKNOWN_ALERT')
+    .toLowerCase()
+    .split('_')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+
+  if (value === 'BRUTE_FORCE_ATTEMPT' && Number.isFinite(Number(attemptCount))) {
+    return `${baseLabel} x${attemptCount}`;
+  }
+
+  return baseLabel;
+}
+
+function alertVariant(value) {
+  if (value === 'BRUTE_FORCE_ATTEMPT') {
+    return 'alert-bruteforce';
+  }
+
+  if (value === 'UNAUTHORIZED_ACCESS') {
+    return 'alert-unauthorized';
+  }
+
+  return 'unknown';
+}
+
 function fillTable(tbody, rows, columns, emptyText) {
   tbody.innerHTML = '';
 
@@ -84,6 +116,63 @@ function fillTable(tbody, rows, columns, emptyText) {
     });
     tbody.appendChild(tr);
   });
+}
+
+function buildDeviceOptions(events) {
+  const uniqueDeviceIds = new Set(events.map((event) => event.device_id).filter(Boolean));
+  return Array.from(uniqueDeviceIds).sort((left, right) => left.localeCompare(right));
+}
+
+function syncDeviceFilterOptions(events) {
+  const deviceIds = buildDeviceOptions(events);
+  const previousValue = viewState.selectedDeviceId;
+
+  nodes.deviceFilter.innerHTML = '';
+
+  const allDevicesOption = document.createElement('option');
+  allDevicesOption.value = ALL_DEVICES_FILTER;
+  allDevicesOption.textContent = 'All devices';
+  nodes.deviceFilter.appendChild(allDevicesOption);
+
+  deviceIds.forEach((deviceId) => {
+    const option = document.createElement('option');
+    option.value = deviceId;
+    option.textContent = deviceId;
+    nodes.deviceFilter.appendChild(option);
+  });
+
+  viewState.selectedDeviceId = deviceIds.includes(previousValue) ? previousValue : ALL_DEVICES_FILTER;
+  nodes.deviceFilter.value = viewState.selectedDeviceId;
+  nodes.deviceFilter.disabled = deviceIds.length === 0;
+}
+
+function getFilteredEvents() {
+  if (viewState.selectedDeviceId === ALL_DEVICES_FILTER) {
+    return viewState.recentEvents;
+  }
+
+  return viewState.recentEvents.filter((event) => event.device_id === viewState.selectedDeviceId);
+}
+
+function renderEventsTable() {
+  const filteredEvents = getFilteredEvents();
+  const emptyText = viewState.selectedDeviceId === ALL_DEVICES_FILTER
+    ? 'No RFID events received yet.'
+    : `No recent events for ${viewState.selectedDeviceId}.`;
+
+  fillTable(
+    nodes.eventsTable,
+    filteredEvents,
+    [
+      (row) => formatTime(row.timestamp),
+      (row) => row.device_id,
+      (row) => row.card_uid,
+      (row) => row.zone,
+      (row) => row.event_type,
+      (row) => createPill(row.access_status, row.access_granted ? 'granted' : 'denied'),
+    ],
+    emptyText
+  );
 }
 
 function prepareCanvas(canvas) {
@@ -245,19 +334,9 @@ function renderDashboard(payload) {
   nodes.statusText.textContent = 'Analytics service online';
   nodes.lastUpdated.textContent = formatFullDate(payload.meta?.last_updated_at);
 
-  fillTable(
-    nodes.eventsTable,
-    recentEvents,
-    [
-      (row) => formatTime(row.timestamp),
-      (row) => row.device_id,
-      (row) => row.card_uid,
-      (row) => row.zone,
-      (row) => row.event_type,
-      (row) => createPill(row.access_status, row.access_granted ? 'granted' : 'denied'),
-    ],
-    'No RFID events received yet.'
-  );
+  viewState.recentEvents = recentEvents;
+  syncDeviceFilterOptions(recentEvents);
+  renderEventsTable();
 
   fillTable(
     nodes.alertsTable,
@@ -267,9 +346,10 @@ function renderDashboard(payload) {
       (row) => row.device_id,
       (row) => row.zone,
       (row) => row.card_uid,
+      (row) => createPill(formatAlertLabel(row.alert, row.attempt_count), alertVariant(row.alert)),
       (row) => createPill(row.risk_level, String(row.risk_level || '').toLowerCase()),
     ],
-    'No unauthorized access alerts yet.'
+    'No CEP alerts received yet.'
   );
 
   drawTimelineChart(charts.events_over_time || []);
@@ -292,6 +372,11 @@ async function loadDashboard() {
     nodes.lastUpdated.textContent = error.message;
   }
 }
+
+nodes.deviceFilter.addEventListener('change', () => {
+  viewState.selectedDeviceId = nodes.deviceFilter.value || ALL_DEVICES_FILTER;
+  renderEventsTable();
+});
 
 loadDashboard();
 window.setInterval(loadDashboard, refreshIntervalMs);

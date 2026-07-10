@@ -70,6 +70,12 @@
           <article class="panel">
             <div class="panel-heading">
               <h2>Recent Events</h2>
+              <div class="filter-group">
+                <label for="device-filter">Device</label>
+                <select id="device-filter" class="device-filter">
+                  <option value="ALL_DEVICES">All devices</option>
+                </select>
+              </div>
             </div>
             <div class="table-wrap">
               <table>
@@ -100,6 +106,7 @@
                     <th>Device</th>
                     <th>Zone</th>
                     <th>Card</th>
+                    <th>Alert Type</th>
                     <th>Risk</th>
                   </tr>
                 </thead>

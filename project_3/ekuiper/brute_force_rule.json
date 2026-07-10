@@ -1,0 +1,15 @@
+{
+  "id": "rfid_brute_force_attempt",
+  "sql": "SELECT 'BRUTE_FORCE_ATTEMPT' AS alert, device_id, last_value(door_id, true) AS door_id, last_value(zone, true) AS zone, last_value(card_uid, true) AS card_uid, last_value(timestamp, true) AS timestamp, count(*) AS attempt_count, avg(response_time_ms) AS avg_response_time_ms, min(signal_strength) AS min_signal_strength, avg(battery_voltage) AS avg_battery_voltage, window_start() AS window_start_ms, window_end() AS window_end_ms FROM rfid_events WHERE event_type = 'ACCESS_DENIED' OR event_type = 'CARD_UNKNOWN' OR event_type = 'FORCED_OPEN' GROUP BY device_id, TUMBLINGWINDOW(ss, 30) HAVING count(*) >= 3",
+  "actions": [
+    {
+      "mqtt": {
+        "server": "tcp://mqtt-broker:1883",
+        "topic": "rfid/alerts",
+        "qos": 1,
+        "sendSingle": true,
+        "dataTemplate": "{{toJson .}}"
+      }
+    }
+  ]
+}

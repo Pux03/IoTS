@@ -9,13 +9,16 @@ from pydantic import BaseModel
 
 MODEL_PATH = Path(__file__).with_name("model.pkl")
 FEATURE_COLUMNS = [
-    "signal_strength",
-    "response_time_ms",
-    "battery_voltage",
+    "attempt_count",
+    "avg_response_time_ms",
+    "min_signal_strength",
+    "avg_battery_voltage",
     "zone",
     "door_id",
     "event_hour",
     "previous_failed_attempts",
+    "avg_response_time_last5",
+    "denial_rate_last10",
 ]
 RISK_LABELS = ["LOW", "MEDIUM", "HIGH"]
 
@@ -29,13 +32,16 @@ app = FastAPI(title="RFID MaaS Service")
 
 
 class RiskRequest(BaseModel):
-    signal_strength: int
-    response_time_ms: int
-    battery_voltage: float
+    attempt_count: int = 1
+    avg_response_time_ms: float
+    min_signal_strength: int
+    avg_battery_voltage: float
     zone: str
     door_id: str
     timestamp: str
     previous_failed_attempts: int = 0
+    avg_response_time_last5: float | None = None
+    denial_rate_last10: float | None = None
 
 
 def safe_event_hour(timestamp: str) -> int:
@@ -47,16 +53,30 @@ def safe_event_hour(timestamp: str) -> int:
 
 
 def build_feature_frame(payload: RiskRequest) -> pd.DataFrame:
+    avg_response_time_last5 = (
+        float(payload.avg_response_time_last5)
+        if payload.avg_response_time_last5 is not None
+        else float(payload.avg_response_time_ms)
+    )
+    denial_rate_last10 = (
+        float(payload.denial_rate_last10)
+        if payload.denial_rate_last10 is not None
+        else 0.0
+    )
+
     return pd.DataFrame(
         [
             {
-                "signal_strength": payload.signal_strength,
-                "response_time_ms": payload.response_time_ms,
-                "battery_voltage": payload.battery_voltage,
+                "attempt_count": payload.attempt_count,
+                "avg_response_time_ms": payload.avg_response_time_ms,
+                "min_signal_strength": payload.min_signal_strength,
+                "avg_battery_voltage": payload.avg_battery_voltage,
                 "zone": payload.zone,
                 "door_id": payload.door_id,
                 "event_hour": safe_event_hour(payload.timestamp),
                 "previous_failed_attempts": payload.previous_failed_attempts,
+                "avg_response_time_last5": avg_response_time_last5,
+                "denial_rate_last10": denial_rate_last10,
             }
         ],
         columns=FEATURE_COLUMNS,

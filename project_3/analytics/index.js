@@ -24,7 +24,7 @@ const eventsReceived = new client.Counter({
 
 const alertsReceived = new client.Counter({
   name: 'analytics_alerts_received_total',
-  help: 'Total number of unauthorized access alerts received by analytics.',
+  help: 'Total number of CEP alerts received by analytics.',
 });
 
 const payloadErrors = new client.Counter({
@@ -66,6 +66,8 @@ const state = {
   eventsByDevice: {},
   eventsByZone: {},
   failedAttemptsByCard: {},
+  responseHistoryByDevice: {},
+  denialHistoryByDevice: {},
   activeDevices: new Set(),
   recentEventIndex: new Map(),
   timeBuckets: new Map(),
@@ -91,8 +93,78 @@ function pushLimited(list, item, limit) {
   }
 }
 
+function pushAlertLimited(list, item, limit) {
+  list.unshift(item);
+
+  if (list.length <= limit) {
+    return;
+  }
+
+  const removableIndex = list.length - 1 - [...list].reverse().findIndex(
+    (entry) => entry.alert !== 'BRUTE_FORCE_ATTEMPT'
+  );
+
+  if (removableIndex >= 0 && removableIndex < list.length) {
+    list.splice(removableIndex, 1);
+    return;
+  }
+
+  list.length = limit;
+}
+
+function pushRollingValue(list, value, limit) {
+  list.push(value);
+  if (list.length > limit) {
+    list.shift();
+  }
+}
+
 function correlationKey(data) {
   return `${data.timestamp || ''}|${data.device_id || ''}|${data.card_uid || ''}`;
+}
+
+function average(values, fallback) {
+  if (!values.length) {
+    return fallback;
+  }
+
+  return Number((values.reduce((sum, value) => sum + value, 0) / values.length).toFixed(2));
+}
+
+function denialRate(values) {
+  if (!values.length) {
+    return 0;
+  }
+
+  return Number((values.reduce((sum, value) => sum + value, 0) / values.length).toFixed(4));
+}
+
+function getResponseHistory(deviceId) {
+  if (!state.responseHistoryByDevice[deviceId]) {
+    state.responseHistoryByDevice[deviceId] = [];
+  }
+
+  return state.responseHistoryByDevice[deviceId];
+}
+
+function getDenialHistory(deviceId) {
+  if (!state.denialHistoryByDevice[deviceId]) {
+    state.denialHistoryByDevice[deviceId] = [];
+  }
+
+  return state.denialHistoryByDevice[deviceId];
+}
+
+function buildDeviceRollingFeatures(deviceId, fallbackResponseTime = 80) {
+  return {
+    avg_response_time_last5: average(getResponseHistory(deviceId), fallbackResponseTime),
+    denial_rate_last10: denialRate(getDenialHistory(deviceId)),
+  };
+}
+
+function updateDeviceRollingHistory(event) {
+  pushRollingValue(getResponseHistory(event.device_id), event.response_time_ms, 5);
+  pushRollingValue(getDenialHistory(event.device_id), event.access_granted ? 0 : 1, 10);
 }
 
 function parsePayload(payloadString) {
@@ -138,6 +210,12 @@ function normalizeAlert(raw) {
     door_id: String(raw.door_id || 'UNKNOWN_DOOR'),
     zone: String(raw.zone || 'UNKNOWN_ZONE'),
     card_uid: String(raw.card_uid || 'UNKNOWN_CARD'),
+    attempt_count: toNumber(raw.attempt_count, 1),
+    avg_response_time_ms: toNumber(raw.avg_response_time_ms, null),
+    min_signal_strength: toNumber(raw.min_signal_strength, null),
+    avg_battery_voltage: toNumber(raw.avg_battery_voltage, null),
+    window_start_ms: toNumber(raw.window_start_ms, null),
+    window_end_ms: toNumber(raw.window_end_ms, null),
   };
 }
 
@@ -264,15 +342,44 @@ function publishAnalyticsSnapshot(trigger) {
 }
 
 async function requestRiskLevel(alert, matchedEvent) {
-  const payload = {
-    signal_strength: matchedEvent ? matchedEvent.signal_strength : -65,
-    response_time_ms: matchedEvent ? matchedEvent.response_time_ms : 80,
-    battery_voltage: matchedEvent ? matchedEvent.battery_voltage : 3.7,
-    zone: alert.zone,
-    door_id: alert.door_id,
-    timestamp: alert.timestamp,
-    previous_failed_attempts: matchedEvent ? matchedEvent.previous_failed_attempts || 0 : 0,
-  };
+  const liveRollingFeatures = buildDeviceRollingFeatures(
+    alert.device_id,
+    alert.avg_response_time_ms ?? matchedEvent?.response_time_ms ?? 80
+  );
+  const previousFailedAttempts = matchedEvent
+    ? matchedEvent.previous_failed_attempts || 0
+    : Math.max((alert.attempt_count || 1) - 1, 0);
+  const avgResponseTimeLast5 = matchedEvent
+    ? matchedEvent.avg_response_time_last5 ?? liveRollingFeatures.avg_response_time_last5
+    : liveRollingFeatures.avg_response_time_last5;
+  const denialRateLast10 = matchedEvent
+    ? matchedEvent.denial_rate_last10 ?? liveRollingFeatures.denial_rate_last10
+    : liveRollingFeatures.denial_rate_last10;
+  const payload = alert.alert === 'BRUTE_FORCE_ATTEMPT'
+    ? {
+        attempt_count: alert.attempt_count || 1,
+        avg_response_time_ms: alert.avg_response_time_ms ?? liveRollingFeatures.avg_response_time_last5,
+        min_signal_strength: alert.min_signal_strength ?? -65,
+        avg_battery_voltage: alert.avg_battery_voltage ?? 3.7,
+        zone: alert.zone,
+        door_id: alert.door_id,
+        timestamp: alert.timestamp,
+        previous_failed_attempts: previousFailedAttempts,
+        avg_response_time_last5: avgResponseTimeLast5,
+        denial_rate_last10: denialRateLast10,
+      }
+    : {
+        attempt_count: 1,
+        avg_response_time_ms: matchedEvent ? matchedEvent.response_time_ms : 80,
+        min_signal_strength: matchedEvent ? matchedEvent.signal_strength : -65,
+        avg_battery_voltage: matchedEvent ? matchedEvent.battery_voltage : 3.7,
+        zone: alert.zone,
+        door_id: alert.door_id,
+        timestamp: alert.timestamp,
+        previous_failed_attempts: previousFailedAttempts,
+        avg_response_time_last5: avgResponseTimeLast5,
+        denial_rate_last10: denialRateLast10,
+      };
 
   maasRequests.inc();
 
@@ -317,19 +424,42 @@ async function findMatchingEvent(alert) {
     }
   }
 
-  return state.recentEvents.find((event) =>
+  const exactRecentMatch = state.recentEvents.find((event) =>
     event.timestamp === alert.timestamp &&
     event.device_id === alert.device_id &&
     event.card_uid === alert.card_uid
-  ) || null;
+  );
+
+  if (exactRecentMatch) {
+    return exactRecentMatch;
+  }
+
+  return state.recentEvents.find((event) => {
+    if (event.device_id !== alert.device_id) {
+      return false;
+    }
+
+    if (alert.door_id !== 'UNKNOWN_DOOR' && event.door_id !== alert.door_id) {
+      return false;
+    }
+
+    if (alert.zone !== 'UNKNOWN_ZONE' && event.zone !== alert.zone) {
+      return false;
+    }
+
+    return !event.access_granted;
+  }) || null;
 }
 
 async function handleEventMessage(payloadString) {
   try {
     const event = normalizeEvent(parsePayload(payloadString));
     eventsReceived.inc();
+    const rollingFeatures = buildDeviceRollingFeatures(event.device_id, event.response_time_ms);
 
     event.previous_failed_attempts = state.failedAttemptsByCard[event.card_uid] || 0;
+    event.avg_response_time_last5 = rollingFeatures.avg_response_time_last5;
+    event.denial_rate_last10 = rollingFeatures.denial_rate_last10;
 
     state.totalEvents += 1;
     state.activeDevices.add(event.device_id);
@@ -355,12 +485,15 @@ async function handleEventMessage(payloadString) {
       access_status: event.access_granted ? 'GRANTED' : 'DENIED',
       access_granted: event.access_granted,
       previous_failed_attempts: event.previous_failed_attempts,
+      avg_response_time_last5: event.avg_response_time_last5,
+      denial_rate_last10: event.denial_rate_last10,
       signal_strength: event.signal_strength,
       battery_voltage: event.battery_voltage,
       response_time_ms: event.response_time_ms,
     }, RECENT_EVENTS_LIMIT);
 
     rememberEvent(event);
+    updateDeviceRollingHistory(event);
     state.lastUpdatedAt = new Date().toISOString();
     publishAnalyticsSnapshot('event');
   } catch (error) {
@@ -375,16 +508,24 @@ async function handleAlertMessage(payloadString) {
     alertsReceived.inc();
     state.totalAlerts += 1;
 
-    const matchedEvent = await findMatchingEvent(alert);
+    const matchedEvent = alert.alert === 'BRUTE_FORCE_ATTEMPT'
+      ? null
+      : await findMatchingEvent(alert);
     const riskLevel = await requestRiskLevel(alert, matchedEvent);
 
-    pushLimited(state.recentAlerts, {
+    pushAlertLimited(state.recentAlerts, {
       alert: alert.alert,
       timestamp: alert.timestamp,
       device_id: alert.device_id,
       zone: alert.zone,
       door_id: alert.door_id,
       card_uid: alert.card_uid,
+      attempt_count: alert.attempt_count,
+      avg_response_time_ms: alert.avg_response_time_ms,
+      min_signal_strength: alert.min_signal_strength,
+      avg_battery_voltage: alert.avg_battery_voltage,
+      window_start_ms: alert.window_start_ms,
+      window_end_ms: alert.window_end_ms,
       risk_level: riskLevel,
     }, RECENT_ALERTS_LIMIT);
 

@@ -14,16 +14,40 @@ MAAS_DIR = Path(__file__).resolve().parent
 DATASET_PATH = MAAS_DIR / "dataset.csv"
 MODEL_PATH = MAAS_DIR / "model.pkl"
 FEATURE_COLUMNS = [
-    "signal_strength",
-    "response_time_ms",
-    "battery_voltage",
+    "attempt_count",
+    "avg_response_time_ms",
+    "min_signal_strength",
+    "avg_battery_voltage",
     "zone",
     "door_id",
     "event_hour",
     "previous_failed_attempts",
+    "avg_response_time_last5",
+    "denial_rate_last10",
 ]
 TARGET_COLUMN = "risk_level"
 CATEGORICAL_COLUMNS = ["zone", "door_id"]
+
+
+def aggregate_feature_importances(model: Pipeline) -> list[tuple[str, float]]:
+    preprocessor = model.named_steps["preprocessor"]
+    classifier = model.named_steps["classifier"]
+    transformed_names = preprocessor.get_feature_names_out()
+    aggregated: dict[str, float] = {}
+
+    for name, importance in zip(transformed_names, classifier.feature_importances_):
+        source_name = name.split("__", 1)[1] if "__" in name else name
+        base_name = source_name
+
+        for column in CATEGORICAL_COLUMNS:
+            prefix = f"{column}_"
+            if source_name.startswith(prefix):
+                base_name = column
+                break
+
+        aggregated[base_name] = aggregated.get(base_name, 0.0) + float(importance)
+
+    return sorted(aggregated.items(), key=lambda item: item[1], reverse=True)
 
 
 def build_pipeline() -> Pipeline:
@@ -80,6 +104,9 @@ def main() -> int:
 
     final_model = build_pipeline()
     final_model.fit(features, target)
+    print("Aggregated feature importances:")
+    for feature_name, importance in aggregate_feature_importances(final_model):
+        print(f"  {feature_name}: {importance:.4f}")
     dump(final_model, MODEL_PATH)
     print(f"Saved trained model to {MODEL_PATH}")
     return 0
