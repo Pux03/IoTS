@@ -46,6 +46,9 @@ project_2/
 |-- docker-compose.yml
 |-- README.md
 |-- IoTS - Projekat 2.pdf
+|-- quick_scenario_A.py
+|-- quick_scenario_B.py
+|-- quick_scenario_C.py
 |-- analytics-service/
 |-- benchmarks/
 |   |-- README.md
@@ -97,21 +100,39 @@ Za rad su potrebni:
 Iz korena projekta:
 
 ```bash
-docker compose up -d --build
+docker compose up -d
 ```
 
 Korisni endpoint-i:
 - `http://localhost:8000/health` - data-ingestion
 - `http://localhost:8001/health` - data-storage
 - `http://localhost:8002/health` - analytics-service
-- `http://localhost:3000` - Grafana
-- `http://localhost:9090` - Prometheus
 
 Gasenje staka:
 
 ```bash
 docker compose down --remove-orphans
 ```
+
+Ako treba i monitoring UI:
+
+```bash
+docker compose --profile monitoring up -d
+```
+
+Tada su dostupni i:
+- `http://localhost:3000` - Grafana
+- `http://localhost:9090` - Prometheus
+
+Gasenje monitoring varijante radi sa istim profilom:
+
+```bash
+docker compose --profile monitoring down --remove-orphans
+```
+
+Napomena:
+- ne mesati `docker compose --profile monitoring up -d` sa obicnim `docker compose down`
+- ako se to uradi, mogu ostati stari `prometheus` i `grafana` kontejneri vezani za obrisanu Docker mrezu
 
 ## Pokretanje Benchmark Scenarija
 
@@ -125,6 +146,52 @@ Massive ingest, `100 / 1000 / 10000` uredjaja, MQTT `QoS 0/1/2`, Kafka `acks=0/1
 ```bash
 python benchmarks/run_scenario_a.py
 ```
+
+Za kracu demonstraciju postoji i konfigurabilni CLI runner:
+- `quick_scenario_A.py`
+- radi tacno `jedan run po profilu`
+- ne generise JSON/Markdown artefakte
+- prikazuje rezultate samo u terminalu
+- koristi benchmark alat direktno nad brokerom, pa je namenjen za kratak sanity check / prezentaciju
+
+Podrazumevano pokretanje:
+
+```bash
+python quick_scenario_A.py
+```
+
+Korisni primeri:
+
+```bash
+python quick_scenario_A.py --broker mqtt --mqtt-qos 0 1 2
+python quick_scenario_A.py --broker kafka --kafka-acks 0 1 all --kafka-partitions 1
+python quick_scenario_A.py --broker both --devices 50 --duration-sec 1
+python quick_scenario_A.py --build-images
+```
+
+Najbitnije opcije:
+- `--broker mqtt|kafka|both`
+- `--mqtt-qos ...`
+- `--kafka-acks ...`
+- `--kafka-partitions ...`
+- `--devices ...`
+- `--interval-sec ...`
+- `--duration-sec ...`
+- `--max-wait-sec ...`
+- `--keep-stack-up`
+- `--verbose`
+
+Primeri ukratko:
+- `python quick_scenario_A.py`
+  - pokrece podrazumevani kratki Scenario A sanity check za MQTT i Kafka profile
+- `python quick_scenario_A.py --broker mqtt --mqtt-qos 0 1 2`
+  - testira samo MQTT profile sa QoS `0/1/2`
+- `python quick_scenario_A.py --broker kafka --kafka-acks 0 1 all --kafka-partitions 1`
+  - testira samo Kafka profile sa `acks=0/1/all` i jednom particijom
+- `python quick_scenario_A.py --broker both --devices 50 --duration-sec 1`
+  - dodatno skracuje demo tako sto koristi manji broj uredjaja i krace trajanje
+- `python quick_scenario_A.py --build-images`
+  - pre prvog pokretanja rebuild-uje slike servisa koje su potrebne quick runner-u
 
 Ako vec postoji finalni JSON i treba samo regenerisati tabelu i analysis:
 
@@ -140,6 +207,58 @@ Outage / reconnect test sa `docker network disconnect`, MQTT i Kafka recovery, t
 python benchmarks/run_scenario_b.py
 ```
 
+Za kracu demonstraciju postoji i konfigurabilni CLI runner:
+- `quick_scenario_B.py`
+- radi tacno `jedan run po profilu`
+- ne generise JSON/Markdown artefakte
+- prikazuje rezultate samo u terminalu
+- po default-u koristi `tool_benchmark` mod i kratke warmup/outage/recovery prozore
+
+Podrazumevano pokretanje:
+
+```bash
+python quick_scenario_B.py
+```
+
+Korisni primeri:
+
+```bash
+python quick_scenario_B.py --broker mqtt --mqtt-qos 0 1 2
+python quick_scenario_B.py --broker kafka --kafka-acks 1 all --kafka-partitions 1
+python quick_scenario_B.py --modes tool_benchmark app_buffered --mqtt-qos 0
+python quick_scenario_B.py --outage-sec 30 --warmup-sec 5 --post-reconnect-run-sec 15
+python quick_scenario_B.py --build-images
+```
+
+Najbitnije opcije:
+- `--broker mqtt|kafka|both`
+- `--modes tool_benchmark|app_buffered`
+- `--mqtt-qos ...`
+- `--kafka-acks ...`
+- `--kafka-partitions ...`
+- `--devices ...`
+- `--interval-sec ...`
+- `--warmup-sec ...`
+- `--outage-sec ...`
+- `--post-reconnect-run-sec ...`
+- `--max-wait-sec ...`
+- `--keep-stack-up`
+- `--verbose`
+
+Primeri ukratko:
+- `python quick_scenario_B.py`
+  - pokrece kratki outage/reconnect sanity check za podrazumevane MQTT i Kafka profile
+- `python quick_scenario_B.py --broker mqtt --mqtt-qos 0 1 2`
+  - testira samo MQTT outage profile za QoS `0/1/2`
+- `python quick_scenario_B.py --broker kafka --kafka-acks 1 all --kafka-partitions 1`
+  - testira samo Kafka outage profile sa izabranim `acks` vrednostima
+- `python quick_scenario_B.py --modes tool_benchmark app_buffered --mqtt-qos 0`
+  - pored brzeg tool moda ukljucuje i `app_buffered` mod koji koristi `data-ingestion`
+- `python quick_scenario_B.py --outage-sec 30 --warmup-sec 5 --post-reconnect-run-sec 15`
+  - prilagodjava quick skriptu da vise lici na trajanje iz projektnog zadatka
+- `python quick_scenario_B.py --build-images`
+  - pre prvog pokretanja rebuild-uje slike servisa koje su potrebne quick runner-u
+
 ### Scenario C
 
 Burst opterecenje `50 -> 5000 msg/s`, backlog, backpressure i recovery.
@@ -147,6 +266,60 @@ Burst opterecenje `50 -> 5000 msg/s`, backlog, backpressure i recovery.
 ```bash
 python benchmarks/run_scenario_c.py
 ```
+
+Za kracu demonstraciju postoji i konfigurabilni CLI runner:
+- `quick_scenario_C.py`
+- radi tacno `jedan run po profilu`
+- ne generise JSON/Markdown artefakte
+- prikazuje rezultate samo u terminalu
+- po default-u prati projektni zahtev i modeluje skok `50 -> 5000 msg/s`
+
+Podrazumevano pokretanje:
+
+```bash
+python quick_scenario_C.py
+```
+
+Korisni primeri:
+
+```bash
+python quick_scenario_C.py --broker mqtt --mqtt-qos 0 1 2
+python quick_scenario_C.py --broker kafka --kafka-acks 1 all --kafka-partitions 1
+python quick_scenario_C.py --warmup-rate 50 --burst-rate 5000 --warmup-sec 2 --burst-sec 3 --recovery-sec 2
+python quick_scenario_C.py --warmup-rate 20 --burst-rate 500 --warmup-sec 1 --burst-sec 1 --recovery-sec 1
+python quick_scenario_C.py --build-images
+```
+
+Najbitnije opcije:
+- `--broker mqtt|kafka|both`
+- `--mqtt-qos ...`
+- `--kafka-acks ...`
+- `--kafka-partitions ...`
+- `--warmup-rate ...`
+- `--burst-rate ...`
+- `--warmup-sec ...`
+- `--burst-sec ...`
+- `--recovery-sec ...`
+- `--sample-interval-sec ...`
+- `--kafka-lag-sample-interval-sec ...`
+- `--drain-timeout-sec ...`
+- `--max-wait-sec ...`
+- `--keep-stack-up`
+- `--verbose`
+
+Primeri ukratko:
+- `python quick_scenario_C.py`
+  - pokrece podrazumevani Scenario C quick run sa skokom `50 -> 5000 msg/s`
+- `python quick_scenario_C.py --broker mqtt --mqtt-qos 0 1 2`
+  - testira samo MQTT burst profile za QoS `0/1/2`
+- `python quick_scenario_C.py --broker kafka --kafka-acks 1 all --kafka-partitions 1`
+  - testira samo Kafka burst profile sa izabranim `acks` vrednostima
+- `python quick_scenario_C.py --warmup-rate 50 --burst-rate 5000 --warmup-sec 2 --burst-sec 3 --recovery-sec 2`
+  - eksplicitno pokrece burst scenario koji odgovara projektnom opisu
+- `python quick_scenario_C.py --warmup-rate 20 --burst-rate 500 --warmup-sec 1 --burst-sec 1 --recovery-sec 1`
+  - koristi mnogo laksi demo profil za brzu prezentaciju ili lokalnu proveru
+- `python quick_scenario_C.py --build-images`
+  - pre prvog pokretanja rebuild-uje slike servisa koje su potrebne quick runner-u
 
 ### Scenario D
 

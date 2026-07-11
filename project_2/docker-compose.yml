@@ -18,9 +18,9 @@ services:
       - iot_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin -d access_control_system"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      interval: 2s
+      timeout: 3s
+      retries: 10
 
   # =====================================
   # MQTT BROKER
@@ -62,10 +62,10 @@ services:
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
     healthcheck:
       test: ["CMD-SHELL", "nc -z localhost 29092 || exit 1"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-      start_period: 10s
+      interval: 2s
+      timeout: 3s
+      retries: 15
+      start_period: 5s
     networks:
       - iot_network
 
@@ -94,7 +94,7 @@ services:
       mqtt-broker:
         condition: service_started
       kafka-broker:
-        condition: service_healthy
+        condition: service_started
     networks:
       - iot_network
 
@@ -122,7 +122,7 @@ services:
       mqtt-broker:
         condition: service_started
       kafka-broker:
-        condition: service_healthy
+        condition: service_started
     networks:
       - iot_network
 
@@ -142,7 +142,7 @@ services:
       mqtt-broker:
         condition: service_started
       kafka-broker:
-        condition: service_healthy
+        condition: service_started
     networks:
       - iot_network
 
@@ -159,16 +159,17 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8083/health')"]
-      interval: 5s
-      timeout: 5s
+      interval: 2s
+      timeout: 3s
       retries: 10
-      start_period: 10s
+      start_period: 5s
     networks:
       - iot_network
 
   prometheus:
     image: prom/prometheus:v2.45.0
     container_name: prometheus
+    profiles: ["monitoring"]
     ports:
       - "9090:9090"
     volumes:
@@ -188,6 +189,7 @@ services:
   grafana:
     image: grafana/grafana:10.0.3
     container_name: grafana
+    profiles: ["monitoring"]
     ports:
       - "3000:3000"
     environment:
