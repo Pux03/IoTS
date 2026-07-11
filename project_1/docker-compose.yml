@@ -58,6 +58,19 @@ services:
       - grpc-service
       - graphql-service
 
+  benchmark-frontend:
+    build:
+      context: ./benchmark_frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_BENCHMARK_API_URL: http://localhost:3000
+    container_name: iot-benchmark-frontend
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - benchmark-service
+
   postgres:
     image: postgres:15
     container_name: iot-access-control-system-postgres
