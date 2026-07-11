@@ -49,6 +49,7 @@ project_2/
 |-- quick_scenario_A.py
 |-- quick_scenario_B.py
 |-- quick_scenario_C.py
+|-- quick_scenario_D.py
 |-- analytics-service/
 |-- benchmarks/
 |   |-- README.md
@@ -138,6 +139,14 @@ Napomena:
 
 Detaljnija dokumentacija benchmark runner-a je u:
 - `benchmarks/README.md`
+
+Metodologija merenja u ovom projektu:
+- finalni runner-i u `benchmarks/` predstavljaju glavnu, projektnu varijantu eksperimenta
+- za MQTT opterecenje koristi se `emqtt-bench`
+- za Kafka opterecenje koristi se `kafka-producer-perf-test.sh`
+- CPU/RAM/network metrike prikuplja `resource-monitor` preko Docker stats API-ja, tj. istog izvora kao `docker stats`
+- u stres scenarijima `A` i `C` storage radi sa batching pristupom ili sa iskljucenim DB upisom da PostgreSQL ne postane glavno usko grlo
+- `quick_scenario_*.py` skripte su skraceni CLI sanity/demo runner-i i nisu zamena za finalne benchmark artefakte iz foldera `benchmarks/`
 
 ### Scenario A
 
@@ -328,6 +337,58 @@ Real-time alerting benchmark, alert latencija i resursni footprint.
 ```bash
 python benchmarks/run_scenario_d.py
 ```
+
+Za kracu demonstraciju postoji i konfigurabilni CLI runner:
+- `quick_scenario_D.py`
+- radi tacno `jedan run po profilu`
+- ne generise JSON/Markdown artefakte
+- prikazuje rezultate samo u terminalu
+- meri end-to-end vreme od slanja kriticne vrednosti do trenutka kada `Analytics Service` ispise alert
+- po default-u koristi `early` window mod radi stabilnijeg i brzeg demo pokretanja
+
+Podrazumevano pokretanje:
+
+```bash
+python quick_scenario_D.py
+```
+
+Korisni primeri:
+
+```bash
+python quick_scenario_D.py --broker mqtt --mqtt-qos 0 1 2
+python quick_scenario_D.py --broker kafka --kafka-acks 1 all --kafka-partitions 1
+python quick_scenario_D.py --window-modes early late
+python quick_scenario_D.py --critical-count 3 --min-launch-lead-ms 5000
+python quick_scenario_D.py --build-images
+```
+
+Najbitnije opcije:
+- `--broker mqtt|kafka|both`
+- `--mqtt-qos ...`
+- `--kafka-acks ...`
+- `--kafka-partitions ...`
+- `--window-modes early|late`
+- `--critical-count ...`
+- `--early-after-flush-ms ...`
+- `--late-before-flush-ms ...`
+- `--min-launch-lead-ms ...`
+- `--max-wait-sec ...`
+- `--keep-stack-up`
+- `--verbose`
+
+Primeri ukratko:
+- `python quick_scenario_D.py`
+  - pokrece podrazumevani Scenario D quick run za MQTT i Kafka profile
+- `python quick_scenario_D.py --broker mqtt --mqtt-qos 0 1 2`
+  - testira samo MQTT alert profile za QoS `0/1/2`
+- `python quick_scenario_D.py --broker kafka --kafka-acks 1 all --kafka-partitions 1`
+  - testira samo Kafka alert profile sa izabranim `acks` vrednostima
+- `python quick_scenario_D.py --window-modes early late`
+  - izvrsava oba nacina pozicioniranja kriticnih poruka unutar `10s` tumbling window-a
+- `python quick_scenario_D.py --critical-count 3 --min-launch-lead-ms 5000`
+  - eksplicitno podesava broj kriticnih poruka i minimalni vremenski lead pre planiranog slanja
+- `python quick_scenario_D.py --build-images`
+  - pre prvog pokretanja rebuild-uje slike servisa koje su potrebne quick runner-u
 
 ## Rezultati i Artefakti
 
